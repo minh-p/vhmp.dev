@@ -1,2 +1,2 @@
 #+author: Vu Huy Minh Pham (minh-p minhisverynormal@gmail.com)
-Hugo site containing tutorials written by me.
+Professional Hugo Site containing teaching materials and personal research.
