@@ -1,6 +1,7 @@
 baseURL = 'https://tutorials.vhmp.dev'
 locale = 'en-us'
-title = 'VHMP Tutorials'
+title = 'VHMP Notes'
+copyright = '[© CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)'
 
 [module]
 [[module.imports]]
@@ -67,3 +68,9 @@ path = 'github.com/alex-shpak/hugo-book'
   
 [markup.goldmark.renderer]
   unsafe = true
+
+[menu]
+[[menu.home]]
+name = 'Programming'
+url = '/programming/'
+weight = 1

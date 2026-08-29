@@ -1,0 +1,13 @@
+#+hugo_base_dir: ../
+* Home
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :layout landing
+:END:
+** VHMP Notes
+A growing collection of things I learn, teach, and write
+** Tutorials
+Teaching materials for students of different levels.
+
+This includes my teaching materials at [[https://www.thecoderschool.com/locations/irvine/][The Coder School, Irvine]] for kids who has just begun to learn Scratch, Python, Lua (Roblox), JavaScript up to introductory undergraduate courses in Computer Science like C++.

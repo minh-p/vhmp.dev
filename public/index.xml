@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>VHMP Tutorials</title>
+		<title>Home on VHMP Notes</title>
 		<link>http://localhost:1313/</link>
-		<description>Recent content on VHMP Tutorials</description>
+		<description>Recent content in Home on VHMP Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
 		
 		
+			<copyright>[© CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)</copyright>
+		
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>PixelPad</title>
-				<link>http://localhost:1313/programming/pixelpad/</link>
+				<title>Beginner</title>
+				<link>http://localhost:1313/programming/beginner/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/programming/pixelpad/</guid>
-				<description>&lt;p&gt;&lt;a href=&#34;https://pixelpad.io/&#34;&gt;PixelPad&lt;/a&gt; is a simple 2D game engine for beginners to coding. It&amp;rsquo;s completely free to use.&lt;/p&gt;&#xA;&lt;p&gt;Python is the programming language that students have to learn.&#xA;For any extensive information, check out the PixelPad&amp;rsquo;s official &lt;a href=&#34;https://pixelpad.io/docs&#34;&gt;documentation page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;classes-and-objects&#34;&gt;Classes and Objects&lt;a class=&#34;anchor&#34; href=&#34;#classes-and-objects&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The left panel shows &amp;ldquo;Classes&amp;rdquo;, &amp;ldquo;Room&amp;rdquo;, &amp;ldquo;Sprites&amp;rdquo;, and &amp;ldquo;Function&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;The first class that always exist is called &amp;ldquo;Game&amp;rdquo;. The class Game will be used by PixelPad&amp;rsquo;s code (which we do not write). A &lt;strong&gt;class&lt;/strong&gt;&amp;rsquo;s purpose is to create an object. Inside each class are two coding environments: &amp;ldquo;Start&amp;rdquo; and &amp;ldquo;Loop&amp;rdquo;.&lt;/p&gt;</description>
+				<guid>http://localhost:1313/programming/beginner/</guid>
+				<description>&lt;p&gt;Beginner topics include things that I&amp;rsquo;m comfortable teaching.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Research</title>
+				<link>http://localhost:1313/programming/research/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/programming/research/</guid>
+				<description>&lt;p&gt;Here are topics that I&amp;rsquo;m currently learning.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
