@@ -3,6 +3,7 @@
 * About
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_ALIASES: /
 :END:
 This page is consists of tutorial created by Vu Huy Minh Pham.
 Tutorials include beginner topics in programming and more complex topics.

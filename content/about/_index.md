@@ -1,5 +1,6 @@
 +++
 title = "About"
+aliases = ["/"]
 draft = false
 +++
 

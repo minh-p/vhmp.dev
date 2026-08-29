@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="http://localhost:1313/programming/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>PixelPad</title>
+				<link>http://localhost:1313/programming/pixelpad/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/programming/pixelpad/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://pixelpad.io/&#34;&gt;PixelPad&lt;/a&gt; is a simple 2D game engine for beginners to coding. It&amp;rsquo;s completely free to use.&lt;/p&gt;&#xA;&lt;p&gt;Python is the programming language that students have to learn.&#xA;For any extensive information, check out the PixelPad&amp;rsquo;s official &lt;a href=&#34;https://pixelpad.io/docs&#34;&gt;documentation page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;classes-and-objects&#34;&gt;Classes and Objects&lt;a class=&#34;anchor&#34; href=&#34;#classes-and-objects&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The left panel shows &amp;ldquo;Classes&amp;rdquo;, &amp;ldquo;Room&amp;rdquo;, &amp;ldquo;Sprites&amp;rdquo;, and &amp;ldquo;Function&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;The first class that always exist is called &amp;ldquo;Game&amp;rdquo;. The class Game will be used by PixelPad&amp;rsquo;s code (which we do not write). A &lt;strong&gt;class&lt;/strong&gt;&amp;rsquo;s purpose is to create an object. Inside each class are two coding environments: &amp;ldquo;Start&amp;rdquo; and &amp;ldquo;Loop&amp;rdquo;.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>
