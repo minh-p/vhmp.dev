@@ -1,0 +1,7 @@
+#+hugo_base_dir: ../
+#+hugo_section: programming
+* Programming
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:END:
+I mainly currently write tutorials for my students at The Coder School, Irvine.
