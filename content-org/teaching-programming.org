@@ -1,0 +1,7 @@
+#+hugo_base_dir: ../
+#+hugo_section: programming/teaching
+* Philosophy
+:PROPERTIES:
+:EXPORT_FILE_NAME: philosophy
+:END:
+Hello

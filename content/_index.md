@@ -14,12 +14,12 @@ Vu Huy Minh Pham
 A growing collection of things I teach, learn, and create.
 
 {{% columns %}}
-- ### Tutorials
+- ### Teaching
   Teaching materials for students of different levels.
 
   This includes my teaching materials at [The Coder School, Irvine](https://www.thecoderschool.com/locations/irvine/) for kids who has just begun to learn Scratch, Python, Lua (Roblox), JavaScript up to introductory undergraduate courses in Computer Science like C++.
 
-  {{< button href="/programming/beginner" >}}Programming{{< /button >}}
+  {{< button href="/programming/teaching" >}}Programming{{< /button >}}
 
 - ### Notes
   [Zettelkasten](https://library.vhmp.dev/book/13)-Style concept notes.

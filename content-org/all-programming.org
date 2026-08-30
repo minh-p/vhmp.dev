@@ -6,7 +6,7 @@
 :END:
 I mainly currently write beginner tutorials for students at /[[https://www.thecoderschool.com/locations/irvine/][The Coder School, Irvine]]/.
 
-I also write materials that's not meant taught yet, which usually include more technical and abstracted concepts. These materials are categorized under "Research".
+I also write materials that's not meant to be taught, which usually include more technical and abstracted concepts. These materials are categorized under "Notes".
 
 #+hugo_paired_shortcodes: button
 #+attr_shortcode: :href /programming/teaching
@@ -14,19 +14,34 @@ I also write materials that's not meant taught yet, which usually include more t
 Teaching
 #+end_button
 
-#+attr_shortcode: :href /programming/research
+#+attr_shortcode: :href /programming/notes
 #+begin_button
-Research
+Notes
 #+end_button
 
 * Teaching
 :PROPERTIES:
-:EXPORT_FILE_NAME: teaching
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_SECTION: programming/teaching
 :END:
-My teaching materials.
+** What Matters
+When it comes to teaching programming, I'm more concerned about the philosophy and effectiveness of teaching. This focus becomes paramount especially when it comes to teaching kids programming. Professionally, I am focused on balancing fun and understanding of the materials.
+** Why Listen to Me
+I have extensive experience tutoring and teaching kids of ages 10-18 to code, being employed as coding tutor since October 2025 at [[https://www.thecoderschool.com/locations/irvine][The Coder School, Irvine]].
 
-* Research
+I recognized very early on that my teaching was horrible and I'm still constantly finding new ways to engage and retain my students' understanding.
+
+Alongside my experience attending programming classes at University of California, Irvine, I have developed a principled approach for teaching the fundamentals of programming through languages such as Python, Lua (Roblox), and C++.
+
+#+hugo_paired_shortcodes: button
+
+#+attr_shortcode: :href /programming/teaching/philosophy
+#+begin_button
+Philosophy
+#+end_button
+* Notes
 :PROPERTIES:
-:EXPORT_FILE_NAME: research
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_SECTION: programming/notes
 :END:
 Here are topics that I'm currently learning.
