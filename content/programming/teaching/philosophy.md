@@ -3,4 +3,13 @@ title = "Philosophy"
 draft = false
 +++
 
-Hello
+## Teaching (and Learning) Programming Is Difficult {#teaching--and-learning--programming-is-difficult}
+
+It is easy for both teacher and pupil to blame one another just like in any other discipline. However, the problem of teaching programming is especially arduous because specific factors:
+
+1.  The student has to learn to think and express more formally.
+2.  The teacher has to encourage the student to read and process hard text and not just rely solely on a more simplified transmission of knowledge.
+3.  The student has to be willing to be able to find resources for a topic and commit to learning them on his own as soon as he is able to.
+4.  With now the widespread usage of a large language model, the student has to maintain discipline to avoid this shortcut: while AI bootstraps immediate competency, complete understanding remains naive and self-potential capped.
+5.  Within the context of formal schooling, the student must manage his time well. This would also eliminate the desire to use shortcuts with AI to fake a course grade.
+6.  Programming connects various other disciplines and deep understanding requires the discipline to be more well-read and investment into fields such as mathematics and physics. (E.g. Donald Knuth's _The Art of Programming_ famously requires prior understanding in mathematics).
