@@ -1,1 +1,25 @@
 .direnv/
+# Hugo generated output
+/public/
+/resources/_gen/
+
+# Hugo build lock
+.hugo_build.lock
+
+# Hugo module/work caches
+/module/
+/themes/
+
+# Nix
+/result
+/result-*
+
+# Environment / local config
+.env
+.env.*
+
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+*~
+.#*

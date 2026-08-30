@@ -1,5 +1,20 @@
 .book-layout-landing {
-    h2:first-of-type, p:first-of-type {
+    h2:first-of-type {
 	text-align: center;
     }
+    p {
+	text-align: center;
+    }
+    li p {
+	text-align: left;
+    }
+}
+.landing-photo {
+    display: block;
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+
 }

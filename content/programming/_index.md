@@ -7,8 +7,8 @@ I mainly currently write beginner tutorials for students at _[The Coder School, 
 
 I also write materials that's not meant taught yet, which usually include more technical and abstracted concepts. These materials are categorized under "Research".
 
-{{< button href="/programming/beginner" >}}
-Beginner
+{{< button href="/programming/teaching" >}}
+Teaching
 {{< /button >}}
 
 {{< button href="/programming/research" >}}

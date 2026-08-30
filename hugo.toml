@@ -1,7 +1,7 @@
-baseURL = 'https://tutorials.vhmp.dev'
+baseURL = 'https://vhmp.dev'
 locale = 'en-us'
-title = 'VHMP Notes'
-copyright = '[© CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)'
+title = 'vhmp.dev'
+copyright = "© 2026 Vu Huy Minh Pham · Text: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) · Code: [MIT](https://mit-license.org/)"
 
 [module]
 [[module.imports]]
@@ -10,7 +10,7 @@ path = 'github.com/alex-shpak/hugo-book'
 [params]
   # Color theme: 'light', 'dark' or 'auto'
   # Auto switches based on OS/browser preference
-  BookTheme = 'auto'
+  BookTheme = 'dark'
 
   # Show table of contents on right side of pages
   # Can also be set per-page via frontmatter

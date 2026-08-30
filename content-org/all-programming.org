@@ -9,9 +9,9 @@ I mainly currently write beginner tutorials for students at /[[https://www.theco
 I also write materials that's not meant taught yet, which usually include more technical and abstracted concepts. These materials are categorized under "Research".
 
 #+hugo_paired_shortcodes: button
-#+attr_shortcode: :href /programming/beginner
+#+attr_shortcode: :href /programming/teaching
 #+begin_button
-Beginner
+Teaching
 #+end_button
 
 #+attr_shortcode: :href /programming/research
@@ -19,11 +19,11 @@ Beginner
 Research
 #+end_button
 
-* Beginner
+* Teaching
 :PROPERTIES:
-:EXPORT_FILE_NAME: beginner
+:EXPORT_FILE_NAME: teaching
 :END:
-Beginner topics include things that I'm comfortable teaching.
+My teaching materials.
 
 * Research
 :PROPERTIES:

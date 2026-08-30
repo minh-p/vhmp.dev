@@ -4,13 +4,45 @@ draft = false
 layout = "landing"
 +++
 
-## VHMP Notes {#vhmp-notes}
-
-A growing collection of things I learn, teach, and write
+<img src="images/profile1.jpg" alt="Photo of me" class="landing-photo">
 
 
-## Tutorials {#tutorials}
+## vhmp.dev {#vhmp-dot-dev}
 
-Teaching materials for students of different levels.
+Vu Huy Minh Pham
 
-This includes my teaching materials at [The Coder School, Irvine](https://www.thecoderschool.com/locations/irvine/) for kids who has just begun to learn Scratch, Python, Lua (Roblox), JavaScript up to introductory undergraduate courses in Computer Science like C++.
+A growing collection of things I teach, learn, and create.
+
+{{% columns %}}
+- ### Tutorials
+  Teaching materials for students of different levels.
+
+  This includes my teaching materials at [The Coder School, Irvine](https://www.thecoderschool.com/locations/irvine/) for kids who has just begun to learn Scratch, Python, Lua (Roblox), JavaScript up to introductory undergraduate courses in Computer Science like C++.
+
+  {{< button href="/programming/beginner" >}}Programming{{< /button >}}
+
+- ### Notes
+  [Zettelkasten](https://library.vhmp.dev/book/13)-Style concept notes.
+
+  These notes are published at certain arbitary milestones. My current research focus includes mathematical proofs, linear algebra, proof-based calculus, going through Donald Knuth's *The Art of Programming* series, computer vision, and basic machine learning.
+
+  My learning goals are long-term and I have a collection of books I'm getting through in the next 3-5 years.
+
+  {{< button href="https://library.vhmp.dev" >}}Library{{< /button >}}
+  {{< button href="https://library.vhmp.dev/book/13" >}}Zettelkasten{{< /button >}}
+
+- ### Projects
+  My current capstone interest is computational vision.
+
+  I have not had a long-term project completed yet. But, my current focus is implementation of fundamental computer vision algorithms from scratch, working toward a 3d reconstruction engine from scratch processing from images of a certain subject.
+
+  I currently study at UC Irvine and I'm aiming to research CV there as well.
+
+  {{< button href="https://vision.ics.uci.edu/" >}}UCI CV{{< /button >}}
+
+- ### Education
+  I'm working on my Computer Science and Engineering, B.S. Degree at University of California, Irvine.
+
+  {{< button href="https://catalogue.uci.edu/interdisciplinarystudies/computerscienceandengineering_bs/" >}}UCI CSE{{< /button >}}
+
+{{% /columns %}}
