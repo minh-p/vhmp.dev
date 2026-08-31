@@ -29,8 +29,7 @@ When I first began working as a coding tutor handling students 2:1 or 1:1, I wou
 
 This lack of a game plan is something that's to be learned from formal teaching. A formal curriculum must be developed for learning programming fundamentals.
 
-{{< details title="Sample roadmap" >}}
-{{% steps %}}
+{{% details title="Sample roadmap" %}}
 1.  Variables
 2.  Data Types
     -   Number (int, float, double)
@@ -41,8 +40,7 @@ This lack of a game plan is something that's to be learned from formal teaching.
 5.  Array/List
 6.  For-loop
 7.  ...
-{{% /steps %}}
-{{< /details >}}
+{{% /details %}}
 
 Standardization requires and partly enables the creation of teaching materials. The student must be able to define concepts in their own word, vaguely describe why the concept is useful (this gets reinforced as they practice), and attempt to connect concepts with each other. My teaching materials are created to fit these requirements.
 
@@ -56,9 +54,8 @@ As part of my job's requirement, the projects that the student were going to cre
 
 A **notebook** should be employed. I find that having a notebook that serves as a **learning journal** works better than asking the student to copy down the topic they are being learned at hand. I created this website partly as a way to host my teaching notes so that students can access and read. I would only simply ask the student to note down things they need to focus or re-learn.
 
-{{% hint warning %}}
-Without a notebook at all, the student forgets the larger picture of their learning process. It's time-consuming to be repeating ideas covered just a couple of weeks ago. It's also part of a toolbox so that the student could study what they have learned.
-{{% /hint %}}
+> [!WARNING]
+> Without a notebook at all, the student forgets the larger picture of their learning process. It's time-consuming to be repeating ideas covered just a couple of weeks ago. It's also part of a toolbox so that the student could study what they have learned.
 
 
 ### Why Teaching Notes - Learning From Just Lecture Sucks {#why-teaching-notes-learning-from-just-lecture-sucks}
@@ -72,15 +69,12 @@ I find that my talent as verbal communicator is extremely limited when it comes 
 
 Tutoring kids coding lacks the pressure of exams and grades compared to formal schooling. Part of what I do as a tutor is asking my students questions that consider the construction of a concept from most fundamental understanding of computers. Oftentimes, I like to give very vague assignments where students have to write a paragraph that explains a concept in their own words; as the complexity increases, the student is asked to work from the most basic ideas.
 
-{{% hint %}}
-**Feynman Technique**
-
-The Feynman technique is a powerful way to develop understanding as a learner.
-
-{{% steps %}}
-1.  Choose a concept
-2.  Teach it to someone (student to session partner or back to the teacher)
-3.  Identify gaps in your knowledge (through tests, challenges)
-4.  Refine and simplify your knowledge (with a learning journal)
-{{% /steps %}}
-{{% /hint %}}
+> [!NOTE]
+> **Feynman Technique**
+>
+> The Feynman technique is a powerful way to develop understanding as a learner.
+>
+> 1.  Choose a concept
+> 2.  Teach it to someone (student to session partner or back to the teacher)
+> 3.  Identify gaps in your knowledge (through tests, challenges)
+> 4.  Refine and simplify your knowledge (with a learning journal)
