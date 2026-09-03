@@ -2,9 +2,13 @@
 #+hugo_section: programming/teaching
 * Philosophy
 :PROPERTIES:
-:EXPORT_FILE_NAME: philosophy
+:EXPORT_FILE_NAME: teaching-programming
+:EXPORT_HUGO_WEIGHT: 10
+:ID:       195ebfb2-56a0-4102-9967-3974a46f7a8c
 :END:
 ** Teaching (and Learning) Programming Is Difficult
+This is a short manifesto on teaching and learning programming.
+
 It is easy for both teacher and pupil to blame one another just like in any other discipline. However, the problem of teaching programming is especially arduous because specific factors:
 
 1. The student has to learn to think and express more formally.
@@ -67,3 +71,19 @@ The Feynman technique is a powerful way to develop understanding as a learner.
 3. Identify gaps in your knowledge (through tests, challenges)
 4. Refine and simplify your knowledge (with a learning journal)
 #+end_quote
+*** How to Introduce New Concepts
+Introduction of new concepts are divided between direct practice and theoretical lecture. The instructor can either discuss the theoretical knowledge first or last. A direct practice should be used for simpler topics or for students who need more time to adapt to the lesson.
+**** Best For Engagement
+:PROPERTIES:
+:ID:       a76df337-6cff-4b2c-bc97-e76c0a893ece
+:END:
+This approach is best suitable for a game engine education tool like pixelPAD or Roblox.
+
+The instructor can best engage the student through first mechanic demonstration. He can then let the students do it on their own with help from one another as an intermediary step before letting the student create the text box on his own.
+
+When mechanic creation is achieved, only then the instructor should go and explain the theory.
+
+An example of this can be seen in the [[id:70236592-b5aa-4c1e-82af-32b726eb9857][first activity of my pixelPAD notes]].
+
+**** Best For Heavy Topics
+The student should prepare by reading the notes before the session. Then regardless of the level of preparation, the student then goes through the teaching notes with the instructor. At the end, the student will do a quiz from the teaching note or implement a small coding exercise.

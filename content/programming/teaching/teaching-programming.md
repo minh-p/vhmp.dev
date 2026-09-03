@@ -1,9 +1,12 @@
 +++
 title = "Philosophy"
 draft = false
+weight = 10
 +++
 
 ## Teaching (and Learning) Programming Is Difficult {#teaching--and-learning--programming-is-difficult}
+
+This is a short manifesto on teaching and learning programming.
 
 It is easy for both teacher and pupil to blame one another just like in any other discipline. However, the problem of teaching programming is especially arduous because specific factors:
 
@@ -78,3 +81,24 @@ Tutoring kids coding lacks the pressure of exams and grades compared to formal s
 > 2.  Teach it to someone (student to session partner or back to the teacher)
 > 3.  Identify gaps in your knowledge (through tests, challenges)
 > 4.  Refine and simplify your knowledge (with a learning journal)
+
+
+### How to Introduce New Concepts {#how-to-introduce-new-concepts}
+
+Introduction of new concepts are divided between direct practice and theoretical lecture. The instructor can either discuss the theoretical knowledge first or last. A direct practice should be used for simpler topics or for students who need more time to adapt to the lesson.
+
+
+#### Best For Engagement {#best-for-engagement}
+
+This approach is best suitable for a game engine education tool like pixelPAD or Roblox.
+
+The instructor can best engage the student through first mechanic demonstration. He can then let the students do it on their own with help from one another as an intermediary step before letting the student create the text box on his own.
+
+When mechanic creation is achieved, only then the instructor should go and explain the theory.
+
+An example of this can be seen in the [first activity of my pixelPAD notes]({{< relref "pixelpad.md#creating-a-text-box" >}}).
+
+
+#### Best For Heavy Topics {#best-for-heavy-topics}
+
+The student should prepare by reading the notes before the session. Then regardless of the level of preparation, the student then goes through the teaching notes with the instructor. At the end, the student will do a quiz from the teaching note or implement a small coding exercise.
