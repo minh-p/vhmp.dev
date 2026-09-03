@@ -16,6 +16,6 @@ I recognized very early on that my teaching was horrible and I'm still constantl
 
 Alongside my experience attending programming classes at University of California, Irvine, I have developed a principled approach for teaching the fundamentals of programming through languages such as Python, Lua (Roblox), and C++.
 
-{{< button href="/programming/teaching/philosophy" >}}
+{{< button href="/programming/teaching/teaching-programming" >}}
 Philosophy
 {{< /button >}}

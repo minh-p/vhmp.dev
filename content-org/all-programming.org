@@ -35,7 +35,7 @@ Alongside my experience attending programming classes at University of Californi
 
 #+hugo_paired_shortcodes: button
 
-#+attr_shortcode: :href /programming/teaching/philosophy
+#+attr_shortcode: :href /programming/teaching/teaching-programming
 #+begin_button
 Philosophy
 #+end_button
