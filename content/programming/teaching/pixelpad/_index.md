@@ -7,16 +7,24 @@ draft = false
 
 pixelPAD is a closed-source game development platform and education tool, that's free to use.
 
-The student should be exposed to the documentation page first before anything. This is located at [pixelpad.io/docs](https:pixelpad.io/docs).
+> [!NOTE]
+> **Resources**
+>
+> The student should be exposed to the documentation page first before anything. This is located at [pixelpad.io/docs](https:pixelpad.io/docs).
+>
+> There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [pixelpad.io/learn](https:pixelpad.io/learn). Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
 
-There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [pixelpad.io/learn](https:pixelpad.io/learn). Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
+<!--quoteend-->
 
-As of 09/02/26, there are some errors in the documentation page such as outdated examples. Most notably are the names of the sprite creation functions removed "new" in front of the sprite type.
+> [!DANGER]
+> **PixelPad Docs Issue**
+>
+> As of 09/02/26, there are some errors in the documentation page such as outdated examples. Most notably are the names of the sprite creation functions removed "new" in front of the sprite type.
 
 
 ## Intended Audience {#intended-audience}
 
-This page is intended for both the teacher and the students to read. Activities should be mainly driven by the teacher but students should be given a chance to read if he would like and want to.
+This page is intended for both the teacher and the students to read. Activities should be mainly driven by the teacher but students should be given a chance to read if he would like and want to. A sample syllabus for my generic syllabus.
 
 
 ## Learning Progression {#learning-progression}

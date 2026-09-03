@@ -18,3 +18,51 @@
     margin: 0 auto;
 
 }
+
+.mermaidTooltip {
+  background: #3b4252 !important;
+  color: #eceff4 !important;
+
+  border: 1px solid #4c566a !important;
+  border-radius: 5px;
+
+  padding: 0.45rem 0.65rem;
+
+  font-size: 0.875rem;
+  line-height: 1.35;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+
+  max-width: 18rem;
+}
+
+.mermaid .node.clickable {
+  cursor: pointer;
+}
+
+.mermaid .node.clickable rect {
+  fill: #434c5e !important;
+  stroke: #81a1c1 !important;
+  stroke-width: 1.5px !important;
+
+  rx: 6px;
+  ry: 6px;
+
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+
+  transition:
+    fill 0.15s ease,
+    stroke 0.15s ease,
+    filter 0.15s ease;
+}
+
+.mermaid .node.clickable .nodeLabel {
+  font-weight: 500;
+}
+
+.mermaid .node.clickable:hover rect {
+  fill: #4c566a !important;
+  stroke: #88c0d0 !important;
+
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
+}
