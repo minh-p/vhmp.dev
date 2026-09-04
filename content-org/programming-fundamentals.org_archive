@@ -12,3 +12,22 @@ Archived entries from file /home/hmp/Projects/hugo-projects/vhmp-site/content-or
 :ARCHIVE_CATEGORY: programming-fundamentals
 :END:
 There is no way to directly represent what a value is in any programming language. One might say that in programming language X, I can make a variable that is assigned a value. While that is functionally accurate, a value is more so an idea of the kind of information a computer can store, pass around, choose, remove, etc.
+
+* Data Types
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-09-03 Thu 17:57
+:ARCHIVE_FILE: ~/Projects/hugo-projects/vhmp-site/content-org/programming-fundamentals.org
+:ARCHIVE_OLPATH: Data Types
+:ARCHIVE_CATEGORY: programming-fundamentals
+:END:
+After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's likely that you have already [[id:cb76f781-d85f-425e-a165-88080578c1d8][chosen a programming language]].
+
+Most general-purpose programming languages share a small set of common basic data types.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*General-Purpose*
+
+If you choose a programming language that's marketed to beginners, they are most definitely =general purpose=.
+Domain-specific language is another type of programming language. These languages cannot build any type of software (yes, even JavaScript a general-purpose language can build an operating system that's extremely inefficient).
+#+END_QUOTE

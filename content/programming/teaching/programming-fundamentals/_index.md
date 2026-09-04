@@ -87,7 +87,7 @@ flowchart TB
 > [!NOTE]
 > **Summary**
 >
-> The first programming language matters less than what comes after it.
+> Ultimately, a student work toward learning C++ in their first decade of learning programming. Eventually they should learn other languages that are completely different than what they currently know (e.g. Nix, Haskell, Lisp).
 >
 > A student's first language should make programming approachable and give them enough motivation to build things. Python, Lua, JavaScript, Java, and even C or C++ can all serve that purpose in different situations.
 >
@@ -101,6 +101,11 @@ Many students might choose Python as their first programming language because of
 
 > [!TIP]
 > **Python** for a general student, and Lua for a student who wants to directly make Roblox games. For a student who wants to directly make a website, I suggest JavaScript.
+
+<!--quoteend-->
+
+> [!TIP]
+> **The software industry** gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be learning C++.
 
 {{% details title="Huy's Personal Experience" %}}
 I first learned programming through the Roblox Lua language to make some small Roblox games. I was partly motivated by wanting Robux to buy cosmetics and game passes or even make real money. Now that I'm older, I realize that my interests have moved far beyond Roblox. I could have stuck with Python because, compared to Lua or JavaScript, Python would have given me a more transferable foundation for the languages and computer science concepts I later encountered in C++.

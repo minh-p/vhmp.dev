@@ -80,12 +80,14 @@ flowchart TB
     click Y "/programming/teaching/programming-fundamentals/algorithms/" "Precise step-by-step procedures for solving computational problems."
 #+END_SRC
 ** What About the First Programming Language?
-
+:PROPERTIES:
+:ID:       cb76f781-d85f-425e-a165-88080578c1d8
+:END:
 #+BEGIN_QUOTE
 [!NOTE]
 *Summary*
 
-The first programming language matters less than what comes after it.
+Ultimately, a student work toward learning C++ in their first decade of learning programming. Eventually they should learn other languages that are completely different than what they currently know (e.g. Nix, Haskell, Lisp).
 
 A student's first language should make programming approachable and give them enough motivation to build things. Python, Lua, JavaScript, Java, and even C or C++ can all serve that purpose in different situations.
 
@@ -100,6 +102,11 @@ Many students might choose Python as their first programming language because of
 #+BEGIN_QUOTE
 [!TIP]
 *Python* for a general student, and Lua for a student who wants to directly make Roblox games. For a student who wants to directly make a website, I suggest JavaScript.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+[!TIP]
+*The software industry* gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be learning C++.
 #+END_QUOTE
 
 #+hugo_paired_shortcodes: %details
@@ -615,5 +622,47 @@ Computer programs can store values, read values, change values, create new value
 :END:
 This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.5 Sol]].
 ** Data Types
-After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's about time for you to choose a programming language as we begin to write code.
+After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's likely that you have already [[id:cb76f781-d85f-425e-a165-88080578c1d8][chosen a programming language]].
 
+Most general-purpose programming languages share a small set of common basic data types.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*General-Purpose*
+
+If you choose a programming language that's attractive to beginners, they are most definitely =general-purpose=.
+Domain-specific language (DSL) is another type of programming language. These languages cannot build any type of software (yes, even JavaScript, a general-purpose language can build an operating system that's extremely inefficient).
+
+An example DSL is CMake which is used to configure build files that create commands to compile code to binaries and link them to become an executable.
+#+END_QUOTE
+
+Your first language could be dynamically-typed where every [[id:0a2c2cdf-59b3-4a7a-aae5-4fd12e702059][variable's]] type must be specified. For dynamically-typed languages, you still need to know the type of every single value you're looking at in your code.
+
+#+hugo_paired_shortcodes: %details
+
+#+attr_shortcode: :title Dynamically-typed languages (string example) :open true
+#+begin_details
+Python, Lua, JavaScript, Lisp...
+
+#+attr_html: :filename Python
+#+BEGIN_SRC python
+  message = "hello"
+  # Variable message points to a value whose data type is a string.
+#+END_SRC
+#+end_details
+
+#+attr_shortcode: :title Statically-typed languages (string example) :open true
+#+begin_details
+C, C++, Rust, Java...
+
+#+attr_html: :filename C/C++
+#+BEGIN_SRC C
+  char message[] = "hello";
+  // Variable message holds a value whose data type is an array of characters (string).
+#+END_SRC
+#+end_details
+* Variable
+:PROPERTIES:
+:ID:       0a2c2cdf-59b3-4a7a-aae5-4fd12e702059
+:END:
+Hello
