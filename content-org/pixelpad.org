@@ -170,13 +170,20 @@ The Asset Library is accessed using the plus (+) button in the Assets panel
 for Sprites and Sounds. It contains free-to-use assets and also allows you to
 upload your own.
 #+end_details
-** Creating a Text Box
+** Activity - Creating a Text Box
 :PROPERTIES:
 :ID:       70236592-b5aa-4c1e-82af-32b726eb9857
 :END:
-A prerequisite of this exercise is a general exercise on what a function and variable.
+The goal of this activity is to display a text box on the pixelPAD screen.
+*** Prerequisites
+- Basic Internet Literacy, Navigation
+*** Concepts
+- Functions
+- Variables
+- Documentation Referencing
+*** Coach Strategy
 Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc97-e76c0a893ece][best for engagement]] strategy should be used.
-
+*** Guide and Solution
 #+hugo_paired_shortcodes: %details %steps
 
 #+attr_shortcode: :title Sample activity guide w/ documentation referencing :open true
@@ -208,7 +215,7 @@ Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc9
   my_text.color = "#0000FF"
 #+END_SRC
 #+end_details
-*** Text Box Activity Debrief
+*** Debrief
 Created with assistance of [[https:openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
 **** 1. Which function is used to create a text box in PixelPAD?
 
@@ -387,10 +394,19 @@ A useful process is:
 
 The goal is to practice learning from documentation, not only memorizing the solution.
 #+end_details
-** Creating a Sprite
+** Activity - Creating a Sprite
 #+hugo_paired_shortcodes: %steps
 #+hugo_paired_shortcodes: %details
-
+This activity teaches the student how to make a sprite in pixelPAD.
+*** Prerequisites
+- Basic Internet Literacy, Website Navigation
+*** Concepts
+- Variables
+- Functions
+- Documentation Referencing
+*** Coach Strategy
+Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc97-e76c0a893ece][best for engagement]] strategy should be used.
+*** Guide and Solution
 #+attr_shortcode: :title Sample activity guide w/ documentation referencing :open true
 #+begin_details
 #+begin_steps
@@ -433,7 +449,7 @@ The word =sprite= or capitalized =Sprite= holds different meanings in the course
 3. =sprite object= is the data-type of the value assigned to the object variable =sprite= as in =self.sprite=.
 #+END_QUOTE
 #+end_details
-*** Sprite Activity Debrief
+*** Debrief
 Created with assistance of [[https:openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
 **** 1. What is the purpose of the =Sprite= class in this activity?
 
@@ -633,4 +649,6 @@ A useful process is:
 The goal is to practice learning unfamiliar features from documentation rather than only memorizing the finished code.
 #+end_details
 ** Related
-Check out the learning the [[id:195ebfb2-56a0-4102-9967-3974a46f7a8c][teaching philosophy page]]. 
+These beginner concepts reference the [[id:a40e74ff-33e3-4010-a012-a98e8f153172][programming fundamentals roadmap]].
+
+For insights about my teaching approach, check out the [[id:195ebfb2-56a0-4102-9967-3974a46f7a8c][teaching philosophy]].

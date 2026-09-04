@@ -1,0 +1,14 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/hmp/Projects/hugo-projects/vhmp-site/content-org/programming-fundamentals.org
+
+
+* Why Values Are the First Thing You Understand
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-09-03 Thu 15:23
+:ARCHIVE_FILE: ~/Projects/hugo-projects/vhmp-site/content-org/programming-fundamentals.org
+:ARCHIVE_OLPATH: Values/Values
+:ARCHIVE_CATEGORY: programming-fundamentals
+:END:
+There is no way to directly represent what a value is in any programming language. One might say that in programming language X, I can make a variable that is assigned a value. While that is functionally accurate, a value is more so an idea of the kind of information a computer can store, pass around, choose, remove, etc.

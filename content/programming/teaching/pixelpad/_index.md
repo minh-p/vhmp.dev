@@ -203,10 +203,29 @@ upload your own.
 {{% /details %}}
 
 
-## Creating a Text Box {#creating-a-text-box}
+## Activity - Creating a Text Box {#activity-creating-a-text-box}
 
-A prerequisite of this exercise is a general exercise on what a function and variable.
+The goal of this activity is to display a text box on the pixelPAD screen.
+
+
+### Prerequisites {#prerequisites}
+
+-   Basic Internet Literacy, Navigation
+
+
+### Concepts {#concepts}
+
+-   Functions
+-   Variables
+-   Documentation Referencing
+
+
+### Coach Strategy {#coach-strategy}
+
 Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "teaching-programming.md#best-for-engagement" >}}) strategy should be used.
+
+
+### Guide and Solution {#guide-and-solution}
 
 {{% details title="Sample activity guide w/ documentation referencing" open="true" %}}
 {{% steps %}}
@@ -236,7 +255,7 @@ my_text.color = "#0000FF"
 {{% /details %}}
 
 
-### Text Box Activity Debrief {#text-box-activity-debrief}
+### Debrief {#debrief}
 
 Created with assistance of [OpenAI GPT-5.6](https:openai.com/index/gpt-5-6/).
 
@@ -423,7 +442,29 @@ The goal is to practice learning from documentation, not only memorizing the sol
 {{% /details %}}
 
 
-## Creating a Sprite {#creating-a-sprite}
+## Activity - Creating a Sprite {#activity-creating-a-sprite}
+
+This activity teaches the student how to make a sprite in pixelPAD.
+
+
+### Prerequisites {#prerequisites}
+
+-   Basic Internet Literacy, Website Navigation
+
+
+### Concepts {#concepts}
+
+-   Variables
+-   Functions
+-   Documentation Referencing
+
+
+### Coach Strategy {#coach-strategy}
+
+Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "teaching-programming.md#best-for-engagement" >}}) strategy should be used.
+
+
+### Guide and Solution {#guide-and-solution}
 
 {{% details title="Sample activity guide w/ documentation referencing" open="true" %}}
 {{% steps %}}
@@ -464,7 +505,7 @@ variable_holding_object = Sprite()
 {{% /details %}}
 
 
-### Sprite Activity Debrief {#sprite-activity-debrief}
+### Debrief {#debrief}
 
 Created with assistance of [OpenAI GPT-5.6](https:openai.com/index/gpt-5-6/).
 
@@ -671,4 +712,6 @@ The goal is to practice learning unfamiliar features from documentation rather t
 
 ## Related {#related}
 
-Check out the learning the [teaching philosophy page]({{< relref "teaching-programming" >}}).
+These beginner concepts reference the [programming fundamentals roadmap]({{< relref "_index" >}}).
+
+For insights about my teaching approach, check out the [teaching philosophy]({{< relref "teaching-programming" >}}).

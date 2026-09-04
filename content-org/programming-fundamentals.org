@@ -1,10 +1,11 @@
 #+hugo_base_dir: ../
-#+hugo_section: programming/teaching/fundamentals
+#+hugo_section: programming/teaching/programming-fundamentals
 #+hugo_code_fence: t
 * Fundamentals
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_WEIGHT: 30
+:ID:       a40e74ff-33e3-4010-a012-a98e8f153172
 :END:
 ** Roadmap
 This is the roadmap of programming fundamentals taught to students.
@@ -47,33 +48,558 @@ flowchart TB
     style R4 fill:none,stroke:none
     style R5 fill:none,stroke:none
 
-    click A "/programming/teaching/fundamentals/values/" "Pieces of information that programs can work with."
-    click B "/programming/teaching/fundamentals/data-types/" "Categories of values such as numbers, text, and booleans."
-    click C "/programming/teaching/fundamentals/variables/" "Names used to store and refer to values."
-    click D "/programming/teaching/fundamentals/operators/" "Symbols that perform operations on values."
-    click E "/programming/teaching/fundamentals/expressions/" "Combinations of values and operators that produce new values."
+    click A "/programming/teaching/programming-fundamentals/values/" "Pieces of information that programs can work with."
+    click B "/programming/teaching/programming-fundamentals/data-types/" "Categories of values such as numbers, text, and booleans."
+    click C "/programming/teaching/programming-fundamentals/variables/" "Names used to store and refer to values."
+    click D "/programming/teaching/programming-fundamentals/operators/" "Symbols that perform operations on values."
+    click E "/programming/teaching/programming-fundamentals/expressions/" "Combinations of values and operators that produce new values."
 
-    click F "/programming/teaching/fundamentals/input/" "How a program receives information from outside itself."
-    click G "/programming/teaching/fundamentals/output/" "How a program communicates information and results."
-    click H "/programming/teaching/fundamentals/booleans/" "True and false values used to represent logical states."
-    click I "/programming/teaching/fundamentals/comparisons/" "Operations that compare values and produce boolean results."
-    click J "/programming/teaching/fundamentals/conditionals/" "Choosing which instructions execute based on a condition."
+    click F "/programming/teaching/programming-fundamentals/input/" "How a program receives information from outside itself."
+    click G "/programming/teaching/programming-fundamentals/output/" "How a program communicates information and results."
+    click H "/programming/teaching/programming-fundamentals/booleans/" "True and false values used to represent logical states."
+    click I "/programming/teaching/programming-fundamentals/comparisons/" "Operations that compare values and produce boolean results."
+    click J "/programming/teaching/programming-fundamentals/conditionals/" "Choosing which instructions execute based on a condition."
 
-    click K "/programming/teaching/fundamentals/loops/" "Repeating instructions while or until a condition is met."
-    click L "/programming/teaching/fundamentals/strings/" "Sequences of characters used to represent and manipulate text."
-    click M "/programming/teaching/fundamentals/lists-arrays/" "Ordered collections containing multiple values."
-    click N "/programming/teaching/fundamentals/indexing/" "Accessing elements of a sequence by their position."
-    click O "/programming/teaching/fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
+    click K "/programming/teaching/programming-fundamentals/loops/" "Repeating instructions while or until a condition is met."
+    click L "/programming/teaching/programming-fundamentals/strings/" "Sequences of characters used to represent and manipulate text."
+    click M "/programming/teaching/programming-fundamentals/lists-arrays/" "Ordered collections containing multiple values."
+    click N "/programming/teaching/programming-fundamentals/indexing/" "Accessing elements of a sequence by their position."
+    click O "/programming/teaching/programming-fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
 
-    click P "/programming/teaching/fundamentals/functions/" "Reusable sections of code that perform a particular task."
-    click Q "/programming/teaching/fundamentals/parameters/" "Names that describe the inputs accepted by a function."
-    click R "/programming/teaching/fundamentals/arguments/" "Actual values supplied when a function is called."
-    click S "/programming/teaching/fundamentals/return-values/" "Values sent from a function back to its caller."
-    click T "/programming/teaching/fundamentals/scope/" "The region of a program where a name can be accessed."
+    click P "/programming/teaching/programming-fundamentals/functions/" "Reusable sections of code that perform a particular task."
+    click Q "/programming/teaching/programming-fundamentals/parameters/" "Names that describe the inputs accepted by a function."
+    click R "/programming/teaching/programming-fundamentals/arguments/" "Actual values supplied when a function is called."
+    click S "/programming/teaching/programming-fundamentals/return-values/" "Values sent from a function back to its caller."
+    click T "/programming/teaching/programming-fundamentals/scope/" "The region of a program where a name can be accessed."
 
-    click U "/programming/teaching/fundamentals/decomposition/" "Breaking a large problem into smaller manageable parts."
-    click V "/programming/teaching/fundamentals/tracing/" "Following execution step by step to understand program state."
-    click W "/programming/teaching/fundamentals/debugging/" "Finding, understanding, and correcting program errors."
-    click X "/programming/teaching/fundamentals/testing/" "Checking that programs behave correctly across different cases."
-    click Y "/programming/teaching/fundamentals/algorithms/" "Precise step-by-step procedures for solving computational problems."
+    click U "/programming/teaching/programming-fundamentals/decomposition/" "Breaking a large problem into smaller manageable parts."
+    click V "/programming/teaching/programming-fundamentals/tracing/" "Following execution step by step to understand program state."
+    click W "/programming/teaching/programming-fundamentals/debugging/" "Finding, understanding, and correcting program errors."
+    click X "/programming/teaching/programming-fundamentals/testing/" "Checking that programs behave correctly across different cases."
+    click Y "/programming/teaching/programming-fundamentals/algorithms/" "Precise step-by-step procedures for solving computational problems."
 #+END_SRC
+** What About the First Programming Language?
+The youngest students I have use Scratch before they develop their typing skills. When they are used to the keyboard, I would immediately switch them to Python or Lua.
+
+Many students might choose Python as their first programming language because of its easy-to-remember syntax while following many conventions that transfer well to other programming languages. A student could also start with Java, especially if they want earlier exposure to static typing, classes, and the style of programming commonly used in large software projects but do not want to deal with manual memory management. Some young students choose Lua because they would like to work with Roblox. If the student wants to make a small website, JavaScript could be given a go. Or, as a trial by fire, a student could go directly to C or C++ (which I wouldn't recommend).
+
+#+BEGIN_QUOTE
+[!TIP]
+*Python* for a general student, and Lua for a student who wants to directly make Roblox games. For a student who wants to directly make a website, I suggest JavaScript.
+#+END_QUOTE
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: :title Huy's Personal Experience
+#+begin_details
+I first learned programming through the Roblox Lua language to make some small Roblox games. I was partly motivated by wanting Robux to buy cosmetics and game passes or even make real money. Now that I'm older, I realize that my interests have moved far beyond Roblox. I could have stuck with Python because, compared to Lua or JavaScript, Python would have given me a more transferable foundation for the languages and computer science concepts I later encountered in Java and C++.
+#+end_details
+
+*** Prefer Python For General Programming Education
+If a student wants to pursue computer science or software engineering seriously, I prefer languages whose concepts transfer easily to other mainstream languages. A beginner should not only learn syntax, but also develop mental models of variables, types, functions, data structures, objects, references, and program organization that remain useful when they eventually move to languages such as Java, C++, or Rust.
+
+**** Lua
+This language has its weird quirks like indexing starting at 1 instead of 0 compared to most other languages.
+
+Lua also uses tables in places where other languages distinguish arrays, maps (dictionaries), objects, and classes. As perhaps the worst transgression, even object-oriented behavior is built by extending ordinary tables with metatables.
+
+In terms of broader educational and career prospects, I would eventually transition a student from Lua to Python as long as they are willing to leave behind making Roblox games. When they are ready for a more explicit (trading simplicity for control) language, they could then move to Java, C, or C++.
+
+#+BEGIN_QUOTE
+[!DANGER]
+*Roblox Isn't the Best* (Might Be the Worst)
+
+I don't think students should approach Roblox development expecting to make money. Students can make games to learn basic problem solving in coding, but making a commercially successful game requires substantially more than learning how to script. Financially, eventually making one's own game outside of a game platform like Roblox or even one's own game engine guarantees maximum profits compared to 15-29% roughly of the revenue Roblox earns.
+
+Lua's tables combine several concepts that other languages conventionally distinguish, such as arrays, maps, objects, and class-like structures. A student who later moves to another language will therefore have to learn to distinguish concepts that Lua allowed them to treat as one general-purpose structure.
+
+Roblox can be a good motivation for learning programming, but it should not become the boundary of a student's programming education.
+
+#+hugo: {{< youtube "_gXlauRB1EQ?start=575" >}}
+#+END_QUOTE
+
+**** JavaScript
+JavaScript can be a reasonable first programming language, but it is a poor language to learn programming exclusively through. Its unusual semantics (the rules determining what code means and how it behaves), browser-oriented history, and high-level abstractions can leave beginners with an incomplete mental model of how programming languages and computers generally work.
+
+#+attr_shortcode: :title Unusual Semantics of JavaScript
+#+begin_details
+#+BEGIN_SRC javascript
+"5" + 1       // "51"
+"5" - 1       // 4
+
+[] == false   // true
+typeof null   // "object"
+#+END_SRC
+
+These behaviors are manageable once someone understands JavaScript, but they are not rules I particularly want a beginner internalizing while they are still developing their understanding of values, types, and comparison.
+#+end_details
+
+* Values
+:PROPERTIES:
+:ID:       056c6d7d-cda0-49c0-8391-ae1f0e8fb669
+:EXPORT_FILE_NAME: values
+:EXPORT_HUGO_WEIGHT: 10
+:END:
+This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.5 Sol]].
+** Values
+This is the first programming concept that student learns. The prerequisites are omitted. Any difficulty in understanding would come from a lack of vocabulary due to age or the lack of engagement of innate intuition.
+*** Why Values Are the First Thing You Understand
+There is no way to directly represent what a value is in any programming language. One might say that in programming language X, I can make a variable that is assigned a value. While that is functionally accurate, a value is more so an idea of the kind of information a computer can store, pass around, choose, change, remove, etc.
+
+#+BEGIN_QUOTE
+[!TIP]
+*A Computer Program Simply Manages Values*
+
+What is a =computer program?=
+
+A Google search would say, ="a sequence or set of instructions in a programming language for a computer to execute"=.
+
+We can *simplify* this definition down closer to simply ="telling the computer how to manage values"=.
+#+END_QUOTE
+*** Activity - Control a Drawing Robot
+#+hugo_paired_shortcodes: %steps
+#+hugo_paired_shortcodes: %details
+This activity introduces the idea that a computer can control a machine by sending values to different parts of the machine.
+
+The student will control a simple drawing robot using only the values =0= and =1=.
+
+**** Prerequisites
+- Be able to distinguish the values =0= and =1=.
+- Be able to follow a sequence of instructions from top to bottom.
+
+**** Concepts
+- Values
+- Binary Values
+- Input (Reading Values)
+- Output (Sending Values)
+
+**** Coach Strategy
+Do not introduce programming syntax during this activity.
+
+The goal is for the student to develop the intuition that different parts of a computer or machine can /receive/, /read/, and /respond to/ values.
+
+Avoid explaining how the electronics inside the robot work unless the student specifically asks. It is enough to say that the robot has been built so that its controller responds differently to =0= and =1=.
+
+The student should spend most of the activity predicting what the robot will do before being shown the result.
+
+**** Guide and Solution
+
+#+attr_shortcode: :title The Drawing Robot :open true
+#+begin_details
+Our robot has two wheels and a pen.
+
+Each wheel has its own motor.
+
+The computer controlling the robot can send one value to each motor.
+
+| Value | Motor |
+|-------+-------|
+| =0=   | Off   |
+| =1=   | On    |
+
+The robot therefore receives two values:
+
+#+BEGIN_EXAMPLE
+LEFT MOTOR     RIGHT MOTOR
+     1              1
+#+END_EXAMPLE
+
+The first value is sent to the left motor.
+
+The second value is sent to the right motor.
+
+When both motors receive =1=, both wheels turn and the robot moves forward.
+
+#+BEGIN_EXAMPLE
+LEFT      RIGHT
+
+  1         1
+  │         │
+  ▼         ▼
+ ON        ON
+   \       /
+    \     /
+     ROBOT
+       │
+       ▼
+    FORWARD
+#+END_EXAMPLE
+#+end_details
+
+
+#+attr_shortcode: :title Predict the Robot's Movement
+#+begin_details
+#+begin_steps
+1. Give the left motor the value =0= and the right motor the value =0=.
+
+   Ask the student:
+
+   /What do you think the robot will do?/
+
+   Both motors are off, so the robot stops.
+
+2. Give both motors the value =1=.
+
+   #+BEGIN_EXAMPLE
+   LEFT     RIGHT
+     1        1
+   #+END_EXAMPLE
+
+   Both motors turn on, so the robot moves forward.
+
+3. Give the motors:
+
+   #+BEGIN_EXAMPLE
+   LEFT     RIGHT
+     0        1
+   #+END_EXAMPLE
+
+   Only the right wheel moves.
+
+   The robot turns toward the left.
+
+4. Reverse the values:
+
+   #+BEGIN_EXAMPLE
+   LEFT     RIGHT
+     1        0
+   #+END_EXAMPLE
+
+   Only the left wheel moves.
+
+   The robot turns toward the right.
+
+5. Ask the student to complete the following table before revealing the answers.
+
+   | Left | Right | Robot Movement |
+   |------+-------+----------------|
+   |    0 |     0 | ?              |
+   |    1 |     1 | ?              |
+   |    0 |     1 | ?              |
+   |    1 |     0 | ?              |
+
+#+end_steps
+
+The completed table is:
+
+| Left | Right | Robot Movement |
+|------+-------+----------------|
+|    0 |     0 | Stop           |
+|    1 |     1 | Forward        |
+|    0 |     1 | Turn Left      |
+|    1 |     0 | Turn Right     |
+
+Two very simple values are already enough to describe several different actions because the values are being sent to different places.
+#+end_details
+
+
+#+attr_shortcode: :title Give the Robot a Pen
+#+begin_details
+Now imagine that the robot has a pen attached underneath it.
+
+The pen controller also receives either =0= or =1=.
+
+For this part of the robot:
+
+| Value | Pen |
+|-------+----------|
+| =0=   | Pen Up   |
+| =1=   | Pen Down |
+
+Notice that =1= does not mean /motor on/ everywhere.
+
+For a motor:
+
+#+BEGIN_EXAMPLE
+1 → Motor On
+#+END_EXAMPLE
+
+For the pen:
+
+#+BEGIN_EXAMPLE
+1 → Pen Down
+#+END_EXAMPLE
+
+The value is read by a particular part of the robot, and that part determines what the value means.
+
+The computer can now send three values at once:
+
+#+BEGIN_EXAMPLE
+LEFT MOTOR     RIGHT MOTOR     PEN
+     1              1           1
+#+END_EXAMPLE
+
+The robot reads them as:
+
+#+BEGIN_EXAMPLE
+Left motor on
+Right motor on
+Pen down
+#+END_EXAMPLE
+
+The robot therefore moves forward while drawing.
+#+end_details
+
+
+#+attr_shortcode: :title Make a Drawing
+#+begin_details
+The student will now act as the computer controlling the robot.
+
+For each step, read the three values and determine what the robot does.
+
+| Step | Left Motor | Right Motor | Pen |
+|------+------------+-------------+-----|
+|    1 |          1 |           1 |   1 |
+|    2 |          1 |           1 |   1 |
+|    3 |          0 |           1 |   1 |
+|    4 |          1 |           1 |   1 |
+|    5 |          0 |           0 |   0 |
+
+#+begin_steps
+1. Read the three values in the first row.
+2. Determine what each part of the robot does.
+3. Move an imaginary robot, toy, or marker according to those values.
+4. Continue to the next row.
+5. Before each step, predict what will happen.
+#+end_steps
+
+The sequence can be interpreted as:
+
+#+BEGIN_EXAMPLE
+Step 1
+1  1  1
+│  │  │
+│  │  └── Pen Down
+│  └───── Right Motor On
+└──────── Left Motor On
+
+Robot moves forward and draws.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Step 2
+1  1  1
+
+Robot continues forward and continues drawing.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Step 3
+0  1  1
+
+The left motor stops.
+The right motor continues.
+The robot turns left while drawing.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Step 4
+1  1  1
+
+The robot moves forward again while drawing.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Step 5
+0  0  0
+
+Both motors stop.
+The pen is lifted.
+#+END_EXAMPLE
+#+end_details
+
+
+#+attr_shortcode: :title What Just Happened?
+#+begin_details
+The computer did not need to directly understand ideas such as:
+
+#+BEGIN_EXAMPLE
+Move the robot forward.
+
+Turn the robot.
+
+Draw a line.
+#+END_EXAMPLE
+
+Instead, different parts of the robot were given values.
+
+#+BEGIN_EXAMPLE
+Computer
+   │
+   ├── 1 ──> Left Motor
+   │
+   ├── 1 ──> Right Motor
+   │
+   └── 1 ──> Pen Controller
+#+END_EXAMPLE
+
+Each part reads the value it receives and responds to it.
+
+By sending different values at different times, the computer can cause the robot to perform a much more complicated action such as making a drawing.
+#+end_details
+
+
+**** Debrief
+
+***** 1. What values did we use to control the robot?
+
+- A. =0= and =1=
+- B. =1= and =2=
+- C. =ON= and =OFF=
+- D. =LEFT= and =RIGHT=
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*A.*
+
+The computer sent the values =0= and =1=.
+
+Words such as /on/, /off/, /left/, and /right/ describe how parts of the robot responded to those values.
+#+end_details
+
+
+***** 2. What happens when both motors receive =1=?
+
+- A. The robot stops.
+- B. The robot moves forward.
+- C. The pen is lifted.
+- D. Nothing can be determined.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+
+Each motor interprets =1= as /motor on/.
+
+Therefore:
+
+#+BEGIN_EXAMPLE
+LEFT     RIGHT
+  1        1
+  │        │
+  ▼        ▼
+ ON       ON
+#+END_EXAMPLE
+
+Both wheels move and the robot travels forward.
+#+end_details
+
+
+***** 3. What happens when both motors receive =0=?
+
+- A. The robot moves forward.
+- B. The robot turns left.
+- C. The robot stops.
+- D. The robot draws.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+
+Both motors interpret =0= as /motor off/, so neither wheel moves.
+#+end_details
+
+
+***** 4. Does the value =1= always mean "motor on"?
+
+- A. Yes.
+- B. No.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+
+The meaning depends on which part receives the value.
+
+In this activity:
+
+#+BEGIN_EXAMPLE
+Motor receives 1 → Motor On
+
+Pen receives 1   → Pen Down
+#+END_EXAMPLE
+
+The value itself is the same. Different parts of the robot are designed to interpret it differently.
+#+end_details
+
+
+***** 5. Consider these values:
+
+#+BEGIN_EXAMPLE
+LEFT MOTOR     RIGHT MOTOR     PEN
+     0              1           1
+#+END_EXAMPLE
+
+What does the robot do?
+
+- A. Stops and lifts the pen.
+- B. Moves forward without drawing.
+- C. Turns left while drawing.
+- D. Turns right without drawing.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+
+The left motor is off, the right motor is on, and the pen is down.
+
+Therefore the robot turns left while continuing to draw.
+#+end_details
+
+
+***** 6. Which statement best describes what the computer did during this activity?
+
+- A. It physically pushed the robot.
+- B. It sent values to different parts of the robot.
+- C. It only stored values without using them.
+- D. It drew the picture itself.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+
+The computer sent values to different parts of the robot.
+
+Those parts read the values and responded according to what the values meant to them.
+#+end_details
+
+
+***** 7. What is the main idea demonstrated by this activity?
+
+- A. Computers can only work with two values.
+- B. A value always means the same thing everywhere.
+- C. A computer can manage values by sending them to parts of a system that read and respond to them.
+- D. Every computer must control a robot.
+
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+
+The important idea is not that every computer controls motors.
+
+The activity demonstrates a more general pattern:
+
+#+BEGIN_EXAMPLE
+value
+  │
+  ▼
+sent somewhere
+  │
+  ▼
+read by something
+  │
+  ▼
+response
+#+END_EXAMPLE
+
+Computer programs can store values, read values, change values, create new values, and send values to other parts of a system.
+#+end_details
+* Data Types
+:PROPERTIES:
+:ID:       09b34471-fd30-48c1-9894-8b5b6318aab5
+:EXPORT_FILE_NAME: data-types
+:EXPORT_HUGO_WEIGHT: 20
+:END:
+This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.5 Sol]].
+** Data Types
+After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's about time for you to choose a programming language as we begin to write code.
+
