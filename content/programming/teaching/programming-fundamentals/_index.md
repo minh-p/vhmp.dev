@@ -81,6 +81,17 @@ flowchart TB
 
 ## What About the First Programming Language? {#what-about-the-first-programming-language}
 
+> [!NOTE]
+> **Summary**
+>
+> The first programming language matters less than what comes after it.
+>
+> A student's first language should make programming approachable and give them enough motivation to build things. Python, Lua, JavaScript, Java, and even C or C++ can all serve that purpose in different situations.
+>
+> What matters more is that the student does not let one language define their entire understanding of programming. As they progress, they should encounter different programming models, type systems, data structures, memory models, and ways of organizing software.
+>
+> The recommendations below are therefore based on what I think provides the best foundation for general programming education, not on the idea that one language is universally superior.
+
 The youngest students I have use Scratch before they develop their typing skills. When they are used to the keyboard, I would immediately switch them to Python or Lua.
 
 Many students might choose Python as their first programming language because of its easy-to-remember syntax while following many conventions that transfer well to other programming languages. A student could also start with Java, especially if they want earlier exposure to static typing, classes, and the style of programming commonly used in large software projects but do not want to deal with manual memory management. Some young students choose Lua because they would like to work with Roblox. If the student wants to make a small website, JavaScript could be given a go. Or, as a trial by fire, a student could go directly to C or C++ (which I wouldn't recommend).
@@ -89,7 +100,7 @@ Many students might choose Python as their first programming language because of
 > **Python** for a general student, and Lua for a student who wants to directly make Roblox games. For a student who wants to directly make a website, I suggest JavaScript.
 
 {{% details title="Huy's Personal Experience" %}}
-I first learned programming through the Roblox Lua language to make some small Roblox games. I was partly motivated by wanting Robux to buy cosmetics and game passes or even make real money. Now that I'm older, I realize that my interests have moved far beyond Roblox. I could have stuck with Python because, compared to Lua or JavaScript, Python would have given me a more transferable foundation for the languages and computer science concepts I later encountered in Java and C++.
+I first learned programming through the Roblox Lua language to make some small Roblox games. I was partly motivated by wanting Robux to buy cosmetics and game passes or even make real money. Now that I'm older, I realize that my interests have moved far beyond Roblox. I could have stuck with Python because, compared to Lua or JavaScript, Python would have given me a more transferable foundation for the languages and computer science concepts I later encountered in C++.
 {{% /details %}}
 
 
@@ -109,11 +120,11 @@ In terms of broader educational and career prospects, I would eventually transit
 > [!DANGER]
 > **Roblox Isn't the Best** (Might Be the Worst)
 >
-> I don't think students should approach Roblox development expecting to make money. Students can make games to learn basic problem solving in coding, but making a commercially successful game requires substantially more than learning how to script. Financially, eventually making one's own game outside of a game platform like Roblox or even one's own game engine guarantees maximum profits compared to 15-29% roughly of the revenue Roblox earns.
+> I don't think students should approach Roblox development expecting to make money. Students can make games to learn basic problem solving in coding, but making a commercially successful game requires substantially more than learning how to script. Financially, eventually making one's own game outside of a game platform like Roblox or even one's own game engine guarantees maximal profits compared to 15-29% roughly of the revenue Roblox earns.
 >
 > Lua's tables combine several concepts that other languages conventionally distinguish, such as arrays, maps, objects, and class-like structures. A student who later moves to another language will therefore have to learn to distinguish concepts that Lua allowed them to treat as one general-purpose structure.
 >
-> Roblox can be a good motivation for learning programming, but it should not become the boundary of a student's programming education.
+> Roblox can be a good motivation for learning programming, but it should not become the boundary of a young student's programming education.
 >
 > {{< youtube "_gXlauRB1EQ?start=575" >}}
 
@@ -122,7 +133,7 @@ In terms of broader educational and career prospects, I would eventually transit
 
 JavaScript can be a reasonable first programming language, but it is a poor language to learn programming exclusively through. Its unusual semantics (the rules determining what code means and how it behaves), browser-oriented history, and high-level abstractions can leave beginners with an incomplete mental model of how programming languages and computers generally work.
 
-{{% details title="Unusual Semantics of JavaScript" %}}
+{{% details title="Unusual Semantics of JavaScript" open="true" %}}
 ```javascript
 "5" + 1       // "51"
 "5" - 1       // 4
