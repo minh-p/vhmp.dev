@@ -9,14 +9,14 @@ This page was created with the assistance of [GPT-5.5 Sol](https:openai.com/inde
 
 ## Roadmap {#roadmap}
 
-This is the roadmap of programming fundamentals taught to students.
+This is the roadmap of programming fundamentals taught to my students.
 
 ```mermaid
 flowchart TB
 
     subgraph R1[" "]
         direction LR
-        A["Values"] --> B["Data Types"] --> C["Variables"] --> D["Operators"] --> E["Expressions"]
+        A["Values"] --> B["Data Types"] --> C["Variables"] --> C1["Namespaces"] --> D["Operators"] --> E["Expressions"]
     end
 
     subgraph R2[" "]
@@ -53,6 +53,10 @@ flowchart TB
     click A "/programming/teaching/programming-fundamentals/values/" "Pieces of information that programs can work with."
     click B "/programming/teaching/programming-fundamentals/data-types/" "Categories of values such as numbers, text, and booleans."
     click C "/programming/teaching/programming-fundamentals/variables/" "Names used to store and refer to values."
+
+    click C1
+    "/programming/teaching/programming-fundamentals/namespaces/" "Grouping or categorization of identifiers to prevent name conflict."
+
     click D "/programming/teaching/programming-fundamentals/operators/" "Symbols that perform operations on values."
     click E "/programming/teaching/programming-fundamentals/expressions/" "Combinations of values and operators that produce new values."
 
@@ -105,7 +109,7 @@ Many students might choose Python as their first programming language because of
 <!--quoteend-->
 
 > [!TIP]
-> **The software industry** gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be learning C++.
+> **The software industry** gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be aiming to learn C++.
 
 {{% details title="Huy's Personal Experience" %}}
 I first learned programming through the Roblox Lua language to make some small Roblox games. I was partly motivated by wanting Robux to buy cosmetics and game passes or even make real money. Now that I'm older, I realize that my interests have moved far beyond Roblox. I could have stuck with Python because, compared to Lua or JavaScript, Python would have given me a more transferable foundation for the languages and computer science concepts I later encountered in C++.

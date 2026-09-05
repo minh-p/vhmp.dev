@@ -9,75 +9,79 @@
 :END:
 This page was created with the assistance of [[https:openai.com/index/gpt-5-6][GPT-5.5 Sol]].
 ** Roadmap
-This is the roadmap of programming fundamentals taught to students.
+This is the roadmap of programming fundamentals taught to my students.
 #+BEGIN_SRC mermaid :exports code
-flowchart TB
+  flowchart TB
 
-    subgraph R1[" "]
-        direction LR
-        A["Values"] --> B["Data Types"] --> C["Variables"] --> D["Operators"] --> E["Expressions"]
-    end
+      subgraph R1[" "]
+          direction LR
+          A["Values"] --> B["Data Types"] --> C["Variables"] --> C1["Namespaces"] --> D["Operators"] --> E["Expressions"]
+      end
 
-    subgraph R2[" "]
-        direction RL
-        P["Functions"] --> Q["Parameters"] --> R["Arguments"] --> S["Return Values"] --> T["Scope"]
-    end
+      subgraph R2[" "]
+          direction RL
+          P["Functions"] --> Q["Parameters"] --> R["Arguments"] --> S["Return Values"] --> T["Scope"]
+      end
 
-    subgraph R3[" "]
-        direction LR
-        F["Input"] --> G["Output"] --> H["Booleans"] --> I["Comparisons"] --> J["Conditionals"]
-    end
+      subgraph R3[" "]
+          direction LR
+          F["Input"] --> G["Output"] --> H["Booleans"] --> I["Comparisons"] --> J["Conditionals"]
+      end
 
-    subgraph R4[" "]
-        direction RL
-        K["Loops"] --> L["Strings"] --> M["Lists / Arrays"] --> N["Indexing"] --> O["Maps / Dictionaries"]
-    end
+      subgraph R4[" "]
+          direction RL
+          K["Loops"] --> L["Strings"] --> M["Lists / Arrays"] --> N["Indexing"] --> O["Maps / Dictionaries"]
+      end
 
-    subgraph R5[" "]
-        direction LR
-        U["Decomposition"] --> V["Tracing"] --> W["Debugging"] --> X["Testing"] --> Y["Algorithms"]  
-    end
+      subgraph R5[" "]
+          direction LR
+          U["Decomposition"] --> V["Tracing"] --> W["Debugging"] --> X["Testing"] --> Y["Algorithms"]  
+      end
 
-    R1 --> R2
-    R2 --> R3
-    R3 --> R4
-    R4 --> R5
+      R1 --> R2
+      R2 --> R3
+      R3 --> R4
+      R4 --> R5
 
-    style R1 fill:none,stroke:none
-    style R2 fill:none,stroke:none
-    style R3 fill:none,stroke:none
-    style R4 fill:none,stroke:none
-    style R5 fill:none,stroke:none
+      style R1 fill:none,stroke:none
+      style R2 fill:none,stroke:none
+      style R3 fill:none,stroke:none
+      style R4 fill:none,stroke:none
+      style R5 fill:none,stroke:none
 
-    click A "/programming/teaching/programming-fundamentals/values/" "Pieces of information that programs can work with."
-    click B "/programming/teaching/programming-fundamentals/data-types/" "Categories of values such as numbers, text, and booleans."
-    click C "/programming/teaching/programming-fundamentals/variables/" "Names used to store and refer to values."
-    click D "/programming/teaching/programming-fundamentals/operators/" "Symbols that perform operations on values."
-    click E "/programming/teaching/programming-fundamentals/expressions/" "Combinations of values and operators that produce new values."
+      click A "/programming/teaching/programming-fundamentals/values/" "Pieces of information that programs can work with."
+      click B "/programming/teaching/programming-fundamentals/data-types/" "Categories of values such as numbers, text, and booleans."
+      click C "/programming/teaching/programming-fundamentals/variables/" "Names used to store and refer to values."
 
-    click F "/programming/teaching/programming-fundamentals/input/" "How a program receives information from outside itself."
-    click G "/programming/teaching/programming-fundamentals/output/" "How a program communicates information and results."
-    click H "/programming/teaching/programming-fundamentals/booleans/" "True and false values used to represent logical states."
-    click I "/programming/teaching/programming-fundamentals/comparisons/" "Operations that compare values and produce boolean results."
-    click J "/programming/teaching/programming-fundamentals/conditionals/" "Choosing which instructions execute based on a condition."
+      click C1
+      "/programming/teaching/programming-fundamentals/namespaces/" "Grouping or categorization of identifiers to prevent name conflict."
+      
+      click D "/programming/teaching/programming-fundamentals/operators/" "Symbols that perform operations on values."
+      click E "/programming/teaching/programming-fundamentals/expressions/" "Combinations of values and operators that produce new values."
 
-    click K "/programming/teaching/programming-fundamentals/loops/" "Repeating instructions while or until a condition is met."
-    click L "/programming/teaching/programming-fundamentals/strings/" "Sequences of characters used to represent and manipulate text."
-    click M "/programming/teaching/programming-fundamentals/lists-arrays/" "Ordered collections containing multiple values."
-    click N "/programming/teaching/programming-fundamentals/indexing/" "Accessing elements of a sequence by their position."
-    click O "/programming/teaching/programming-fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
+      click F "/programming/teaching/programming-fundamentals/input/" "How a program receives information from outside itself."
+      click G "/programming/teaching/programming-fundamentals/output/" "How a program communicates information and results."
+      click H "/programming/teaching/programming-fundamentals/booleans/" "True and false values used to represent logical states."
+      click I "/programming/teaching/programming-fundamentals/comparisons/" "Operations that compare values and produce boolean results."
+      click J "/programming/teaching/programming-fundamentals/conditionals/" "Choosing which instructions execute based on a condition."
 
-    click P "/programming/teaching/programming-fundamentals/functions/" "Reusable sections of code that perform a particular task."
-    click Q "/programming/teaching/programming-fundamentals/parameters/" "Names that describe the inputs accepted by a function."
-    click R "/programming/teaching/programming-fundamentals/arguments/" "Actual values supplied when a function is called."
-    click S "/programming/teaching/programming-fundamentals/return-values/" "Values sent from a function back to its caller."
-    click T "/programming/teaching/programming-fundamentals/scope/" "The region of a program where a name can be accessed."
+      click K "/programming/teaching/programming-fundamentals/loops/" "Repeating instructions while or until a condition is met."
+      click L "/programming/teaching/programming-fundamentals/strings/" "Sequences of characters used to represent and manipulate text."
+      click M "/programming/teaching/programming-fundamentals/lists-arrays/" "Ordered collections containing multiple values."
+      click N "/programming/teaching/programming-fundamentals/indexing/" "Accessing elements of a sequence by their position."
+      click O "/programming/teaching/programming-fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
 
-    click U "/programming/teaching/programming-fundamentals/decomposition/" "Breaking a large problem into smaller manageable parts."
-    click V "/programming/teaching/programming-fundamentals/tracing/" "Following execution step by step to understand program state."
-    click W "/programming/teaching/programming-fundamentals/debugging/" "Finding, understanding, and correcting program errors."
-    click X "/programming/teaching/programming-fundamentals/testing/" "Checking that programs behave correctly across different cases."
-    click Y "/programming/teaching/programming-fundamentals/algorithms/" "Precise step-by-step procedures for solving computational problems."
+      click P "/programming/teaching/programming-fundamentals/functions/" "Reusable sections of code that perform a particular task."
+      click Q "/programming/teaching/programming-fundamentals/parameters/" "Names that describe the inputs accepted by a function."
+      click R "/programming/teaching/programming-fundamentals/arguments/" "Actual values supplied when a function is called."
+      click S "/programming/teaching/programming-fundamentals/return-values/" "Values sent from a function back to its caller."
+      click T "/programming/teaching/programming-fundamentals/scope/" "The region of a program where a name can be accessed."
+
+      click U "/programming/teaching/programming-fundamentals/decomposition/" "Breaking a large problem into smaller manageable parts."
+      click V "/programming/teaching/programming-fundamentals/tracing/" "Following execution step by step to understand program state."
+      click W "/programming/teaching/programming-fundamentals/debugging/" "Finding, understanding, and correcting program errors."
+      click X "/programming/teaching/programming-fundamentals/testing/" "Checking that programs behave correctly across different cases."
+      click Y "/programming/teaching/programming-fundamentals/algorithms/" "Precise step-by-step procedures for solving computational problems."
 #+END_SRC
 ** What About the First Programming Language?
 :PROPERTIES:
@@ -106,7 +110,7 @@ Many students might choose Python as their first programming language because of
 
 #+BEGIN_QUOTE
 [!TIP]
-*The software industry* gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be learning C++.
+*The software industry* gravitates toward Java, C, C++. Naturally, students should learn languages and tools that enable them to understand these three big languages. The most efficient focus naturally would be aiming to learn C++.
 #+END_QUOTE
 
 #+hugo_paired_shortcodes: %details
@@ -786,8 +790,135 @@ Like characters, internally booleans are numbers. In C, a =bool= is true when it
 ** Related
 - Data types are how you categorize different kinds of [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]].
 - You should also check out [[id:0a2c2cdf-59b3-4a7a-aae5-4fd12e702059][variables]].
-* Variable
+* Variables
 :PROPERTIES:
 :ID:       0a2c2cdf-59b3-4a7a-aae5-4fd12e702059
+:EXPORT_FILE_NAME: variables
+:EXPORT_HUGO_WEIGHT: 30
 :END:
-Hello
+** Variables
+Think of variables as a tracker of values. Typically, we say that we =create= a variable and we =assign= a value to that variable. We also often can say that we =intialize= a variable with a =value= if we want to be specific and say that memory is allocated to a variable and it will automatically keep track of a specific =value=.
+
+To use a variable, you have to make sure it is declared (and most likely defined in the same process).
+*** Prerequisites
+If you didn't understand the paragraph above then, do some searches to understand the vocabulary. Most likely however, you haven't read the previous two concepts:
+- [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][Values]]
+- [[id:09b34471-fd30-48c1-9894-8b5b6318aab5][Data Types]]
+*** Modifiers
+Variables in many programming languages can be created differently by being =modified=.
+**** Scope
+Different kinds of variables can be created. In both dynamically-typed and statically-typed languages, there's often a way to make a variable =global= or =local= to a specific kind of scope.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Dynamically-typed vs. Statically-typed*
+
+Dynamically-typed languages figure out what type of data your variable hold automatically while statically-typed languages require you to specify what the type is.
+#+END_QUOTE
+
+#+hugo_paired_shortcodes: tabs %tabs
+
+Variables referring to an integer in some different programming languages.
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+  my_number = 10
+
+  def hello():
+      global my_number
+      # global operator makes
+      # variable global.
+      my_number = 20
+
+  hello()
+  print(my_number) # We expect 20 now
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+  -- Outside of any scope (function, loops, if-statements...)
+  myNumber = 10
+
+  function foo()
+      local myLocal = 20
+  end
+
+  print(myNumber) -- Legal
+  print(myLocal) -- Gives nil. Not what we intended
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+  // block-scoped
+  if (true) {
+      let myNumber = 1
+  }
+
+  console.log(myNumber) // will error
+
+  // function-scope
+  function bar() {
+      if (true) {
+  	var hey = 10
+      }
+      print(hey) // does not error because of var
+  }
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+There's no examples because this is the cool kids club. (What discussed is too extensive).
+
+Variables are automatically block-scoped or scoped to the file as a global.
+
+#+end_tab
+
+#+end_tabs
+* Namespaces
+:PROPERTIES:
+:EXPORT_FILE_NAME: namespaces
+:ID:       cb45c93d-2fb6-42ba-83ce-ebee3bf557d0
+:EXPORT_HUGO_WEIGHT: 30
+:END:
+** Namespaces
+#+BEGIN_QUOTE
+[!WARNING]
+*Warning*
+
+This is a more complex topic that can be skipped over for the first time you learn a programming language. It becomes important if you're learning the historical trend of how unmanaged languages are designed which includes especially C, C++, Rust... 
+#+END_QUOTE
+
+Namespaces prevent naming conflict and they categorize different and names (synonymously labels, or =identifiers=).
+
+We generalize [[id:0a2c2cdf-59b3-4a7a-aae5-4fd12e702059][variables]] to introduce the term =identifiers=. A variable is a type of identifier. An identifier syntactic form of a name of a code element like function, variables, classes... In C++ variables without a specified =namespace= is inside the =global namespace=. Standard C does use the term "namespace" but it is a different meaning than C++; =namespace= in C is just a categorization of identifier while =C++ namespaces= can group any identifiers together in a way that a programmer define instead of as mechanic of the compiler.
+#+BEGIN_QUOTE
+[!TIP]
+*Importance*
+
+The concept of name management is important in any programming language to prevent conflict and categorize identifiers. In C++ specifically, we manage this through =namespaces= as the important mechanic where the programmer can group identifiers by themselves. Other more recently made programming languages like Rust, Python, and JavaScript uses =modules=. =Modules= file-scopes identifiers.
+#+END_QUOTE
+** Related
+A related concept is called [[id:571befa3-2db5-4b9f-a728-ac80042a7d5e][scope]] which in many programming languages work in tandem with namespaces to handle identification (looking up things by name).
+* Scope
+:PROPERTIES:
+:EXPORT_FILE_NAME: scope
+:EXPORT_HUGO_WEIGHT: 40
+:ID:       571befa3-2db5-4b9f-a728-ac80042a7d5e
+:END:
+
+Different from [[id:cb45c93d-2fb6-42ba-83ce-ebee3bf557d0][namespaces]], scope rules the declarations the computer can look up at a particular point in the translation unit. Scope does not have anything to do with access control which can deny the usage of a declaration if it's for example =private= or =protected= in programming languages that you can set access control.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Declarations*
+
+A declaration introduces names (which include identifiers or non-identifiers) into a namespace (an existing classification or =arbitrary= grouping defined by a programmer).
+
+By =arbitrary= means it can take up many forms for different purposes.
+#+END_QUOTE
