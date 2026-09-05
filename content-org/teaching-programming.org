@@ -83,7 +83,7 @@ The instructor can best engage the student through first mechanic demonstration.
 
 When mechanic creation is achieved, only then the instructor should go and explain the theory.
 
-An example of this can be seen in the [[id:70236592-b5aa-4c1e-82af-32b726eb9857][first activity of my pixelPAD notes]].
+An example of this can be seen in the @@hugo:[first activity of my pixelPAD notes]({{< relref "/programming/teaching/pixelpad/#activity-creating-a-text-box" >}})@@.
 
 **** Best For Heavy Topics
 The student should prepare by reading the notes before the session. Then regardless of the level of preparation, the student then goes through the teaching notes with the instructor. At the end, the student will do a quiz from the teaching note or implement a small coding exercise.

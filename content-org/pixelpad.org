@@ -3,6 +3,7 @@
 * pixelPAD
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
+:ID:       429f323b-7019-4141-b52f-a9ce10ad346b
 :END:
 ** What is pixelPAD?
 pixelPAD is a closed-source game development platform and education tool, that's free to use.
@@ -11,9 +12,9 @@ pixelPAD is a closed-source game development platform and education tool, that's
 [!NOTE]
 *Resources*
 
-The student should be exposed to the documentation page first before anything. This is located at [[https:pixelpad.io/docs][pixelpad.io/docs]].
+The student should be exposed to the documentation page first before anything. This is located at [[https://pixelpad.io/docs][pixelpad.io/docs]].
 
-There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [[https:pixelpad.io/learn][pixelpad.io/learn]]. Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
+There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [[https://pixelpad.io/learn][pixelpad.io/learn]]. Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
 #+END_QUOTE
 
 #+BEGIN_QUOTE
@@ -27,7 +28,7 @@ This page is intended for both the teacher and the students to read. Activities 
 ** Learning Progression
 #+hugo_paired_shortcodes: %steps
 #+begin_steps
-1. Look over [[https:pixelpad.io/docs][documentation page]] that defines terms of pixelPAD. Do the quiz below.
+1. Look over [[https://pixelpad.io/docs][documentation page]] that defines terms of pixelPAD. Do the quiz below.
 2. Create a text box. In that process learn classes creation, class instantiation of object, the "self" keyword, and reading from the documentation understand a function signature.
 3. Create a sprite by reading from the documentation page.
 4. Begin on a simple but multi-day to long-term project.
@@ -40,7 +41,7 @@ For a 1 hour session, time should be allocated approximately:
 1. Assessment through small coding exercises - 15 minutes
 2. Project supervision, instruction alternating - 45 minutes
 ** Documentation Home Page Quiz
-The quiz was created with the assistance of [[https:openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
+The quiz was created with the assistance of [[https://openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
 *** 1. What programming language does pixelPAD use?
 - A. Java
 - B. Python
@@ -182,14 +183,14 @@ The goal of this activity is to display a text box on the pixelPAD screen.
 - Variables
 - Documentation Referencing
 *** Coach Strategy
-Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc97-e76c0a893ece][best for engagement]] strategy should be used.
+Creation of a text box is heavy in instructions. The @@hugo:[best for engagement]({{< relref "/programming/teaching/teaching-programming/#best-for-engagement" >}})@@ strategy should be used.
 *** Guide and Solution
 #+hugo_paired_shortcodes: %details %steps
 
 #+attr_shortcode: :title Sample activity guide w/ documentation referencing :open true
 #+begin_details
 #+begin_steps
-1. I open up [[https:pixelpad.io/docs][pixelPAD's documentation page]]. I then press "Ctrl+F" to search for "text" or "text box".
+1. I open up [[https://pixelpad.io/docs][pixelPAD's documentation page]]. I then press "Ctrl+F" to search for "text" or "text box".
 2. I take my time to read everything I can find about text and not just finding the correct page specifically about text or creating a text box.
 3. I find the function in the documentation that creates the text box. I note down its name and its required and optional arguments.
 4. I look at the examples.
@@ -216,7 +217,7 @@ Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc9
 #+END_SRC
 #+end_details
 *** Debrief
-Created with assistance of [[https:openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
+Created with assistance of [[https://openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
 **** 1. Which function is used to create a text box in PixelPAD?
 
 - A. =sprite=
@@ -405,12 +406,12 @@ This activity teaches the student how to make a sprite in pixelPAD.
 - Functions
 - Documentation Referencing
 *** Coach Strategy
-Creation of a text box is heavy in instructions. The [[id:a76df337-6cff-4b2c-bc97-e76c0a893ece][best for engagement]] strategy should be used.
+Creation of a text box is heavy in instructions. The @@hugo:[best for engagement]({{< relref "/programming/teaching/teaching-programming/#best-for-engagement" >}})@@ strategy should be used.
 *** Guide and Solution
 #+attr_shortcode: :title Sample activity guide w/ documentation referencing :open true
 #+begin_details
 #+begin_steps
-1. I open up [[https:pixelpad.io/docs][pixelPAD's documentation page]]. I then press "Ctrl+F" to search for "sprite".
+1. I open up [[https://pixelpad.io/docs][pixelPAD's documentation page]]. I then press "Ctrl+F" to search for "sprite".
 2. I take my time to read everything I can find about sprite and not just finding the correct page specifically about creating a sprite.
 3. I find the function in the documentation that creates the sprite. I note down its name and its required and optional arguments.
 4. I look at the examples.
@@ -450,7 +451,7 @@ The word =sprite= or capitalized =Sprite= holds different meanings in the course
 #+END_QUOTE
 #+end_details
 *** Debrief
-Created with assistance of [[https:openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
+Created with assistance of [[https://openai.com/index/gpt-5-6/][OpenAI GPT-5.6]].
 **** 1. What is the purpose of the =Sprite= class in this activity?
 
 - A. To store only the image file.
@@ -649,6 +650,6 @@ A useful process is:
 The goal is to practice learning unfamiliar features from documentation rather than only memorizing the finished code.
 #+end_details
 ** Related
-These beginner concepts reference the [[id:a40e74ff-33e3-4010-a012-a98e8f153172][programming fundamentals roadmap]].
+These beginner concepts reference the @@hugo:[programming fundamentals roadmap]({{< relref "/programming/teaching/programming-fundamentals/#roadmap" >}})@@.
 
-For insights about my teaching approach, check out the [[id:195ebfb2-56a0-4102-9967-3974a46f7a8c][teaching philosophy]].
+For insights about my teaching approach, check out my @@hugo:[teaching philosophy page]({{< relref "/programming/teaching/teaching-programming" >}})@@.

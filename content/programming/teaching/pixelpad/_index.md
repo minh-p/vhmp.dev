@@ -10,9 +10,9 @@ pixelPAD is a closed-source game development platform and education tool, that's
 > [!NOTE]
 > **Resources**
 >
-> The student should be exposed to the documentation page first before anything. This is located at [pixelpad.io/docs](https:pixelpad.io/docs).
+> The student should be exposed to the documentation page first before anything. This is located at [pixelpad.io/docs](https://pixelpad.io/docs).
 >
-> There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [pixelpad.io/learn](https:pixelpad.io/learn). Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
+> There are also tutorials created by the platform that the student can peruse on his/her own time. These are videos located at [pixelpad.io/learn](https://pixelpad.io/learn). Keep in mind the videos might not play if you had an ad-blocker or pop-up blocker enabled.
 
 <!--quoteend-->
 
@@ -30,7 +30,7 @@ This page is intended for both the teacher and the students to read. Activities 
 ## Learning Progression {#learning-progression}
 
 {{% steps %}}
-1.  Look over [documentation page](https:pixelpad.io/docs) that defines terms of pixelPAD. Do the quiz below.
+1.  Look over [documentation page](https://pixelpad.io/docs) that defines terms of pixelPAD. Do the quiz below.
 2.  Create a text box. In that process learn classes creation, class instantiation of object, the "self" keyword, and reading from the documentation understand a function signature.
 3.  Create a sprite by reading from the documentation page.
 4.  Begin on a simple but multi-day to long-term project.
@@ -50,7 +50,7 @@ For a 1 hour session, time should be allocated approximately:
 
 ## Documentation Home Page Quiz {#documentation-home-page-quiz}
 
-The quiz was created with the assistance of [OpenAI GPT-5.6](https:openai.com/index/gpt-5-6/).
+The quiz was created with the assistance of [OpenAI GPT-5.6](https://openai.com/index/gpt-5-6/).
 
 
 ### 1. What programming language does pixelPAD use? {#1-dot-what-programming-language-does-pixelpad-use}
@@ -222,14 +222,14 @@ The goal of this activity is to display a text box on the pixelPAD screen.
 
 ### Coach Strategy {#coach-strategy}
 
-Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "teaching-programming.md#best-for-engagement" >}}) strategy should be used.
+Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "/programming/teaching/teaching-programming/#best-for-engagement" >}}) strategy should be used.
 
 
 ### Guide and Solution {#guide-and-solution}
 
 {{% details title="Sample activity guide w/ documentation referencing" open="true" %}}
 {{% steps %}}
-1.  I open up [pixelPAD's documentation page](https:pixelpad.io/docs). I then press "Ctrl+F" to search for "text" or "text box".
+1.  I open up [pixelPAD's documentation page](https://pixelpad.io/docs). I then press "Ctrl+F" to search for "text" or "text box".
 2.  I take my time to read everything I can find about text and not just finding the correct page specifically about text or creating a text box.
 3.  I find the function in the documentation that creates the text box. I note down its name and its required and optional arguments.
 4.  I look at the examples.
@@ -257,7 +257,7 @@ my_text.color = "#0000FF"
 
 ### Debrief {#debrief}
 
-Created with assistance of [OpenAI GPT-5.6](https:openai.com/index/gpt-5-6/).
+Created with assistance of [OpenAI GPT-5.6](https://openai.com/index/gpt-5-6/).
 
 
 #### 1. Which function is used to create a text box in PixelPAD? {#1-dot-which-function-is-used-to-create-a-text-box-in-pixelpad}
@@ -461,14 +461,14 @@ This activity teaches the student how to make a sprite in pixelPAD.
 
 ### Coach Strategy {#coach-strategy}
 
-Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "teaching-programming.md#best-for-engagement" >}}) strategy should be used.
+Creation of a text box is heavy in instructions. The [best for engagement]({{< relref "/programming/teaching/teaching-programming/#best-for-engagement" >}}) strategy should be used.
 
 
 ### Guide and Solution {#guide-and-solution}
 
 {{% details title="Sample activity guide w/ documentation referencing" open="true" %}}
 {{% steps %}}
-1.  I open up [pixelPAD's documentation page](https:pixelpad.io/docs). I then press "Ctrl+F" to search for "sprite".
+1.  I open up [pixelPAD's documentation page](https://pixelpad.io/docs). I then press "Ctrl+F" to search for "sprite".
 2.  I take my time to read everything I can find about sprite and not just finding the correct page specifically about creating a sprite.
 3.  I find the function in the documentation that creates the sprite. I note down its name and its required and optional arguments.
 4.  I look at the examples.
@@ -507,7 +507,7 @@ variable_holding_object = Sprite()
 
 ### Debrief {#debrief}
 
-Created with assistance of [OpenAI GPT-5.6](https:openai.com/index/gpt-5-6/).
+Created with assistance of [OpenAI GPT-5.6](https://openai.com/index/gpt-5-6/).
 
 
 #### 1. What is the purpose of the `Sprite` class in this activity? {#1-dot-what-is-the-purpose-of-the-sprite-class-in-this-activity}
@@ -712,6 +712,6 @@ The goal is to practice learning unfamiliar features from documentation rather t
 
 ## Related {#related}
 
-These beginner concepts reference the [programming fundamentals roadmap]({{< relref "_index" >}}).
+These beginner concepts reference the [programming fundamentals roadmap]({{< relref "/programming/teaching/programming-fundamentals/#roadmap" >}}).
 
-For insights about my teaching approach, check out the [teaching philosophy]({{< relref "teaching-programming" >}}).
+For insights about my teaching approach, check out my [teaching philosophy page]({{< relref "/programming/teaching/teaching-programming" >}}).

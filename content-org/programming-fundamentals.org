@@ -7,7 +7,7 @@
 :EXPORT_HUGO_WEIGHT: 30
 :ID:       a40e74ff-33e3-4010-a012-a98e8f153172
 :END:
-This page was created with the assistance of [[https:openai.com/index/gpt-5-6][GPT-5.5 Sol]].
+This page was created with the assistance of [[https://openai.com/index/gpt-5-6][GPT-5.6 Sol]].
 ** Roadmap
 This is the roadmap of programming fundamentals taught to my students.
 #+BEGIN_SRC mermaid :exports code
@@ -164,7 +164,7 @@ These behaviors are manageable once someone understands JavaScript, but they are
 :EXPORT_FILE_NAME: values
 :EXPORT_HUGO_WEIGHT: 10
 :END:
-This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.5 Sol]].
+This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.6 Sol]].
 ** Values
 This is the first programming concept that student learns. The prerequisites are omitted. Any difficulty in understanding would come from a lack of vocabulary due to age or the lack of engagement of innate intuition.
 *** Why Values Are the First Thing You Understand
@@ -624,9 +624,9 @@ Computer programs can store values, read values, change values, create new value
 :EXPORT_FILE_NAME: data-types
 :EXPORT_HUGO_WEIGHT: 20
 :END:
-This page was created with the assistance of [[https:openai.com/index/gpt-5-6/][GPT-5.5 Sol]].
+This page was created with the assistance of [[https://openai.com/index/gpt-5-6/][GPT-5.6 Sol]].
 ** Data Types
-After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's likely that you have already [[id:cb76f781-d85f-425e-a165-88080578c1d8][chosen a programming language]].
+After learning [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]] are, it's likely that you have already @@hugo:[chosen a programming language]({{< relref "/programming/teaching/programming-fundamentals/#what-about-the-first-programming-language" >}})@@.
 
 Most general-purpose programming languages share a small set of common basic data types.
 

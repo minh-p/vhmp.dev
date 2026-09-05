@@ -3,7 +3,7 @@ title = "Replit.cpp"
 draft = false
 +++
 
-When a student begins learning C++, I expect that he had developed the discipline of knowing all of the [programming fundamentals]({{< relref "_index" >}}) I have listed. Additionally, they should have some basic experience with Object-Orientated Programming.
+When a student begins learning C++, I expect that he had developed the discipline of knowing all of the [programming fundamentals]({{< relref "/programming/teaching/programming-fundamentals" >}}) I have listed. Additionally, they should have some basic experience with Object-Orientated Programming.
 
 The amount of information that a person has to learn to understand C++ is very extensive. I'll only note down the most important and confusing topic here and note down some activities that would aid in learning C++.
 

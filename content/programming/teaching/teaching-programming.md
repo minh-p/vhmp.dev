@@ -96,7 +96,7 @@ The instructor can best engage the student through first mechanic demonstration.
 
 When mechanic creation is achieved, only then the instructor should go and explain the theory.
 
-An example of this can be seen in the [first activity of my pixelPAD notes]({{< relref "pixelpad.md#creating-a-text-box" >}}).
+An example of this can be seen in the [first activity of my pixelPAD notes]({{< relref "/programming/teaching/pixelpad/#activity-creating-a-text-box" >}}).
 
 
 #### Best For Heavy Topics {#best-for-heavy-topics}

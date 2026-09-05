@@ -4,12 +4,12 @@ draft = false
 weight = 20
 +++
 
-This page was created with the assistance of [GPT-5.5 Sol](https:openai.com/index/gpt-5-6/).
+This page was created with the assistance of [GPT-5.6 Sol](https://openai.com/index/gpt-5-6/).
 
 
 ## Data Types {#data-types}
 
-After learning [values]({{< relref "values" >}}) are, it's likely that you have already [chosen a programming language]({{< relref "programming-fundamentals.md#what-about-the-first-programming-language" >}}).
+After learning [values]({{< relref "values" >}}) are, it's likely that you have already [chosen a programming language]({{< relref "/programming/teaching/programming-fundamentals/#what-about-the-first-programming-language" >}}).
 
 Most general-purpose programming languages share a small set of common basic data types.
 
@@ -21,7 +21,7 @@ Most general-purpose programming languages share a small set of common basic dat
 >
 > An example DSL is CMake which is used to configure build files that create commands to compile code to binaries and link them to become an executable.
 
-Your first language could be dynamically-typed where every [variable's]({{< relref "programming-fundamentals.md#variable" >}}) type must be specified. For dynamically-typed languages, you still need to know the type of every single value you're looking at in your code.
+Your first language could be dynamically-typed where every [variable's]({{< relref "variables" >}}) type must be specified. For dynamically-typed languages, you still need to know the type of every single value you're looking at in your code.
 
 {{% details title="Dynamically-typed languages (string example)" open="true" %}}
 Python, Lua, JavaScript, Lisp...
@@ -172,4 +172,4 @@ bool yes3 = 123;
 ## Related {#related}
 
 -   Data types are how you categorize different kinds of [values]({{< relref "values" >}}).
--   You should also check out [variables]({{< relref "programming-fundamentals.md#variable" >}}).
+-   You should also check out [variables]({{< relref "variables" >}}).

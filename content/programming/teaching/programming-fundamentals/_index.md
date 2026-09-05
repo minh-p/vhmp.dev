@@ -4,7 +4,7 @@ draft = false
 weight = 30
 +++
 
-This page was created with the assistance of [GPT-5.5 Sol](https:openai.com/index/gpt-5-6).
+This page was created with the assistance of [GPT-5.6 Sol](https://openai.com/index/gpt-5-6).
 
 
 ## Roadmap {#roadmap}
