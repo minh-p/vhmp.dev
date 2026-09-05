@@ -284,7 +284,7 @@ my_text = text("Hello There", 0, 0)
 my_text = text("Hello There", 0, 0)
 ```
 
--   A. `text` is a function call.
+-   A. `text(...)` is a function call.
 -   B. `"Hello There"` is the displayed text.
 -   C. `0, 0` specify the position.
 -   D. `my_text` refers to the returned object.

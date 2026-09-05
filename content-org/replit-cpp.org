@@ -1,0 +1,34 @@
+#+hugo_base_dir: ../
+#+hugo_section: programming/teaching/replit-cpp
+* Replit.cpp
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:END:
+
+When a student begins learning C++, I expect that he had developed the discipline of knowing all of the [[id:a40e74ff-33e3-4010-a012-a98e8f153172][programming fundamentals]] I have listed. Additionally, they should have some basic experience with Object-Orientated Programming.
+
+The amount of information that a person has to learn to understand C++ is very extensive. I'll only note down the most important and confusing topic here and note down some activities that would aid in learning C++.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Learning Resource*
+An amazing learning resource is [[https:learncpp.com][learncpp.com]]. Even in my undergraduate class at UC Irvine, we use this material.
+#+END_QUOTE
+** Resources
+Besides learncpp, you can do [[https:leetcode.com/][leetcode]] problems.
+** Project Suggestions
+Some projects I would suggest is:
+1. Creating a Stack class and skim through [[https:learncpp.com][learncpp.com]].
+2. Create a String class and try to reimplement what std::string does.
+3. Learn simple data structures and implement them from scratch.
+4. Learn abstract data types and implement them from scratch.
+* Stack
+:PROPERTIES:
+:EXPORT_FILE_NAME: Stack
+:END:
+** What is a Stack?
+Stack is an abstract data type that collects data.
+The basic operation contract for this project details: O(1) for push, pop, peek.
+The student will decide the backing data structure on his own. Possible options are: singly linked list, dynamic array.
+** Prerequisites
+The student has to know how to write a class that will own a data structure that deals with allocation on the free store or heap. They should obviously know pointers and follow the rule of three. If they wish to implement the move assignment operator or the move constructor then that would be fulfill the move of 5 and make memory more efficient.
