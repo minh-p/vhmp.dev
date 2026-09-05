@@ -144,11 +144,11 @@ JavaScript can be a reasonable first programming language, but it is a poor lang
 #+attr_shortcode: :title Unusual Semantics of JavaScript :open true
 #+begin_details
 #+BEGIN_SRC javascript
-"5" + 1       // "51"
-"5" - 1       // 4
+  "5" + 1       // "51"
+  "5" - 1       // 4
 
-[] == false   // true
-typeof null   // "object"
+  [] == false   // true
+  typeof null   // "object"
 #+END_SRC
 
 These behaviors are manageable once someone understands JavaScript, but they are not rules I particularly want a beginner internalizing while they are still developing their understanding of values, types, and comparison.
@@ -661,6 +661,131 @@ C, C++, Rust, Java...
   // Variable message holds a value whose data type is an array of characters (string).
 #+END_SRC
 #+end_details
+*** About "Primitive" Data Types
+Here are some common basic data types. Another familiar term for basic data type is primitive though across languages whether something is a primitive data type varies.
+
+#+hugo_paired_shortcodes: tabs %tab
+
+#+BEGIN_QUOTE
+[!TIP]
+*Primitive In C/C++ vs. Python*
+
+People might consider the data type =string= as a primitive data type in Python. In C/C++ we atomize this down further to character (we don't have an explicit type called character in Python).
+#+END_QUOTE
+
+Here's an example of how strings can be regarded as "primitive" in Python but not in C/C++.
+
+#+begin_tabs
+#+attr_shortcode: "C/C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+  char a[] = "I'm an array of characters";
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "Python"
+#+begin_tab
+#+BEGIN_SRC python
+  a = "I'm a string but my individual character are still 'strings'"
+#+END_SRC
+#+end_tab
+#+end_tabs
+*** Numbers
+A computer is able to handle different types of numbers. Any general-purpose programming language should be able to handle integers and decimals. In an unmanaged language, there are data types available depending on how much memory is needed to be reserved for a certain number.
+
+#+BEGIN_QUOTE
+[!TIP]
+*Unmanaged Languages*
+
+Examples of unmanaged language include C/C++, Rust... These languages require you to manage memory yourself. They are often statically-typed.
+#+END_QUOTE
+**** Integers
+I would define these as non-decimal numbers. A typical integer can represent negative numbers as well. If an unmanaged language you can have different data types that can represent a varying ranges of numbers.
+
+In C++, a standard =int= takes up about 4 bytes (32 bits) of memory. The range of numbers the =int= data type can represent is
+#+BEGIN_SRC katex
+  -2,147,483,648 ~\mathrm{to}~ 2,147,483,647 \approx \pm 2 \times 10^9
+#+END_SRC
+
+What if you want to only have positive numbers? Well, you can use =unsigned int= in an unmanaged language like C/C++. First you don't need to reserve a bit that says whether a number is positive or negative. Second, the highest positive number you can now represent is twice that of the =int=. The maximum range of values are now
+
+#+BEGIN_SRC katex
+  0 ~\mathrm{to}~ 4,294,967,295 \approx 4 \times 10^9
+#+END_SRC
+**** Decimals
+Decimal numbers are defined as numbers that have a fractional part behind it. In the United States we are part of the majority that use the dot as our separator between the whole and fractional part.
+
+Ten-Thousand =Comma/Dot= Two-Hundred and Six
+#+begin_tabs
+
+#+attr_shortcode: "Decimal Period"
+#+begin_tab
+10,000.256
+#+end_tab
+
+#+attr_shortcode: "Decimal Comma"
+#+begin_tab
+10.000,256
+#+end_tab
+#+end_tabs
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Dot or Comma*? (TRIVIA)
+
+In much of European countries and their former colonies (e.g. Vietnam and France), =,= is used as the separator between whole and fractional part while =.= is used as the separator between different orders of whole numbers.
+
+In 1958, during the creation of the programming language ALGOL, there was a heavy dispute regarding the type of decimal system that must be used. The programming language releases accounted for regional difference in the number system. This was famous historical *deadlock* where neither side of the ALGOL committee (Americans vs. Europeans) yielded.
+
+Nowadays most standard programming language uses the period decimal.
+#+END_QUOTE
+
+In C/C++, the two most utilized data types for decimal numbers are =double= and =float=.
+***** Float vs. Double
+The basic idea is that a =float= represents decimal numbers but a =float= can represent decimal numbers that are twice as big. The more digits the a number has (more so the fractional part), the more memory is needed to represent the number.
+
+#+BEGIN_QUOTE
+[!DANGER]
+*Data Type Names Can Vary*
+
+This distinction is not absolute for all programming languages. For example in Python, the data type =float= is implemented as a =double= in size.
+#+END_QUOTE
+*** Characters and Strings
+Unmanaged languages most likely have the data type for a single character, usually called =char=. Computers are dumb so they don't really understand any other symbols than binary representations of numbers.
+
+In an unmanaged language like C/C++ or Rust, you are able to see that the data type =char= actually only stores number. The =char= becomes a number when a compiler is tasked to read from the translation unit and convert the character to a number according to the [[https:www.ascii-code.com][ASCII chart]].
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Translation Unit*
+
+In an unmanaged language, a translation unit is the collection of source code packaged together and processed by the compiler. In C/C++ this can be a single source file. For Rust, its fundamental translation unit is a crate.
+#+END_QUOTE
+
+#+attr_html: :filename C/C++
+#+BEGIN_SRC cpp
+  // These two lines of code are valid.
+  char a = 'a';
+  char b = 98;
+#+END_SRC
+
+What about a =string=? A string is simply a sequence/array/collection of characters. Almost all managed data-type include a built-in data type for =string=.
+*** Booleans
+This allows you to express a binary (yes/no) decision. Boolean data-types can be =bool=, =boolean=...
+
+Like characters, internally booleans are numbers. In C, a =bool= is true when it holds the number 0 for =false= and 1 or any non-zero number for =true=.
+
+#+attr_html: :filename C/C++
+#+BEGIN_SRC cpp
+  bool no = false;
+  bool no2 = 0;
+  bool yes = true;
+  bool yes2 = 1;
+  bool yes3 = 123;
+#+END_SRC
+** Related
+- Data types are how you categorize different kinds of [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]].
+- You should also check out [[id:0a2c2cdf-59b3-4a7a-aae5-4fd12e702059][variables]].
 * Variable
 :PROPERTIES:
 :ID:       0a2c2cdf-59b3-4a7a-aae5-4fd12e702059
