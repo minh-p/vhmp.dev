@@ -21,17 +21,17 @@ flowchart TB
 
     subgraph R2[" "]
         direction RL
-        F["Input"] --> G["Output"] --> H["Booleans"] --> I["Comparisons"] --> J["Conditionals"]
+        P["Functions"] --> Q["Parameters"] --> R["Arguments"] --> S["Return Values"] --> T["Scope"]
     end
 
     subgraph R3[" "]
         direction LR
-        K["Loops"] --> L["Strings"] --> M["Lists / Arrays"] --> N["Indexing"] --> O["Maps / Dictionaries"]
+        F["Input"] --> G["Output"] --> H["Booleans"] --> I["Comparisons"] --> J["Conditionals"]
     end
 
     subgraph R4[" "]
         direction RL
-        P["Functions"] --> Q["Parameters"] --> R["Arguments"] --> S["Return Values"] --> T["Scope"]
+        K["Loops"] --> L["Strings"] --> M["Lists / Arrays"] --> N["Indexing"] --> O["Maps / Dictionaries"]
     end
 
     subgraph R5[" "]
