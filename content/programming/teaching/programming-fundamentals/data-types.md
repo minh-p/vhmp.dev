@@ -42,14 +42,14 @@ char message[] = "hello";
 {{% /details %}}
 
 
-### About "Primitive" Data Types {#about-primitive-data-types}
+### Basic Data Types {#basic-data-types}
 
-Here are some common basic data types. Another familiar term for basic data type is primitive though across languages whether something is a primitive data type varies.
+This page will detail out 3-4 very common basic data types. Another familiar term for basic data type is called a `primitive` data type though across languages whether something is a primitive data type varies.
 
 > [!TIP]
 > **Primitive In C/C++ vs. Python**
 >
-> People might consider the data type `string` as a primitive data type in Python. In C/C++ we atomize this down further to character (we don't have an explicit type called character in Python).
+> People might consider the data type `string` as a primitive data type in Python. In C/C++ we atomize this down further more down to characters (we don't have an explicit type called character in Python).
 
 Here's an example of how strings can be regarded as "primitive" in Python but not in C/C++.
 
