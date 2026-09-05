@@ -1,7 +1,7 @@
 +++
 title = "Namespaces"
 draft = false
-weight = 30
+weight = 40
 +++
 
 ## Namespaces {#namespaces}

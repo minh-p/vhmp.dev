@@ -884,7 +884,7 @@ Variables are automatically block-scoped or scoped to the file as a global.
 :PROPERTIES:
 :EXPORT_FILE_NAME: namespaces
 :ID:       cb45c93d-2fb6-42ba-83ce-ebee3bf557d0
-:EXPORT_HUGO_WEIGHT: 30
+:EXPORT_HUGO_WEIGHT: 40
 :END:
 ** Namespaces
 #+BEGIN_QUOTE
@@ -908,7 +908,6 @@ A related concept is called [[id:571befa3-2db5-4b9f-a728-ac80042a7d5e][scope]] w
 * Scope
 :PROPERTIES:
 :EXPORT_FILE_NAME: scope
-:EXPORT_HUGO_WEIGHT: 40
 :ID:       571befa3-2db5-4b9f-a728-ac80042a7d5e
 :END:
 
