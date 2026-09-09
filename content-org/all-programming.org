@@ -3,6 +3,7 @@
 * Programming
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_WEIGHT: 20
 :END:
 I mainly currently write beginner tutorials for students at /[[https://www.thecoderschool.com/locations/irvine/][The Coder School, Irvine]]/.
 
@@ -23,6 +24,7 @@ Notes
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_SECTION: programming/teaching
+:EXPORT_HUGO_WEIGHT: 20
 :END:
 ** What Matters
 When it comes to teaching programming, I'm more concerned about the philosophy and effectiveness of teaching. This focus becomes paramount especially when it comes to teaching kids programming. Professionally, I am focused on balancing fun and understanding of the materials.
@@ -43,5 +45,6 @@ Philosophy
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_SECTION: programming/notes
+:EXPORT_HUGO_WEIGHT: 10
 :END:
 Here are topics that I'm currently learning.

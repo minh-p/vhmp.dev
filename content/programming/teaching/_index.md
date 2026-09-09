@@ -1,6 +1,7 @@
 +++
 title = "Teaching"
 draft = false
+weight = 20
 +++
 
 ## What Matters {#what-matters}

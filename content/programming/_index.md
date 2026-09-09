@@ -1,6 +1,7 @@
 +++
 title = "Programming"
 draft = false
+weight = 20
 +++
 
 I mainly currently write beginner tutorials for students at _[The Coder School, Irvine](https://www.thecoderschool.com/locations/irvine/)_.
