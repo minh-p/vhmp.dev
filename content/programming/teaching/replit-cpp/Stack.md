@@ -93,7 +93,7 @@ Next, we are going to create the translation units needed for this project. In C
 REPLIT uses Bash for its shell which is a shell derived from the POSIX standard. We're going to create an `sh` file called `compile.sh` in the project root.
 
 ```sh { filename="compile.sh" }
-g++ main.cpp stack.cpp -o main
+g++ -fsanitize=address,undefined main.cpp stack.cpp -o main
 ```
 
 To run the shell file, type this on the command line:
@@ -334,3 +334,118 @@ Stack& Stack::operator=(const Stack& other) {
 > What's wrong about this condition? What is the correct condition instead?
 >
 > **Hint:** Are you comparing values for equivalence or memory addresses for equality?
+
+
+## 6. Implement Member Functions {#6-dot-implement-member-functions}
+
+There are three important member functions: `push`, `pop`, and `resize`. The first two should be public and the last one should be private.
+
+> [!TIP]
+> **`resize` should be private**
+>
+> We're making the Stack abstract data type which shouldn't expose how memory is managed internally to the its users. This means that member function or static helper we implement shouldn't be accessible to the users.
+
+
+### Push {#push}
+
+Following our Stack abstract data type contract, the push function should add an integer to the top of the stack. There should be a conditional that call the `resize` function when necessary. Here's the declaration of the `push` function:
+
+`````cpp { filename="Stack.hpp" }
+class Stack {
+private:
+    // ...
+    void resize();
+public:
+    // ...
+    void push(int newNum);
+};
+`````
+
+We're not implementing the `resize` function yet though you could do this after you implement the `resize` function.
+
+{{% details title="Solution - Push" %}}
+`````cpp { filename="Stack.cpp" }
+void Stack::push(int newNum) {
+    if (length + 1 > size) {
+        // resize();
+    }
+    data[length++] = newNum;
+}
+`````
+{{% /details %}}
+
+> [!NOTE]
+> **Is `data` an array or pointer?** - Supplemental question
+>
+> Our `Stack` class declares `data` as a pointer that points to the heap-allocated raw array that holds the integers. Holding an entire array is expensive so we only store the address of the first item while keeping track of the capacity of the array manually. If we don't keep track of the capacity, we'll encounter trouble in runtime as we'll get an `undefined memory error` as a side effect since the computer program is going to access a part of a computer's memory it's not supposed to. What you'll see in this exercise is similar to the concept of `array decay` in C++. Remember that the content of this website is not enough to learn the entirety of C++ so do some extra research!
+
+<!--quoteend-->
+
+> [!NOTE]
+> `operator[](int index)` **of** `data`, **pointer arithmetic**
+>
+> This operator dereferences the value in the next contiguous bit step. Remember that heap-allocated arrays are contiguous in memory so the next element can be access by **incrementing** the pointer by `index`. This is what `operator[]` does behind the scene.
+
+
+### Pop {#pop}
+
+When we're popping a value from the stack, we do not ever resize the array so we there's one less slot. Remember that every time you're resizing, you're allocating a new heap-allocated new array. So the size of every heap allocated array is immutable.
+
+Instead, we're simply disregarding logically the value at the back of the array by reducing the number that stands for logical length.
+
+> [!NOTE]
+> **Implement From Prose** - A Skill You Need to Develop (Advice)
+>
+> As you develop your competency in programming further, you'll be demanded to implement certain features purely its paragraph description. So struggle with this before looking at the solution. You should only look at the solution when an arbitrary deadline is missed. This is also why again time-management is so important in programming and it decides whether you actually learn any material in a class.
+
+Here's what you should have for the declaration of `pop`.
+
+`````cpp { filename="Stack.hpp" }
+class Stack {
+    // ...
+    int pop();
+    // ...
+};
+`````
+
+{{% details title="Solution - Pop" %}}
+`````cpp { filename="Stack.cpp" }
+int Stack::pop() {
+    return data[length--];
+}
+`````
+{{% /details %}}
+
+
+### Resize {#resize}
+
+The size of a raw heap-allocated array is immutable. Every time you resize, you are creating a new heap-allocated array and copying over from the old array. This is also the behavior of `std::vector` which is the abstract data type used serving as the data structure for `std::stack` by default.
+
+`````cpp { filename="Stack.hpp" }
+class Stack {
+private:
+    int *data;
+    void resize();
+};
+`````
+
+{{% details title="Hints" %}}
+Allocate a new array of larger size than the old array. Copy integers from the old array over to the new array using a for-loop. Then, delete the old array. Lastly, assign the new array's first member address to the data member pointer `data`.
+{{% /details %}}
+
+{{% details title="Solution - Resize" %}}
+`````cpp { filename="Stack.cpp" }
+void Stack::resize() {
+    // Resizing by factor 2
+    int *new_array = new int[size * 2];
+    // This is not direct initialization
+    // For learning sake, we're gonna just
+    // make do with this for simplicity
+    for (int i = 0; i < length; ++i) {
+        new_array[i] = data[i];
+    }
+    delete[] data;
+    data = new_array;
+ }
+`````
+{{% /details %}}
