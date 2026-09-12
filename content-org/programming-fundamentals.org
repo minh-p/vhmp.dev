@@ -787,6 +787,355 @@ Like characters, internally booleans are numbers. In C, a =bool= is true when it
   bool yes2 = 1;
   bool yes3 = 123;
 #+END_SRC
+```org
+*** Debrief
+This quiz checks your understanding of basic data types, including integers, floating-point numbers, characters, strings, and booleans.
+
+#+hugo_paired_shortcodes: %details
+
+**** 1. What is the main purpose of a data type?
+A. To categorize different kinds of values
+B. To give every variable a unique name
+C. To determine which operating system runs the program
+D. To determine how long a program is
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. To categorize different kinds of values*
+
+A data type describes what kind of value something is, such as an integer, string, or Boolean.
+#+end_details
+
+**** 2. Which of the following are common basic data types? (Mark all that apply.)
+A. Boolean
+B. Integer
+C. String
+D. Window
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, and C*
+
+Booleans, integers, and strings are common basic data types or basic value categories across many programming languages.
+
+A window is normally an object provided by a graphical user interface library, not a primitive/basic data type.
+#+end_details
+
+**** 3. Which value is an integer?
+A. =3.14=
+B. ="17"=
+C. =-17=
+D. =true=
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*C. =-17=*
+
+Integers are whole numbers without a fractional part. Integers can also be negative.
+#+end_details
+
+**** 4. Which value would normally require a floating-point data type?
+A. =42=
+B. =12.75=
+C. ="12.75"=
+D. =false=
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =12.75=*
+
+The value contains a fractional part, so it would normally be represented using a floating-point data type.
+#+end_details
+
+**** 5. What is the most important difference between a signed and unsigned integer?
+A. Unsigned integers cannot represent negative numbers
+B. Signed integers cannot represent positive numbers
+C. Unsigned integers can only contain =0= or =1=
+D. Signed integers always require twice as much memory
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Unsigned integers cannot represent negative numbers*
+
+An unsigned integer uses its available values for zero and positive numbers.
+#+end_details
+
+**** 6. A 32-bit unsigned integer can represent approximately what maximum value?
+A. 255
+B. 65 thousand
+C. 2 billion
+D. 4 billion
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*D. 4 billion*
+
+A 32-bit unsigned integer typically has a range of
+
+#+BEGIN_SRC katex
+0 ~\mathrm{to}~ 4,294,967,295
+#+END_SRC
+#+end_details
+
+**** 7. Which statements about floating-point numbers are true? (Mark all that apply.)
+A. They can represent values with fractional parts
+B. A =double= normally provides more precision than a =float= in C/C++
+C. They can only represent positive numbers
+D. Different languages may use the names =float= and =double= differently
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, and D*
+
+Floating-point numbers can contain fractional parts.
+
+In C/C++, =double= normally provides greater precision than =float=.
+
+Different programming languages may use these type names differently. For example, Python's =float= is generally implemented using double-precision floating point.
+#+end_details
+
+**** 8. Consider the following C++ code.
+
+#+attr_html: :filename C++
+#+BEGIN_SRC cpp
+char letter = 'A';
+#+END_SRC
+
+What kind of value is =letter= intended to represent?
+
+A. Integer
+B. Character
+C. String
+D. Boolean
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Character*
+
+The =char= type is commonly used to represent a single character.
+#+end_details
+
+**** 9. Why can this C++ code be valid?
+
+#+attr_html: :filename C++
+#+BEGIN_SRC cpp
+char letter = 65;
+#+END_SRC
+
+A. Characters are associated with numeric character codes
+B. Every integer is automatically a string
+C. =65= is literally stored as the letter =A= in the source file
+D. C++ ignores the assigned number
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Characters are associated with numeric character codes*
+
+Characters are internally represented using numbers according to a character encoding.
+
+For example, in ASCII the value =65= represents uppercase =A=.
+#+end_details
+
+**** 10. What best describes a string?
+A. A single character
+B. A sequence of characters
+C. A number with a fractional part
+D. A true-or-false value
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. A sequence of characters*
+
+A string represents a sequence or collection of characters, such as ="hello"=.
+#+end_details
+
+**** 11. Which of the following are strings in Python? (Mark all that apply.)
+
+#+attr_html: :filename Python
+#+BEGIN_SRC python
+a = "hello"
+b = "A"
+c = 42
+d = "42"
+#+END_SRC
+
+A. =a=
+B. =b=
+C. =c=
+D. =d=
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, and D*
+
+All values enclosed in quotation marks are strings here.
+
+Even ="A"= is a string in Python. Python does not have a separate =char= type like C or C++.
+
+=42= without quotation marks is an integer.
+#+end_details
+
+**** 12. Consider these two Python values.
+
+#+attr_html: :filename Python
+#+BEGIN_SRC python
+a = 42
+b = "42"
+#+END_SRC
+
+What is the difference between them?
+
+A. There is no difference
+B. =a= is an integer while =b= is a string
+C. =a= is a string while =b= is an integer
+D. Both are floating-point numbers
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =a= is an integer while =b= is a string*
+
+Quotation marks matter.
+
+=42= represents a number.
+
+="42"= represents two characters: =4= followed by =2=.
+#+end_details
+
+**** 13. A game needs to store how many lives the player has remaining. Which type is most appropriate?
+A. Boolean
+B. Integer
+C. String
+D. Character
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Integer*
+
+The number of lives is a whole-number count such as =0=, =1=, =2=, or =3=.
+#+end_details
+
+**** 14. A game needs to store whether a door is currently locked. Which type is most appropriate?
+A. Boolean
+B. Integer
+C. String
+D. Floating-point number
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Boolean*
+
+The door has two relevant states:
+
+- Locked
+- Not locked
+
+That makes a Boolean a natural choice.
+#+end_details
+
+**** 15. Which of the following situations would most naturally use a Boolean? (Mark all that apply.)
+A. Whether the player is alive
+B. The player's username
+C. Whether an enemy has detected the player
+D. The player's exact position on the map
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A and C*
+
+Both describe two-way conditions.
+
+The player is either alive or not alive.
+
+The enemy has either detected the player or has not detected the player.
+#+end_details
+
+**** 16. What kind of information does a Boolean primarily represent?
+A. A sequence of characters
+B. A whole number
+C. A binary condition
+D. A decimal number
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*C. A binary condition*
+
+A Boolean represents two possible logical states, usually written as =true= and =false=.
+#+end_details
+
+**** 17. Consider the following C++ code.
+
+#+attr_html: :filename C++
+#+BEGIN_SRC cpp
+bool value = 123;
+#+END_SRC
+
+What will =value= become when =123= is converted to a Boolean?
+A. =false=
+B. =true=
+C. ="123"=
+D. The program must fail to compile
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =true=*
+
+When an integer is converted to =bool= in C++, zero becomes =false= and a nonzero value becomes =true=.
+
+Since =123= is nonzero, it becomes =true=.
+#+end_details
+
+**** 18. Which statement about data types across programming languages is most accurate?
+A. Every programming language has exactly the same types
+B. Type names and implementations can differ between languages
+C. Only statically-typed languages have data types
+D. Only compiled languages have data types
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Type names and implementations can differ between languages*
+
+Many languages share similar concepts such as integers, strings, and Booleans, but their exact type systems and representations can differ.
+#+end_details
+
+**** 19. Why do data types still matter in a dynamically-typed language such as Python?
+A. Variables must explicitly declare their type
+B. Values still have types even when the variable does not specify one
+C. Python does not actually have data types
+D. Types only matter when the program is compiled
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Values still have types even when the variable does not specify one*
+
+For example:
+
+#+attr_html: :filename Python
+#+BEGIN_SRC python
+value = 10
+#+END_SRC
+
+You did not explicitly declare =value= as an integer variable, but the value =10= still has the type =int=.
+#+end_details
+
+**** 20. Which statement best summarizes the relationship between values and data types?
+A. Data types categorize different kinds of values
+B. Values categorize different kinds of variables
+C. Every value must be a string
+D. Values only have types in C/C++
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Data types categorize different kinds of values*
+
+For example:
+
+- =42= → integer
+- =3.14= → floating-point number
+- ="hello"= → string
+- =true= → Boolean
+
+The data type tells us what kind of value we are working with.
+#+end_details
 ** Related
 - Data types are how you categorize different kinds of [[id:056c6d7d-cda0-49c0-8391-ae1f0e8fb669][values]].
 - You should also check out [[id:0a2c2cdf-59b3-4a7a-aae5-4fd12e702059][variables]].
@@ -880,6 +1229,747 @@ Variables are automatically block-scoped or scoped to the file as a global.
 #+end_tab
 
 #+end_tabs
+*** Debrief
+This quiz checks your understanding of variables, assignment, initialization, scope, and how variables behave across different programming languages.
+
+Questions are ordered approximately from easiest to hardest.
+
+#+hugo_paired_shortcodes: %details
+#+hugo_paired_shortcodes: tabs %tab
+
+**** 1. What is the main purpose of a variable?
+A. To track or refer to a value
+B. To permanently store an entire program
+C. To determine which operating system is running
+D. To automatically print values
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. To track or refer to a value*
+
+A variable gives a program a way to keep track of a value so that the value can be used or changed later.
+#+end_details
+
+**** 2. Which statement best describes assignment?
+A. Giving a value to a variable
+B. Creating a new programming language
+C. Printing a variable
+D. Removing the variable from the program
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Giving a value to a variable*
+
+Assignment associates a value with a variable.
+#+end_details
+
+**** 3. After the second assignment, what value does =score= refer to?
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+score = 10
+score = 20
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+score = 10
+score = 20
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+let score = 10
+score = 20
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+int score = 10;
+score = 20;
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. =10=
+B. =20=
+C. =30=
+D. Both =10= and =20=
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =20=*
+
+The second assignment changes the value associated with =score=.
+
+Although the syntax differs between languages, the general idea of reassignment is the same.
+#+end_details
+
+**** 4. Which word describes giving a variable its first value when it is created?
+A. Iteration
+B. Initialization
+C. Comparison
+D. Invocation
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Initialization*
+
+Initialization gives a variable its initial value when the variable is created.
+#+end_details
+
+**** 5. In each example, what is the initial value of =score=?
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+local score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+let score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+int score = 10;
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. =0=
+B. =1=
+C. =10=
+D. The variable has no value
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*C. =10=*
+
+In every example, =score= begins with the value =10=.
+
+The syntax used to create the variable differs, but the general concept is the same.
+#+end_details
+
+**** 6. What does the scope of a variable determine?
+A. Its exact numerical value
+B. Where its name can be used in the program
+C. How quickly it changes
+D. What operating system the program requires
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Where its name can be used in the program*
+
+Scope determines where a variable's name is visible and accessible.
+#+end_details
+
+**** 7. What best describes a local variable?
+A. A variable available everywhere in the program
+B. A variable restricted to some particular scope
+C. A variable that can only contain integers
+D. A variable stored on another computer
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. A variable restricted to some particular scope*
+
+A local variable is available only within some limited region of a program, such as a function or block.
+#+end_details
+
+**** 8. What best describes a global variable?
+A. A variable declared in a broad program scope
+B. A variable that can only contain strings
+C. A variable that cannot change
+D. A variable that only exists inside a loop
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. A variable declared in a broad program scope*
+
+A global variable has a broader scope than a local variable and can often be accessed from multiple parts of a program.
+#+end_details
+
+**** 9. Which statements about variables are true? (Mark all that apply.)
+A. Variables can keep track of values
+B. Variables can often be assigned new values
+C. Variables can exist in different scopes
+D. Every variable must be global
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, and C*
+
+Variables can track values, can often be reassigned, and can exist in different scopes.
+
+Not every variable is global.
+#+end_details
+
+**** 10. In each example, which variable is local to the function?
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+outside = 10
+
+def foo():
+    inside = 20
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+outside = 10
+
+function foo()
+    local inside = 20
+end
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+let outside = 10
+
+function foo() {
+    let inside = 20
+}
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+int outside = 10;
+
+void foo() {
+    int inside = 20;
+}
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. =outside=
+B. =inside=
+C. Both variables
+D. Neither variable
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =inside=*
+
+In each example, =inside= is created inside the function and belongs to that function's local scope.
+
+=outside= is declared outside the function.
+#+end_details
+
+**** 11. What should happen if code tries to access the local variable after leaving its scope?
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+def foo():
+    inside = 20
+
+foo()
+print(inside)
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+function foo()
+    local inside = 20
+end
+
+foo()
+print(inside)
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+function foo() {
+    let inside = 20
+}
+
+foo()
+console.log(inside)
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+void foo() {
+    int inside = 20;
+}
+
+int main() {
+    foo();
+    // inside cannot be named here
+}
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. The local variable automatically becomes global
+B. The local variable is not accessible through that local name
+C. The variable always becomes =0=
+D. The variable becomes a string
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. The local variable is not accessible through that local name*
+
+The exact result differs between languages.
+
+Python and JavaScript will report an error when that nonexistent name is accessed.
+
+Lua commonly looks for a global named =inside= and produces =nil= if none exists.
+
+In C++, using =inside= there would fail during compilation because the name is outside its scope.
+#+end_details
+
+**** 12. Which of the following can affect scope? (Mark all that apply.)
+A. Functions
+B. Blocks
+C. Loops
+D. Conditional statements
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, C, and D*
+
+Depending on the language, functions, blocks, loops, and conditional statements can introduce or affect scopes.
+
+The exact rules differ between languages.
+#+end_details
+
+**** 13. What is one major difference between dynamically-typed and statically-typed languages?
+A. Dynamically-typed languages do not have data types
+B. Statically-typed languages determine variable types statically
+C. Statically-typed languages cannot use strings
+D. Dynamically-typed languages cannot use functions
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Statically-typed languages determine variable types statically*
+
+A dynamically-typed language associates types with values at runtime.
+
+A statically-typed language determines types as part of static analysis, usually before the program runs.
+#+end_details
+
+**** 14. Which tabs contain dynamically-typed languages? (Mark all that apply.)
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+let score = 10
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+int score = 10;
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. Python
+B. Lua
+C. JavaScript
+D. C++
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A, B, and C*
+
+Python, Lua, and JavaScript are dynamically typed.
+
+C++ is statically typed.
+#+end_details
+
+**** 15. In each example, what value will =number= have after =change()= is called?
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+number = 10
+
+def change():
+    global number
+    number = 20
+
+change()
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+number = 10
+
+function change()
+    number = 20
+end
+
+change()
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC javascript
+let number = 10
+
+function change() {
+    number = 20
+}
+
+change()
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+int number = 10;
+
+void change() {
+    number = 20;
+}
+
+int main() {
+    change();
+}
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+A. =10=
+B. =20=
+C. =30=
+D. The variable disappears
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =20=*
+
+In each example, the function modifies a variable declared outside the function.
+
+The syntax and lookup rules differ between languages, but the resulting value is =20= in all four examples.
+#+end_details
+
+**** 16. =Python= What does the =global= statement do?
+
+#+BEGIN_SRC python
+global number
+#+END_SRC
+
+A. Converts =number= into an integer
+B. Tells Python that assignments should refer to the global binding
+C. Makes =number= constant
+D. Creates a new function
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Tells Python that assignments should refer to the global binding*
+
+Inside a function, assigning to a name normally makes that name local unless Python is told otherwise.
+
+=global number= tells Python that assignments to =number= refer to the global binding.
+#+end_details
+
+**** 17. =Lua= What does =local= do in this declaration?
+
+#+BEGIN_SRC lua
+local score = 10
+#+END_SRC
+
+A. Makes =score= global
+B. Creates =score= in a local scope
+C. Makes =score= constant
+D. Changes =score= into a string
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. Creates =score= in a local scope*
+
+Lua uses the =local= keyword to create a local variable.
+
+Without =local=, assignment to a previously undeclared name commonly refers to a global.
+#+end_details
+
+**** 18. =JavaScript= Consider the following code.
+
+#+BEGIN_SRC javascript
+if (true) {
+    let score = 10
+}
+
+console.log(score)
+#+END_SRC
+
+What happens?
+
+A. It prints =10=
+B. It prints =true=
+C. Accessing =score= outside the block causes an error
+D. =score= becomes global
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*C. Accessing =score= outside the block causes an error*
+
+=let= is block-scoped.
+
+The variable exists within the surrounding ={ ... }= block and cannot be accessed using that name afterward.
+#+end_details
+
+**** 19. =JavaScript= Why can =score= be accessed after the =if= block here?
+
+#+BEGIN_SRC javascript
+function foo() {
+    if (true) {
+        var score = 10
+    }
+
+    console.log(score)
+}
+#+END_SRC
+
+A. =var= is function-scoped
+B. Every JavaScript variable is global
+C. =if= statements do not create blocks
+D. Numbers ignore scope
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. =var= is function-scoped*
+
+A declaration using =var= belongs to the surrounding function scope rather than the smaller =if= block.
+
+This differs from =let=.
+#+end_details
+
+**** 20. =C++= Which description of this statement is most accurate?
+
+#+BEGIN_SRC cpp
+int score = 10;
+#+END_SRC
+
+A. =score= is declared as an =int= and initialized with =10=
+B. =score= is assigned without being declared
+C. =10= is the variable
+D. The statement gives =score= no value
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. =score= is declared as an =int= and initialized with =10=*
+
+=int= specifies the type.
+
+=score= is the variable's name.
+
+=10= is its initial value.
+#+end_details
+
+**** 21. =C++= What is the important difference between these two cases?
+
+#+BEGIN_SRC cpp
+int a = 10;
+
+int b;
+b = 10;
+#+END_SRC
+
+A. There is no conceptual difference
+B. =a= is initialized with =10=, while =b= is defined first and assigned =10= afterward
+C. =a= is global and =b= is local
+D. =b= is initialized twice
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =a= is initialized with =10=, while =b= is defined first and assigned =10= afterward*
+
+These are different operations.
+
+#+BEGIN_SRC cpp
+int a = 10;
+#+END_SRC
+
+creates =a= with its initial value.
+
+#+BEGIN_SRC cpp
+int b;
+b = 10;
+#+END_SRC
+
+first defines =b= and then performs assignment.
+#+end_details
+
+**** 22. =C++= What happens in this code?
+
+#+BEGIN_SRC cpp
+int score = 10;
+
+{
+    int score = 20;
+}
+#+END_SRC
+
+A. The second declaration permanently replaces the first variable
+B. The inner =score= is a separate variable that shadows the outer =score=
+C. C++ forbids two variables with the same name anywhere
+D. Both declarations name the same object
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. The inner =score= is a separate variable that shadows the outer =score=*
+
+Inside the inner block, the name =score= refers to the variable initialized with =20=.
+
+After leaving that block, the outer =score= becomes visible again.
+#+end_details
+
+**** 23. =C++= What is the value of =value= afterward?
+
+#+BEGIN_SRC cpp
+int value = 10;
+int& reference = value;
+
+reference = 20;
+#+END_SRC
+
+A. =10=
+B. =20=
+C. =0=
+D. Undefined
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =20=*
+
+=reference= is a reference to =value=.
+
+Assigning through the reference modifies the original object.
+#+end_details
+
+**** 24. =C++= What is the value of =value= afterward?
+
+#+BEGIN_SRC cpp
+int value = 10;
+int* pointer = &value;
+
+*pointer = 30;
+#+END_SRC
+
+A. =10=
+B. =20=
+C. =30=
+D. The pointer modifies only a copy
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*C. =30=*
+
+=&value= obtains the address of =value=.
+
+=pointer= stores that address.
+
+Dereferencing the pointer with =*pointer= accesses the original object, so assigning =30= changes =value=.
+#+end_details
+
+**** 25. =C++= Why is this code dangerous?
+
+#+BEGIN_SRC cpp
+int* getNumber() {
+    int value = 10;
+    return &value;
+}
+#+END_SRC
+
+A. Integers cannot be used inside functions
+B. =value='s lifetime ends when the function returns
+C. Pointers cannot point to integers
+D. Local variables automatically become global
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*B. =value='s lifetime ends when the function returns*
+
+=value= is a local object with automatic storage duration.
+
+When =getNumber()= returns, =value= is destroyed.
+
+The returned pointer therefore points to an object that no longer exists.
+
+This is called a *dangling pointer*.
+#+end_details
+
+**** 26. =C++= Which statement best distinguishes scope from lifetime?
+A. Scope concerns where a name can be used; lifetime concerns when an object exists
+B. Scope and lifetime always mean exactly the same thing
+C. Scope determines an object's data type
+D. Lifetime only applies to dynamically allocated objects
+
+#+attr_shortcode: :title Show Answer
+#+begin_details
+*A. Scope concerns where a name can be used; lifetime concerns when an object exists*
+
+*Scope* concerns the visibility of a name in source code.
+
+*Lifetime* concerns the period during execution in which an object exists.
+
+These concepts become particularly important when working with references, pointers, dynamic allocation, and object ownership.
+#+end_details
+
 * Namespaces
 :PROPERTIES:
 :EXPORT_FILE_NAME: namespaces
