@@ -1,6 +1,7 @@
 +++
 title = "Scope"
 draft = false
+weight = 50
 +++
 
 Different from [namespaces]({{< relref "namespaces" >}}), scope rules the declarations the computer can look up at a particular point in the translation unit. Scope does not have anything to do with access control which can deny the usage of a declaration if it's for example `private` or `protected` in programming languages that you can set access control.

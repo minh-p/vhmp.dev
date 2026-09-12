@@ -73,4 +73,8 @@ path = 'github.com/alex-shpak/hugo-book'
 [[menu.home]]
 name = 'Programming'
 url = '/programming/'
+weight = 2
+[[menu.home]]
+name = 'Productivity'
+url = '/productivity/'
 weight = 1

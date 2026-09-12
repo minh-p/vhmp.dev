@@ -29,7 +29,7 @@ A growing collection of things I teach, learn, and create.
   My learning goals are long-term and I have a collection of books I'm getting through in the next 3-5 years.
 
   {{< button href="https://library.vhmp.dev" >}}Library{{< /button >}}
-  {{< button href="https://library.vhmp.dev/book/13" >}}Zettelkasten{{< /button >}}
+  {{< button href="/productivity/zettelkasten" >}}Zettelkasten{{< /button >}}
 
 - ### Projects
   My current capstone interest is computational vision.

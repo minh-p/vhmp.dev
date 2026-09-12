@@ -6,7 +6,12 @@ weight = 10
 
 ## Zettelkasten {#zettelkasten}
 
-This is a standardized way of note-taking where information come from readings and fleeting ideas, which are then organized and developed in permanence, building a critical mass. When put into work, the ideas are further distilled into projects which are writings meant to be published and scrutinized. This is more flexible than elementary systems of (1) taking everything into permanence, (2) the lack of a system thereof where ideas are unprocessed, and (3) notes inefficiently distributed into projects that are archived and disjointed from the knowledge frame at a whole. It is more efficient than that of an infinite canvas of mind-maps because it can be indexed and more easily converted into writing; mind-maps in this format is still a powerful format of fleeting notes that should be deleted when processed.
+This is a standardized way of note-taking where information come from readings and fleeting ideas, which are then organized and developed in permanence, building a critical mass. When put into work, the ideas are further distilled into projects which are writings meant to be published and scrutinized. This is more flexible than elementary systems of (1) taking everything into permanence, (2) the lack of a system thereof where ideas are unprocessed, and (3) notes inefficiently distributed into projects that are archived and disjointed from the knowledge frame at a whole. It is more efficient than that of an infinite canvas of mind-maps because it can be indexed and more is easily converted into writing; mind-maps in this format is still a powerful format of fleeting notes that should be deleted when processed.
+
+> [!WARNING]
+> **Mind-maps**
+>
+> This is another tool that I was using heavily, but it was not discussed as counter-argument in any source covering Zettelkasten.
 
 
 ### Official Terms For the Notes {#official-terms-for-the-notes}
@@ -19,12 +24,12 @@ This is a standardized way of note-taking where information come from readings a
 
 ### Adapting "Note-taking Edge-Cases" With Heuristics {#adapting-note-taking-edge-cases-with-heuristics}
 
-A flexible note-taking system likes Zettelkasten makes things more efficient. Refusal of standardization-based efficiency comes largely from circumstances alleviated by heuristics. These refusals are motivated by prior subscription to the three elementary note-taking systems discussed.
+A flexible note-taking system like Zettelkasten makes things more efficient. Refusal of standardization-based efficiency comes largely from circumstances that can be simply alleviated by heuristics. These refusals are prevalent due to prior practice of the three elementary note-taking systems discussed.
 
 
 #### Problem-Based (Mathematics) {#problem-based--mathematics}
 
-When it comes to using Zettelkasten to approach mathematics, this note-taking system might be seen as an extra burden when it comes to drilling problems for a test. This contention is trivial. We can regard problem-drilling as a type of fleeting note. We analyze the pattern into a problem cookbook while drafting the permanent note. This should also help to rationalize problems you have not seen before because the patterns and connections between ideas are studied over the memorized problems.
+When it comes to using Zettelkasten to approach mathematics, this note-taking system might be seen as an extra burden when it comes to drilling problems for a test. This contention is trivial. We can regard problem-drilling as a type of fleeting note. We analyze the pattern into a problem cookbook while drafting the permanent note. This should also help to rationalize problems you have not seen before because the patterns and connections between ideas are the focal point of study over memorization of the problems.
 
 
 #### Project-Based (Programming) {#project-based--programming}

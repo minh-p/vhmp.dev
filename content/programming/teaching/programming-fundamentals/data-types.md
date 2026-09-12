@@ -138,7 +138,7 @@ In C/C++, the two most utilized data types for decimal numbers are `double` and 
 
 Unmanaged languages most likely have the data type for a single character, usually called `char`. Computers are dumb so they don't really understand any other symbols than binary representations of numbers.
 
-In an unmanaged language like C/C++ or Rust, you are able to see that the data type `char` actually only stores number. The `char` becomes a number when a compiler is tasked to read from the translation unit and convert the character to a number according to the [ASCII chart](https:www.ascii-code.com).
+In an unmanaged language like C/C++ or Rust, you are able to see that the data type `char` actually only stores number. The `char` becomes a number when a compiler is tasked to read from the translation unit and convert the character to a number according to the [ASCII chart](https://www.ascii-code.com).
 
 > [!NOTE]
 > **Translation Unit**
@@ -151,7 +151,7 @@ char a = 'a';
 char b = 98;
 ```
 
-What about a `string`? A string is simply a sequence/array/collection of characters. Almost all managed data-type include a built-in data type for `string`.
+What about a `string`? A string is simply a sequence/array/collection of characters. most all managed data-type include a built-in data type for `string`.
 
 
 ### Booleans {#booleans}
