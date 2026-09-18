@@ -73,8 +73,8 @@ flowchart TB
     click O "/programming/teaching/programming-fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
 
     click P "/programming/teaching/programming-fundamentals/functions/" "Reusable sections of code that perform a particular task."
-    click Q "/programming/teaching/programming-fundamentals/parameters/" "Names that describe the inputs accepted by a function."
-    click R "/programming/teaching/programming-fundamentals/arguments/" "Actual values supplied when a function is called."
+    click Q "/programming/teaching/programming-fundamentals/functions#parameters" "Names that describe the inputs accepted by a function."
+    click R "/programming/teaching/programming-fundamentals/functions#arguments" "Actual values supplied when a function is called."
     click S "/programming/teaching/programming-fundamentals/return-values/" "Values sent from a function back to its caller."
     click T "/programming/teaching/programming-fundamentals/scope/" "The region of a program where a name can be accessed."
 

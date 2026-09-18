@@ -72,8 +72,8 @@ This is the roadmap of programming fundamentals taught to my students.
       click O "/programming/teaching/programming-fundamentals/maps-dictionaries/" "Associating keys with corresponding values."
 
       click P "/programming/teaching/programming-fundamentals/functions/" "Reusable sections of code that perform a particular task."
-      click Q "/programming/teaching/programming-fundamentals/parameters/" "Names that describe the inputs accepted by a function."
-      click R "/programming/teaching/programming-fundamentals/arguments/" "Actual values supplied when a function is called."
+      click Q "/programming/teaching/programming-fundamentals/functions#parameters" "Names that describe the inputs accepted by a function."
+      click R "/programming/teaching/programming-fundamentals/functions#arguments" "Actual values supplied when a function is called."
       click S "/programming/teaching/programming-fundamentals/return-values/" "Values sent from a function back to its caller."
       click T "/programming/teaching/programming-fundamentals/scope/" "The region of a program where a name can be accessed."
 
@@ -2164,9 +2164,547 @@ Don't use this. This is not conventional Lua practice.
 :PROPERTIES:
 :EXPORT_FILE_NAME: functions
 :END:
-Blank
-* Maps
+** Functions
+#+BEGIN_QUOTE
+[!TIP]
+*What are Functions (Simple)*
+
+=Functions= allow us to write less code while generating the same amount of instructions to a computer. Different instructions can be generated depending on the =arguments= you give to the =function=.
+#+END_QUOTE
+=Functions= reduce the amount of code you have to write while allowing variations in the same type of action. For example, you could write a function that handles the withdrawal of money. You just need to let the function know how much money to withdraw. This is quite useful instead of writing different arbitrary units of code for different amounts of money in different places.
+*** Arguments
+We pass values to a =function= for it to perform its action. For example, if you made a function draw a square, you could pass in its side length or its x-y coordinates as three =required= arguments. A common function in many programming languages is the =print= function. In most programming languages, you can send in an =arugment= of the data-type =string= to the print function.
+
+#+hugo_paired_shortcodes: tabs %tab
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+  print("I'm a string")
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+  print("I'm a string")
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: JavaScript
+#+begin_tab
+#+BEGIN_SRC cpp
+  console.log("I'm a string");
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: C
+#+begin_tab
+#+BEGIN_SRC c
+  #include <stdio.h>
+
+  int main() {
+      printf("I'm a string!\n");
+      return 0;
+  }
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+In C++, we =insert= the string into the =output stream=. In this case, we =insert= a string into the standard output.
+
+#+BEGIN_SRC cpp
+  #include <iostream>
+
+  int main() {
+      std::cout << "I'm a string" << std::endl;
+      return 0;
+  }
+#+END_SRC
+
+The symbol =<<= is an the =insertion= operator that's =overloaded= by the C++ standard library. Unlike built-in operators which are =translated= by the compiler, =overloaded operators= are declared and defined by a function.
+
+Here's the declaration of the function =operator<<=.
+#+BEGIN_SRC cpp
+  template<
+      class CharT,
+      class Traits,
+      class Allocator
+      >
+  std::basic_ostream<CharT, Traits>&
+  operator<<(
+  	   std::basic_ostream<CharT, Traits>& os,
+  	   const std::basic_string<CharT, Traits, Allocator>& str
+  	   );
+#+END_SRC
+
+For this example, you can mentally reduce it to:
+
+#+BEGIN_SRC cpp
+  std::ostream& operator<<(std::ostream& os, const std::string& str);
+#+END_SRC
+#+end_tab
+#+end_tabs
+
+We do not /argue/ with the function. The word =argument= means =something from which another thing may be deduced=. It originally appeared in mathematics going as early as the 14th Century. The field of Computer Science much depended on the well thought out field of Mathematics. In mathematics, it is a =mathematical quantity from which another quantity may be deduced, or on which its calculation depends=.
+*** Parameters
+Think =parameters= as the variables that holds your =arguments=. When you make a function, you will have to declare =parameters= that will refer to =arguments=. =Parameters= are how you work with the function's =arguments= while defining your =function=.
+
+In this example, we create a function that returns the sum of two integer arguments. These examples in different programming languages also uses =type-hinting= for the featured =dynamically-typed languages=. =a= and =b= are your =parameters=.
+
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+  def sum(a: int, b: int):
+      return a + b
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+  function sum(a: number, b: number)
+     return a + b
+  end
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C/C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+  int sum(int a, int b) {
+      return a + b;
+  }
+#+END_SRC
+#+end_tab
+#+end_tabs
+*** Optional and Required Arguments
+In many languages, especially dynamically-typed languages, there's usually a way to make optional and required arguments. If not, you'll have to stick with =overloading= your =functions=.
+
+#+BEGIN_QUOTE
+[!NOTE]
+*Overloading*
+
+A programmer can =overload= a function in a programming language that supports it by creating different functions of the same name but different parameters' types or different amounts of parameters.
+
+E.g. In Java, you can only =overload= a method. In Java 8, there's an =Optional type=.
+#+END_QUOTE
+
+Otherwise, languages usually have an =optional type= in their standard library. Most primitively (if a language allows it), you can use a =null pointer=. The examples below are very dense because they are language-specific. Feel free to peruse other languages besides the one you are learning from.
+
+#+hugo_paired_shortcodes: tabs
+#+hugo_paired_shortcodes: tab
+
+#+attr_shortcode:
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+Python supports **default arguments** directly. This is usually the simplest way to make an argument optional.
+
+#+BEGIN_SRC python
+def greet(name="World", punctuation="!"):
+    print("Hello, " + name + punctuation)
+
+greet()
+greet("Alice")
+greet("Alice", "?")
+#+END_SRC
+
+This prints:
+
+#+BEGIN_SRC text
+Hello, World!
+Hello, Alice!
+Hello, Alice?
+#+END_SRC
+
+When the absence of a value has a special meaning, Python commonly uses =None=.
+
+#+BEGIN_SRC python
+def greet(name: str | None = None):
+    if name is None:
+        name = "World"
+
+    print("Hello, " + name)
+
+greet()
+greet("Alice")
+#+END_SRC
+
+Here, the type
+
+#+BEGIN_SRC python
+str | None
+#+END_SRC
+
+means that =name= may contain either a string or =None=.
+
+Python also has =@overload= for static type checking, but it is normally used when different argument combinations produce different type signatures. It is usually unnecessary just to make an ordinary argument optional.
+
+#+BEGIN_SRC python
+def greet(name="World"):
+    print("Hello, " + name)
+#+END_SRC
+
+is therefore generally preferable to trying to simulate function overloading.
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+Lua handles function arguments differently from Python and C++.
+
+**Every ordinary function parameter in Lua is effectively optional.**
+
+If an argument is not provided, its corresponding parameter receives =nil=.
+
+#+BEGIN_SRC lua
+local function greet(name, punctuation)
+    print(name)
+    print(punctuation)
+end
+
+greet()
+#+END_SRC
+
+This behaves approximately as though Lua had called:
+
+#+BEGIN_SRC lua
+greet(nil, nil)
+#+END_SRC
+
+Because of this, Lua does not need special syntax for optional parameters.
+
+You usually check for =nil= and provide the default yourself.
+
+#+BEGIN_SRC lua
+local function greet(name, punctuation)
+    if name == nil then
+        name = "World"
+    end
+
+    if punctuation == nil then
+        punctuation = "!"
+    end
+
+    print("Hello, " .. name .. punctuation)
+end
+
+greet()
+greet("Alice")
+greet("Alice", "?")
+#+END_SRC
+
+This prints:
+
+#+BEGIN_SRC text
+Hello, World!
+Hello, Alice!
+Hello, Alice?
+#+END_SRC
+
+For values where =false= is not meaningful, Lua programmers will also commonly use =or=:
+
+#+BEGIN_SRC lua
+local function greet(name, punctuation)
+    name = name or "World"
+    punctuation = punctuation or "!"
+
+    print("Hello, " .. name .. punctuation)
+end
+#+END_SRC
+
+However, remember that Lua considers both =nil= and =false= to be false values.
+
+For example, this can be wrong:
+
+#+BEGIN_SRC lua
+local function configure(enabled)
+    enabled = enabled or true
+end
+#+END_SRC
+
+If someone deliberately calls
+
+#+BEGIN_SRC lua
+configure(false)
+#+END_SRC
+
+then =enabled or true= produces =true=.
+
+When =false= is a legitimate argument, explicitly check for =nil= instead:
+
+#+BEGIN_SRC lua
+local function configure(enabled)
+    if enabled == nil then
+        enabled = true
+    end
+
+    print(enabled)
+end
+
+configure()       -- true
+configure(false)  -- false
+#+END_SRC
+
+Lua also permits extra arguments:
+
+#+BEGIN_SRC lua
+local function greet(name)
+    print("Hello, " .. (name or "World"))
+end
+
+greet("Alice", 10, true)
+#+END_SRC
+
+If the function does not use =...=, those additional arguments are simply not assigned to named parameters.
+
+To deliberately accept an arbitrary number of arguments, Lua uses **varargs**:
+
+#+BEGIN_SRC lua
+local function printAll(...)
+    for index, value in ipairs({...}) do
+        print(index, value)
+    end
+end
+
+printAll("Alice", 10, true)
+#+END_SRC
+
+So in Lua, "optional arguments" are not a separate language feature. They naturally result from Lua assigning =nil= to parameters whose arguments were omitted.
+#+end_tab
+
+#+attr_shortcode: C
+#+begin_tab
+C does **not** have default arguments.
+
+A function such as
+
+#+BEGIN_SRC c
+void greet(const char *name);
+#+END_SRC
+
+must normally be called with exactly the arguments required by its declaration.
+
+One common C technique is to use a sentinel value such as =NULL= to represent an omitted value:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+
+void greet(const char *name)
+{
+    if (name == NULL) {
+        name = "World";
+    }
+
+    printf("Hello, %s!\n", name);
+}
+
+int main(void)
+{
+    greet(NULL);
+    greet("Alice");
+}
+#+END_SRC
+
+Another common technique is to provide separate functions:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+
+void greet(const char *name)
+{
+    printf("Hello, %s!\n", name);
+}
+
+void greet_default(void)
+{
+    greet("World");
+}
+
+int main(void)
+{
+    greet_default();
+    greet("Alice");
+}
+#+END_SRC
+
+C also supports variadic functions using =...=, such as =printf=:
+
+#+BEGIN_SRC c
+printf("%s is %d years old\n", "Alice", 15);
+#+END_SRC
+
+However, variadic arguments are generally **not** a replacement for ordinary optional parameters. They sacrifice type information and require the function to have some way to determine how many arguments were supplied and what their types are.
+
+For ordinary APIs, explicit parameters, sentinel values, configuration structures, or additional helper functions are usually clearer.
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+C++ directly supports **default arguments**.
+
+For simple optional parameters, this is usually the clearest solution.
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <string_view>
+
+void greet(
+    std::string_view name = "World",
+    std::string_view punctuation = "!"
+)
+{
+    std::cout << "Hello, " << name << punctuation << '\n';
+}
+
+int main()
+{
+    greet();
+    greet("Alice");
+    greet("Alice", "?");
+}
+#+END_SRC
+
+This prints:
+
+#+BEGIN_SRC text
+Hello, World!
+Hello, Alice!
+Hello, Alice?
+#+END_SRC
+
+C++ also supports **function overloading**.
+
+An overload is useful when different forms of an operation deserve separate interfaces rather than merely different default values.
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <string_view>
+
+void greet()
+{
+    std::cout << "Hello, World!\n";
+}
+
+void greet(std::string_view name)
+{
+    std::cout << "Hello, " << name << "!\n";
+}
+
+int main()
+{
+    greet();
+    greet("Alice");
+}
+#+END_SRC
+
+For a simple example like this, a default argument is usually less repetitive:
+
+#+BEGIN_SRC cpp
+void greet(std::string_view name = "World");
+#+END_SRC
+
+C++ also provides =std::optional= when **the presence or absence of a value is itself meaningful**.
+
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <optional>
+#include <string>
+
+void greet(const std::optional<std::string>& name = std::nullopt)
+{
+    if (name) {
+        std::cout << "Hello, " << *name << "!\n";
+    } else {
+        std::cout << "Hello, mysterious stranger!\n";
+    }
+}
+
+int main()
+{
+    greet();
+    greet("Alice");
+}
+#+END_SRC
+
+Here, =std::nullopt= means that no name was supplied.
+
+A useful rule of thumb is:
+
+- Use a **default argument** when there is an obvious normal default.
+- Use an **overload** when different forms of the operation deserve distinct interfaces.
+- Use =std::optional<T>= when "there is no value" is meaningful information that should be represented explicitly.
+#+end_tab
+#+end_tabs
+*** Where Function Lies In Your Programming Journey
+We created programming language to make sending instructions to the computer simpler. As you progress further in your computer science studies, you'll be required to learn assembly languages (after experiencing an unmanaged language like C/C++) which is the level of abstraction before going down further to computer instruction sets which are ultimately represented as binary code that correspond to different central processing units like x86, Arm, and RISC-V.
+
+As you get further down, the tools you learned early in more abstracted languages might change in its form but the semantics (the idea) transfer. E.g. in assembly languages, the idea of a function is broken down into subroutines and the direct management and usage of addresses to handle =parameters=.
+* Lists (Arrays)
+:PROPERTIES:
+:EXPORT_FILE_NAME: lists-arrays
+:END:
+** Lists (Arrays)
+=Lists= are a collection of things. The term =list= is most commonly used for a collection that is indexed continuously which can store values of many data-types. The term =array= is most commonly used for a collection that is indexed continuously but only stores values of a single data-type.
+
+Examples here feature a list (array) of strings in various languages.
+
+#+hugo_paired_shortcodes: tabs %tab
+#+begin_tabs
+#+attr_shortcode: Python
+#+begin_tab
+#+BEGIN_SRC python
+  strings = ["Hello", "World"]
+  print(strings[0]) #--> Hello
+  print(strings[1]) #--> World
+  print(len(strings)) #--> 2
+  #+END_SRC
+#+end_tab
+
+#+attr_shortcode: Lua
+#+begin_tab
+#+BEGIN_SRC lua
+  -- Global var
+  strings = {"Hello", "World"}
+  print(strings[1]) --> Hello
+  print(strings[2]) --> World
+  print(#strings) --> 2
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: C
+#+begin_tab
+#+BEGIN_SRC c
+  #include <stdio.h>
+  int main() {
+      // Auto appends null terminator
+      char str[] = "Hello World";
+      // sizeof is builtin
+      printf("%zu\n", sizeof(str)); // Gives 6
+      return 0;
+  }
+#+END_SRC
+#+end_tab
+
+#+attr_shortcode: "C++"
+#+begin_tab
+#+BEGIN_SRC cpp
+  #include <iostream>
+  #include <string>
+  int main() {
+      std::string str = "Hello";
+      // Gives 6 including null terminator.
+      std::cout << str.size() << std::endl;
+      return 0;
+  }
+#+END_SRC
+#+end_tab
+#+end_tabs
+* Maps (WIP)
 :PROPERTIES:
 :EXPORT_FILE_NAME: maps
 :END:
-Blank
+** Maps (Dictionary)
+WIP
