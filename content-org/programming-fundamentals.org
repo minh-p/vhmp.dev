@@ -2160,3 +2160,13 @@ Don't use this. This is not conventional Lua practice.
 #+END_SRC
 #+end_tab
 #+end_tabs
+* Functions
+:PROPERTIES:
+:EXPORT_FILE_NAME: functions
+:END:
+Blank
+* Maps
+:PROPERTIES:
+:EXPORT_FILE_NAME: maps
+:END:
+Blank

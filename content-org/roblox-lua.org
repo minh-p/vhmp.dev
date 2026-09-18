@@ -129,7 +129,7 @@ Some common mechanics include
 *** Damage Brick
 When the player touches a damage brick, their health will decrease. We're going to be using the =Touched= event for both this and two different bricks.
 **** Prerequisites
-Knowledge of =functions= is required as well as =conditionals=.
+Knowledge of @@hugo:[functions]({{< relref "/programming/teaching/programming-fundamentals/functions/" >}})@@ is required as well as @@hugo:[conditionals]({{< relref "/programming/teaching/programming-fundamentals/conditionals" >}})@@.
 **** Kill Brick
 Kill Brick simply sets the health of the player to zero when the player touches it.
 ***** Instructions
@@ -268,56 +268,105 @@ Before you look at the complete solution, make sure to struggle first.
 #+END_SRC
 #+end_details
 **** Fire Brick
-Unlike the Kill Brick, the fire brick deals damages over time and is much more complex. We have to make cool-down system.
+Unlike the =Kill Brick=, the fire brick is much more complicated because we're dealing with gradual damage over time. Coming from the finished code of the =Kill Brick=, instead of setting =Health= to zero, you might have thought that instead of setting the =Health= to 0, you could just decrease it.
 
-Burn Brick #1
-Simply decrease the health instead of setting it to 0.
+#+BEGIN_QUOTE
+[!WARNING]
+*Finish KillBrick First*
 
-#+attr_shortcode: :title Solution
+This section assumes that you have the code for the =KillBrick= already. Don't rush it and sacrifice your learning experience.
+#+END_QUOTE
+
+#+attr_shortcode: :title Naive Solution
 #+begin_details
+#+attr_html: :filename workspace/FireBrick/Script
 #+BEGIN_SRC lua
-  part = script.Parent
+  firePart = script.Parent
 
-  function burn(otherPart)
-      -- First, we confirm if the otherPart is a body part
-      local character = otherPart.Parent
-      local humanoid = character:FindFirstChild("Humanoid")
-      if not humanoid then return end
+  function burn(otherPart: BasePart)
+     -- making sure it's a body part
+     local pCharacter = otherPart.Parent
+     local pHumanoid = pCharacter:FindFirstChild("Humanoid")
+     if not pHumanoid then return end
 
-      humanoid.Health -= 5
-      -- Code above is same as:
-      -- humanoid.Health = humanoid.Health - 5
+     -- Old: pHumanoid.Health = 0
+     pHumanoid.Health -= 5
   end
 
-  part.Touched:Connect(burn)  
+  firePart.Touched:Connect(processDamage)
 #+END_SRC
 #+end_details
 
-Burn Brick #2 - Countdown system attempted
+You'll quickly see that when you touch the part, there might be more than just 5 damages. This is because body part engaged the event and so the =burn= function is called multiple times. Then, worse is the fact that there's no burning effect which we expected.
 
-#+attr_shortcode: :title Solution
+Part of the engineering process, you want to list out your problems and think about a potential solution for each of them. Ask yourself what you would like this piece of code to do instead. A strategy is to list out things you think Roblox (might) have which you can use.
+#+attr_shortcode: :title Solution - Engineering Sub-activity
 #+begin_details
+*Problems* - *Potential Solution*
+1. Multiple body-parts triggering event - A =debounce= mechanic is needed.
+2. Doesn't burn until body part stops touching - Use =TouchEnded= event and something to process characters still touching the fire brick
+#+end_details
+
+This guide assumes that you have reached a conclusion similar to the solution above. In turn, I expect the student to know these concepts:
+
+1. @@hugo:[Functions]({{< relref "/programming/teaching/programming-fundamentals/functions" >}})@@
+2. @@hugo:[Conditionals]({{< relref "/programming/teaching/programming-fundamentals/conditionals" >}})@@
+3. @@hugo:[Maps]({{< relref "/programming/teaching/programming-fundamentals/maps/" >}})@@ (also called dictionaries)
+***** charsTouching - Our Table (Map)
+#+BEGIN_QUOTE
+[!TIP]
+*How to Approach the Guide*
+
+Try to implement the code on your own first before looking at the solutions.
+#+END_QUOTE
+First, create a variable and assign an empty table to it. This guide is going to refer to this table as =charsTouching=. Expanded, it's characters touching.
+
+#+attr_shortcode: :title Solution - Making an empty table
+#+begin_details
+#+attr_html: :filename workspace/FireBrick/Script
 #+BEGIN_SRC lua
-  -- the function os.time() returns seconds since January 1st of 1970.
-  savedTime = os.time()
-
-  function burn(otherPart)
-      -- First we once again confirm if otherPart is a body part
-      local character = otherPart.Parent
-      local humanoid = character:FindFirstChild("Humanoid")
-      if not humanoid then return end
-
-      -- Cooldown of 1 second
-      if os.time() - savedTime > 1 then
-          humanoid.Health -= 5
-      end
-  end
+  charsTouching = {}
 #+END_SRC
 #+end_details
 
-Bug: In the first version, we thought the burning effect worked because multiple body parts was causing the burn.
-In the next version we have to begin integrating the event TouchEnded to deal damage gradually until the player stops touching the part
+Our table is going to hold keys which are going to the characters' name. The name of every player's character model is the same as the player's username. The value for each key is going to be table that holds (1) the player character and (2) the last time the burn effect was applied which we get from the function [[https://create.roblox.com/docs/en-us/reference/engine/libraries/os#time][os.time]].
 
+#+attr_shortcode: :title Solution - Table Entry Example
+#+begin_details
+#+attr_html: :filename Pseudo-code
+#+BEGIN_SRC lua
+  charsTouching = {
+     ["player1"] = {<Character>, <number>}
+  }
+#+END_SRC
+#+end_details
+***** Setting Up the Code Skeleton
+=Code Skeleton= is no way an official term in computer science. We first though write a simple structure of our code which includes two functions for the events =Touched=, =TouchEnded=, and as well [[https://create.roblox.com/docs/en-us/reference/engine/classes/RunService#Heartbeat][Heartbeat of RunService]].
+
+#+attr_shortcode: :title Solution - Code Skeleton
+#+begin_details
+#+attr_html: :filename workspace/FireBrick/Script
+#+BEGIN_SRC lua
+  RunService = game:GetService("RunService")
+  fireBrick = script.Parent
+  charsTouching = {}
+
+  function subscribe(otherPart: BasePart)
+  end
+
+  function unsubscribe(otherPart: BasePart)
+  end
+
+  function processBurn(deltaTime: number)
+     -- We won't use the parameter deltaTime.
+  end
+
+  fireBrick.Touched:Connect(subscribe)
+  fireBrick.TouchEnded:Connect(unsubscribe)
+  RunService.Heartbeat:Connect(processBurn)
+#+END_SRC
+#+end_details
+***** Complete Solution
 #+attr_shortcode: :title Solution
 #+begin_details
 #+BEGIN_SRC lua
