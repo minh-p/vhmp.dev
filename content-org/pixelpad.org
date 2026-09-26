@@ -783,3 +783,61 @@ We use =else-ifs= or =elif= in Python to establish an =Exclusive OR= relationshi
       self.y -= 10
 #+END_SRC
 #+end_details
+** Making Obstacles (Asteroids)
+Whenever you want to import a sprite into your game, you have to create a class that contains the instructions of how to setup the object that contains the sprite. Remember that every object created by a =PixelPad= class can hold a =sprite= that can be held on the screen.
+
+So, we'll first create our class =Obstacle= and at the same time import the image for your asteroid.
+
+In terms of logic, the asteroid should spawn and then move in a determined direction. The direction should be set by the scope (Class/Game) that invoked the class to create the sprite object.
+
+Here's an example showing a creation of a single Asteroid.
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  asteroid = Obstacle()
+  asteroid.sprite = sprite("Asteroid.png")
+  asteroid.x = 0
+  asteroid.y = 400
+  asteroid.direction = "South"
+#+END_SRC
+
+In this example an obstacle should be spawned and immediately it will be moving to the south. So the key idea is that depending on the value of the object variable =direction=, the asteroid's x and y value should be changed. For now, only work on asteroids coming from the edge of the screen. You'll be practicing working with a class's Loop in this activity.
+*** Making Our First Function
+In pixelPAD, you have been using a lot of functions already. They are functions that were created by the developers of pixelPAD. In fact, every line of code that you put into any class's =start= and =loop= including that of the =Game=, you're in fact coding a function.
+
+The functions that are the game =start= and game =loop= are coded by you and are used by pixelPAD's existing code you do not see.
+
+The function that we're making is called =create_obstacle=. Its purpose is to create any obstacle in the game. Think back on how the asteroid is created, what information do you need to provide to our function in order for it to work?
+
+#+BEGIN_QUOTE
+[!TIP]
+*Ask: What does the computer need to know to make the asteroid?*
+
+The asteroid is an obstacle object so we use the class =Obstacle= to create the asteroid object. Then, we have to change the object's image. After that, we set the x-y position, and lastly we modify our custom object variable called =direction= in order to set the direction the asteroid will be moving in.
+#+END_QUOTE
+
+There should be four values that pixelPAD needs. What are the types of these four values?
+#+hugo_paired_shortcodes: %details
+
+#+attr_shortcode: :title Hints
+#+begin_details
+- What do you call a collection of characters?
+- What is the data type for a number that has a fractional part?
+#+end_details
+
+#+attr_shortcode: :title Answer - Types of Data
+#+begin_details
+Previously, this is the code to create the asteroid.
+
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  asteroid = Obstacle()
+  asteroid.sprite = sprite("Asteroid.png")
+  asteroid.x = 0
+  asteroid.y = 400
+  asteroid.direction = "South"  
+#+END_SRC
+
+We need to provide it the name of the sprite e.g. ="Asteroid.png"= , the x and y coordinates e.g. =0=, =4=, and as well as the direction the asteroid should be moving to e.g. ="South"=.
+
+These are two =str= and 2 =int=.
+#+end_details

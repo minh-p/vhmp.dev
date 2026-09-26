@@ -120,3 +120,24 @@ elif key_is_pressed("s"):
     self.y -= 10
 ```
 {{% /details %}}
+
+
+## Making Obstacles (Asteroids) {#making-obstacles--asteroids}
+
+Whenever you want to import a sprite into your game, you have to create a class that contains the instructions of how to setup the object that contains the sprite. Remember that every object created by a `PixelPad` class can hold a `sprite` that can be held on the screen.
+
+So, we'll first create our class `Obstacle` and at the same time import the image for your asteroid.
+
+In terms of logic, the asteroid should spawn and then move in a determined direction. The direction should be set by the scope (Class/Game) that invoked the class to create the sprite object.
+
+Here's an example showing a creation of a single Asteroid.
+
+```python { filename="Game Start" }
+asteroid = Obstacle()
+asteroid.sprite = sprite("Asteroid.png")
+asteroid.x = 0
+asteroid.y = 400
+asteroid.direction = "South"
+```
+
+In this example an obstacle should be spawned and immediately it will be moving to the south. So the key idea is that depending on the value of the object variable `direction`, the asteroid's x and y value should be changed. For now, only work on asteroids coming from the edge of the screen. You'll be practicing working with a class's Loop in this activity.

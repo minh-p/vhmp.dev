@@ -68,7 +68,7 @@ We're writing out first set of tests inside the file `engine_tests.py`. We're go
 >
 > A programming language's library includes code that comes installed with the language by default. The standard library of every programming language is different. While Python contains a library for unit-testing called `unittest`, other languages like `C/C++` requires the installation and linking of an external **C/C++** library for unit-testing.
 
-We'll write our first tests:
+Here is an example of a test case that tests a function that returns the string `"Hello World"`.
 
 ```python
 # Import the module unittest
@@ -96,3 +96,49 @@ class TestHello(unittest.TestCase):
 if __name__ == "__main__":
   unittest.main()
 ```
+
+
+#### Activity - Test Exponent {#activity-test-exponent}
+
+So, create a test file named `hello_tests.py` under the `tests/` directory.
+
+Inside here first make a function where it will take the first argument it was given and raise it to the second argument.
+
+Example usage:
+
+```python { filename="Python" }
+exp(2, 4) # 2^4 should be 16.
+```
+
+{{% details title="Solution - exp function partial 1" %}}
+```python { filename="snake/tests/hello_tests.py" }
+def exp(a: int, b: int):
+    # Empty
+    # Will error when run
+    # have to put something inside
+```
+{{% /details %}}
+
+{{% details title="Solution exp - partial 2" %}}
+```python { filename="snake/tests/hello_tests.py" }
+def exp(a: int, b: int):
+    # Assumes both numbers are positive
+    result = 1
+
+    # TODO: For loop that multiplies
+    # result by a for b amount of times
+
+    return result
+```
+{{% /details %}}
+
+{{% details title="Solution exp - Complete" %}}
+```python { filename="snake/tests/hello_tests.py" }
+def exp(a: int, b: int):
+    # Assumes both numbers are positive
+    result = 1
+    for i in range(b):
+        result  = result * a
+    return result
+```
+{{% /details %}}
