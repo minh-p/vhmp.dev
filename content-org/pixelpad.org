@@ -841,3 +841,74 @@ We need to provide it the name of the sprite e.g. ="Asteroid.png"= , the x and y
 
 These are two =str= and 2 =int=.
 #+end_details
+*** Making Our Timer
+We need a way to keep track of time for game mechanics such as spawning the asteroid every x amount of seconds. There's a way to create and save information in pixelPAD that will be accessible in every single class in pixelPAD. You do this by creating a variable inside the =game= object inside =Game Start=.
+
+Here's an example:
+
+#+attr_html: :filename Game/Start
+#+BEGIN_SRC python
+  self.greeting = "hello"
+#+END_SRC
+
+#+attr_html: :filename RandomClass/Start
+#+BEGIN_SRC python
+  print(game.greeting)
+#+END_SRC
+
+#+attr_html: :filename RandomClass2/Start
+#+BEGIN_SRC python
+  print(game.greeting + ". My name is John Doe.")
+#+END_SRC
+
+Logically, you're making two variables. The =first= variable keeps track of the actual time that has elapsed since the beginning of the game in seconds. The =second= variable will keep track of the text box object that is you create from the [[https://pixelpad.io/docs/?c=text][function text]] (or =new_text= as it was known as).
+
+First, make the first variable that keeps track of the actual time. You should start it at 0. And of course, this variable should be created by the class =Game= inside =Start=.
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: "Solution - Creating Variable =clock="
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  self.clock = 0
+#+END_SRC
+#+end_details
+
+Note that the =Loop= section of every pixelPAD class will run the code about 60 times per second. This essentially makes it so that every pixelPAD game runs at 60 frames per second. So now, think of a way to change the number that the =first= variable refers to so that it gains 1.0 per second.
+
+#+attr_shortcode: "Solution - changing =first= variable"
+#+begin_details
+#+attr_html: :filename Game/Loop
+#+BEGIN_SRC python
+  self.clock += 1/60
+  # Equivalent: self.clock = self.clock + 1/60
+#+END_SRC
+#+end_details
+
+Now, create the =second= variable. This variable should refer to a newly created text object. You can create this variable inside a class called =UI=. You should also make the object's appearance as a sprite invisible on the screen.
+
+#+attr_shortcode: "Solution - creating =second= variable"
+#+begin_details
+#+attr_html: :filename Game/Start
+#+BEGIN_SRC python
+  UI()
+#+END_SRC
+
+#+attr_html: :filename UI/Start
+#+BEGIN_SRC python
+  # You should replace the arguments for x and y coordinates
+  self.clock_text = text("Time: 0", 250, 250)
+#+END_SRC
+#+end_details
+
+Now, change the variable =text= of the object that the =clock object= that the =second= variable refers to a new string every game loop.
+
+#+attr_shortcode: :title "Solution - updating text"
+#+begin_details
+#+attr_html: :filename UI/Loop
+#+BEGIN_SRC python
+  self.clock_text.text = "Time: " + str(int(game.clock))
+#+END_SRC
+#+end_details
+*** Making the Asteroid
+When an object is created by the class =Obstacle=, it should be moving the asteroid in the direction that it was given in either the game start or the game loop (only one is correct).

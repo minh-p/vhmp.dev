@@ -141,3 +141,104 @@ asteroid.direction = "South"
 ```
 
 In this example an obstacle should be spawned and immediately it will be moving to the south. So the key idea is that depending on the value of the object variable `direction`, the asteroid's x and y value should be changed. For now, only work on asteroids coming from the edge of the screen. You'll be practicing working with a class's Loop in this activity.
+
+
+### Making Our First Function {#making-our-first-function}
+
+In pixelPAD, you have been using a lot of functions already. They are functions that were created by the developers of pixelPAD. In fact, every line of code that you put into any class's `start` and `loop` including that of the `Game`, you're in fact coding a function.
+
+The functions that are the game `start` and game `loop` are coded by you and are used by pixelPAD's existing code you do not see.
+
+The function that we're making is called `create_obstacle`. Its purpose is to create any obstacle in the game. Think back on how the asteroid is created, what information do you need to provide to our function in order for it to work?
+
+> [!TIP]
+> **Ask: What does the computer need to know to make the asteroid?**
+>
+> The asteroid is an obstacle object so we use the class `Obstacle` to create the asteroid object. Then, we have to change the object's image. After that, we set the x-y position, and lastly we modify our custom object variable called `direction` in order to set the direction the asteroid will be moving in.
+
+There should be four values that pixelPAD needs. What are the types of these four values?
+
+{{% details title="Hints" %}}
+-   What do you call a collection of characters?
+-   What is the data type for a number that has a fractional part?
+{{% /details %}}
+
+{{% details title="Answer - Types of Data" %}}
+Previously, this is the code to create the asteroid.
+
+```python { filename="Game Start" }
+asteroid = Obstacle()
+asteroid.sprite = sprite("Asteroid.png")
+asteroid.x = 0
+asteroid.y = 400
+asteroid.direction = "South"
+```
+
+We need to provide it the name of the sprite e.g. `"Asteroid.png"` , the x and y coordinates e.g. `0`, `4`, and as well as the direction the asteroid should be moving to e.g. `"South"`.
+
+These are two `str` and 2 `int`.
+{{% /details %}}
+
+
+### Making Our Timer {#making-our-timer}
+
+We need a way to keep track of time for game mechanics such as spawning the asteroid every x amount of seconds. There's a way to create and save information in pixelPAD that will be accessible in every single class in pixelPAD. You do this by creating a variable inside the `game` object inside `Game Start`.
+
+Here's an example:
+
+```python { filename="Game/Start" }
+self.greeting = "hello"
+```
+
+```python { filename="RandomClass/Start" }
+print(game.greeting)
+```
+
+```python { filename="RandomClass2/Start" }
+print(game.greeting + ". My name is John Doe.")
+```
+
+Logically, you're making two variables. The `first` variable keeps track of the actual time that has elapsed since the beginning of the game in seconds. The `second` variable will keep track of the text box object that is you create from the [function text](https://pixelpad.io/docs/?c=text) (or `new_text` as it was known as).
+
+First, make the first variable that keeps track of the actual time. You should start it at 0. And of course, this variable should be created by the class `Game` inside `Start`.
+
+{{% details "Solution - Creating Variable =clock=" %}}
+```python { filename="Game Start" }
+self.clock = 0
+```
+{{% /details %}}
+
+Note that the `Loop` section of every pixelPAD class will run the code about 60 times per second. This essentially makes it so that every pixelPAD game runs at 60 frames per second. So now, think of a way to change the number that the `first` variable refers to so that it gains 1.0 per second.
+
+{{% details "Solution - changing =first= variable" %}}
+```python { filename="Game/Loop" }
+self.clock += 1/60
+# Equivalent: self.clock = self.clock + 1/60
+```
+{{% /details %}}
+
+Now, create the `second` variable. This variable should refer to a newly created text object. You can create this variable inside a class called `UI`. You should also make the object's appearance as a sprite invisible on the screen.
+
+{{% details "Solution - creating =second= variable" %}}
+```python { filename="Game/Start" }
+UI()
+```
+
+```python { filename="UI/Start" }
+# You should replace the arguments for x and y coordinates
+self.clock_text = text("Time: 0", 250, 250)
+```
+{{% /details %}}
+
+Now, change the variable `text` of the object that the `clock object` that the `second` variable refers to a new string every game loop.
+
+{{% details title="&quot;Solution - updating text&quot;" %}}
+```python { filename="UI/Loop" }
+self.clock_text.text = "Time: " + str(int(game.clock))
+```
+{{% /details %}}
+
+
+### Making the Asteroid {#making-the-asteroid}
+
+When an object is created by the class `Obstacle`, it should be moving the asteroid in the direction that it was given in either the game start or the game loop (only one is correct).
