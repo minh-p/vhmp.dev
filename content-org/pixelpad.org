@@ -802,6 +802,9 @@ Here's an example showing a creation of a single Asteroid.
 
 In this example an obstacle should be spawned and immediately it will be moving to the south. So the key idea is that depending on the value of the object variable =direction=, the asteroid's x and y value should be changed. For now, only work on asteroids coming from the edge of the screen. You'll be practicing working with a class's Loop in this activity.
 *** Making Our First Function
+:PROPERTIES:
+:ID:       a72a5d62-8248-4cdd-a4ea-cd58e070e59c
+:END:
 In pixelPAD, you have been using a lot of functions already. They are functions that were created by the developers of pixelPAD. In fact, every line of code that you put into any class's =start= and =loop= including that of the =Game=, you're in fact coding a function.
 
 The functions that are the game =start= and game =loop= are coded by you and are used by pixelPAD's existing code you do not see.
@@ -866,7 +869,7 @@ Logically, you're making two variables. The =first= variable keeps track of the 
 First, make the first variable that keeps track of the actual time. You should start it at 0. And of course, this variable should be created by the class =Game= inside =Start=.
 
 #+hugo_paired_shortcodes: %details
-#+attr_shortcode: "Solution - Creating Variable =clock="
+#+attr_shortcode: "Solution - Creating Variable clock"
 #+begin_details
 #+attr_html: :filename Game Start
 #+BEGIN_SRC python
@@ -876,7 +879,7 @@ First, make the first variable that keeps track of the actual time. You should s
 
 Note that the =Loop= section of every pixelPAD class will run the code about 60 times per second. This essentially makes it so that every pixelPAD game runs at 60 frames per second. So now, think of a way to change the number that the =first= variable refers to so that it gains 1.0 per second.
 
-#+attr_shortcode: "Solution - changing =first= variable"
+#+attr_shortcode: "Solution - changing first variable"
 #+begin_details
 #+attr_html: :filename Game/Loop
 #+BEGIN_SRC python
@@ -887,7 +890,7 @@ Note that the =Loop= section of every pixelPAD class will run the code about 60 
 
 Now, create the =second= variable. This variable should refer to a newly created text object. You can create this variable inside a class called =UI=. You should also make the object's appearance as a sprite invisible on the screen.
 
-#+attr_shortcode: "Solution - creating =second= variable"
+#+attr_shortcode: "Solution - creating second variable"
 #+begin_details
 #+attr_html: :filename Game/Start
 #+BEGIN_SRC python
@@ -903,7 +906,7 @@ Now, create the =second= variable. This variable should refer to a newly created
 
 Now, change the variable =text= of the object that the =clock object= that the =second= variable refers to a new string every game loop.
 
-#+attr_shortcode: :title "Solution - updating text"
+#+attr_shortcode: :title Solution - updating text
 #+begin_details
 #+attr_html: :filename UI/Loop
 #+BEGIN_SRC python
@@ -911,4 +914,137 @@ Now, change the variable =text= of the object that the =clock object= that the =
 #+END_SRC
 #+end_details
 *** Making the Asteroid
-When an object is created by the class =Obstacle=, it should be moving the asteroid in the direction that it was given in either the game start or the game loop (only one is correct).
+When an object is created by the class =Obstacle=, it should be moving the asteroid in the direction tracked by the object variable =direction=. Previously, our [[id:a72a5d62-8248-4cdd-a4ea-cd58e070e59c][create_obstacle function]] sets the object variable =direction=.
+
+#+attr_html: :filename create_obstacle
+#+BEGIN_SRC python
+  def create_obstacle(direction: str, ...):
+      obstacle = Obstacle()
+      obstacle.direction = direction
+      ...
+#+END_SRC
+**** Direction From North, South, East, West
+*Question:* How do we move the obstacle by some =x= or =y= amount constantly until the asteroid move out of the screen? Where do we this code?
+
+#+attr_shortcode: :title Solution - Where To Put the Code
+#+begin_details
+We should put the code in the =Loop= section of the =Obstacle= class.
+#+end_details
+
+#+BEGIN_QUOTE
+[!TIP]
+*Always Refer to the Documentation*
+
+You should look at the page about the [[https://pixelpad.io/docs/?c=start-loop][Start/Loop]] and as well as the page about [[https://pixelpad.io/docs/?c=objects][Object]] which shows the variables you could modify.
+#+END_QUOTE
+
+*Question:* What are =if-statements=? What does an =if-statement= look like in Python? What are =boolean expressions=?
+
+#+attr_shortcode: :title Solution - if-statements
+#+begin_details
+An if-statement is a condition-based control flow structure. Every if-statement requires a =condition= and an =action=.
+
+#+BEGIN_SRC python
+  import random
+
+  random_decimal_symbol = random.randint(1, 9)
+  even_decimal_symbols = []
+  odd_decimal_symbols = []
+
+  # condition
+  if random_decimal_symbol % 2 == 0:
+      # action
+      even_decimal_symbols.append(random_decimal_symbol)
+  elif random_decimal_symbol != 9:
+      # alternative action through using else
+      odd_decimal_symbols.append(random_decimal_symbol)
+  else:
+      # Do nothing just skip 9
+      pass
+#+END_SRC
+
+#+BEGIN_QUOTE
+[!TIP]
+*Programming Fundamentals - Conditionals*
+
+Checkout the programming fundamental concepts page on @@hugo:[conditionals]({{< relref "/programming/teaching/programming-fundamentals/conditionals/" >}})@@.
+#+END_QUOTE
+
+*Control flow structures* are lines of code that change the order of how lines are run instead of running from top-to-bottom.
+#+end_details
+
+*Question:* How would you create an if-statement for =east= and =west=
+
+#+attr_shortcode: :title Solution - if-statement for east and west
+#+begin_details
+#+BEGIN_SRC python
+  if self.direction == "east":
+      # Nothing here yet
+      pass
+  elif self.direction == "west":
+      # Nothing here yet
+      pass
+#+END_SRC
+#+end_details
+
+*Question:* Form the rest of the if-statements including =north= and =south=.
+
+#+attr_shortcode: :title Solution - if-statements for all directions
+#+begin_details
+#+attr_html: :filename Obstacle/Loop
+#+BEGIN_SRC python
+  if self.direction == "east":
+        # Nothing here yet
+        pass
+  elif self.direction == "west":
+      # Nothing here yet
+        pass
+  elif self.direction == "north":
+        # Nothing here yet
+        pass
+  elif self.direction == "south":
+        # Nothing here yet
+        pass
+  else:
+        # The only left is "out of the screen"
+        pass
+#+END_SRC
+#+end_details
+
+The only thing left is to fill out the =action= after you've finished the =condition=.
+
+#+attr_shortcode: :title Solution - Full
+#+begin_details
+#+attr_html: :filename Obstacle/Start
+#+BEGIN_SRC python
+  self.speed = 10
+#+END_SRC
+
+#+attr_html: :filename Obstacle/Loop
+#+BEGIN_SRC python
+  if self.direction == "east":
+        # Nothing here yet
+        self.x -= self.speed
+  elif self.direction == "west":
+        # Nothing here yet
+        self.x += self.speed
+  elif self.direction == "north":
+        # Nothing here yet
+        self.y += self.speed
+  elif self.direction == "south":
+        # Nothing here yet
+        self.y -= self.speed
+  else:
+        # The only left is "out of the screen"
+        # TODO: this is what we're doing next
+        pass
+#+END_SRC
+#+end_details
+
+**** Direction Below the Spaceship (Work in Progress)
+*Question:* What property should we modify if the obstacle is moving from below the spaceship (not =x= or =y=).
+
+#+attr_shortcode: :title Solution - Property to Modify
+#+begin_details
+The property we should modify is the =size= of the obstacle.
+#+end_details

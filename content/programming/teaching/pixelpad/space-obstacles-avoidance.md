@@ -202,7 +202,7 @@ Logically, you're making two variables. The `first` variable keeps track of the 
 
 First, make the first variable that keeps track of the actual time. You should start it at 0. And of course, this variable should be created by the class `Game` inside `Start`.
 
-{{% details "Solution - Creating Variable =clock=" %}}
+{{% details "Solution - Creating Variable clock" %}}
 ```python { filename="Game Start" }
 self.clock = 0
 ```
@@ -210,7 +210,7 @@ self.clock = 0
 
 Note that the `Loop` section of every pixelPAD class will run the code about 60 times per second. This essentially makes it so that every pixelPAD game runs at 60 frames per second. So now, think of a way to change the number that the `first` variable refers to so that it gains 1.0 per second.
 
-{{% details "Solution - changing =first= variable" %}}
+{{% details "Solution - changing first variable" %}}
 ```python { filename="Game/Loop" }
 self.clock += 1/60
 # Equivalent: self.clock = self.clock + 1/60
@@ -219,7 +219,7 @@ self.clock += 1/60
 
 Now, create the `second` variable. This variable should refer to a newly created text object. You can create this variable inside a class called `UI`. You should also make the object's appearance as a sprite invisible on the screen.
 
-{{% details "Solution - creating =second= variable" %}}
+{{% details "Solution - creating second variable" %}}
 ```python { filename="Game/Start" }
 UI()
 ```
@@ -232,7 +232,7 @@ self.clock_text = text("Time: 0", 250, 250)
 
 Now, change the variable `text` of the object that the `clock object` that the `second` variable refers to a new string every game loop.
 
-{{% details title="&quot;Solution - updating text&quot;" %}}
+{{% details title="Solution - updating text" %}}
 ```python { filename="UI/Loop" }
 self.clock_text.text = "Time: " + str(int(game.clock))
 ```
@@ -241,4 +241,128 @@ self.clock_text.text = "Time: " + str(int(game.clock))
 
 ### Making the Asteroid {#making-the-asteroid}
 
-When an object is created by the class `Obstacle`, it should be moving the asteroid in the direction that it was given in either the game start or the game loop (only one is correct).
+When an object is created by the class `Obstacle`, it should be moving the asteroid in the direction tracked by the object variable `direction`. Previously, our [create_obstacle function](#making-our-first-function) sets the object variable `direction`.
+
+```python { filename="create_obstacle" }
+def create_obstacle(direction: str, ...):
+    obstacle = Obstacle()
+    obstacle.direction = direction
+    ...
+```
+
+
+#### Direction From North, South, East, West {#direction-from-north-south-east-west}
+
+**Question:** How do we move the obstacle by some `x` or `y` amount constantly until the asteroid move out of the screen? Where do we this code?
+
+{{% details title="Solution - Where To Put the Code" %}}
+We should put the code in the `Loop` section of the `Obstacle` class.
+{{% /details %}}
+
+> [!TIP]
+> **Always Refer to the Documentation**
+>
+> You should look at the page about the [Start/Loop](https://pixelpad.io/docs/?c=start-loop) and as well as the page about [Object](https://pixelpad.io/docs/?c=objects) which shows the variables you could modify.
+
+**Question:** What are `if-statements`? What does an `if-statement` look like in Python? What are `boolean expressions`?
+
+{{% details title="Solution - if-statements" %}}
+An if-statement is a condition-based control flow structure. Every if-statement requires a `condition` and an `action`.
+
+```python
+import random
+
+random_decimal_symbol = random.randint(1, 9)
+even_decimal_symbols = []
+odd_decimal_symbols = []
+
+# condition
+if random_decimal_symbol % 2 == 0:
+    # action
+    even_decimal_symbols.append(random_decimal_symbol)
+elif random_decimal_symbol != 9:
+    # alternative action through using else
+    odd_decimal_symbols.append(random_decimal_symbol)
+else:
+    # Do nothing just skip 9
+    pass
+```
+
+> [!TIP]
+> **Programming Fundamentals - Conditionals**
+>
+> Checkout the programming fundamental concepts page on [conditionals]({{< relref "/programming/teaching/programming-fundamentals/conditionals/" >}}).
+
+**Control flow structures** are lines of code that change the order of how lines are run instead of running from top-to-bottom.
+{{% /details %}}
+
+**Question:** How would you create an if-statement for `east` and `west`
+
+{{% details title="Solution - if-statement for east and west" %}}
+```python
+if self.direction == "east":
+    # Nothing here yet
+    pass
+elif self.direction == "west":
+    # Nothing here yet
+    pass
+```
+{{% /details %}}
+
+**Question:** Form the rest of the if-statements including `north` and `south`.
+
+{{% details title="Solution - if-statements for all directions" %}}
+```python { filename="Obstacle/Loop" }
+if self.direction == "east":
+      # Nothing here yet
+      pass
+elif self.direction == "west":
+    # Nothing here yet
+      pass
+elif self.direction == "north":
+      # Nothing here yet
+      pass
+elif self.direction == "south":
+      # Nothing here yet
+      pass
+else:
+      # The only left is "out of the screen"
+      pass
+```
+{{% /details %}}
+
+The only thing left is to fill out the `action` after you've finished the `condition`.
+
+{{% details title="Solution - Full" %}}
+```python { filename="Obstacle/Start" }
+self.speed = 10
+```
+
+```python { filename="Obstacle/Loop" }
+if self.direction == "east":
+      # Nothing here yet
+      self.x -= self.speed
+elif self.direction == "west":
+      # Nothing here yet
+      self.x += self.speed
+elif self.direction == "north":
+      # Nothing here yet
+      self.y += self.speed
+elif self.direction == "south":
+      # Nothing here yet
+      self.y -= self.speed
+else:
+      # The only left is "out of the screen"
+      # TODO: this is what we're doing next
+      pass
+```
+{{% /details %}}
+
+
+#### Direction Below the Spaceship (Work in Progress) {#direction-below-the-spaceship--work-in-progress}
+
+**Question:** What property should we modify if the obstacle is moving from below the spaceship (not `x` or `y`).
+
+{{% details title="Solution - Property to Modify" %}}
+The property we should modify is the `size` of the obstacle.
+{{% /details %}}
