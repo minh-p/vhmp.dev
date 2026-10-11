@@ -924,7 +924,7 @@ When an object is created by the class =Obstacle=, it should be moving the aster
       ...
 #+END_SRC
 **** Direction From North, South, East, West
-*Question:* How do we move the obstacle by some =x= or =y= amount constantly until the asteroid move out of the screen? Where do we this code?
+*Question:* How do we move the obstacle by some =x= or =y= amount constantly until the asteroid move out of the screen? Where do we put this code? What class? Start or Loop?
 
 #+attr_shortcode: :title Solution - Where To Put the Code
 #+begin_details

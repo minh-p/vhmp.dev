@@ -253,7 +253,7 @@ def create_obstacle(direction: str, ...):
 
 #### Direction From North, South, East, West {#direction-from-north-south-east-west}
 
-**Question:** How do we move the obstacle by some `x` or `y` amount constantly until the asteroid move out of the screen? Where do we this code?
+**Question:** How do we move the obstacle by some `x` or `y` amount constantly until the asteroid move out of the screen? Where do we put this code? What class? Start or Loop?
 
 {{% details title="Solution - Where To Put the Code" %}}
 We should put the code in the `Loop` section of the `Obstacle` class.

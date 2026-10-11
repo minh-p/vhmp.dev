@@ -1,5 +1,6 @@
 #+hugo_base_dir: ../
 #+hugo_section: programming/teaching/roblox-lua
+#+startup: show2levels
 * Luau
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
@@ -415,6 +416,284 @@ Our table is going to hold keys which are going to the characters' name. The nam
   part.Heartbeat:Connect(burnOnStandby)
 #+END_SRC
 #+end_details
+*** Custom Menu
+In preparation to make our custom stages, we're customizing the way the player respawns and make a game menu with a play button which we're placing inside =ReplicatedFirst=.
+
+#+BEGIN_QUOTE
+[!TIP]
+*Refer to the documentation to create GUI*
+
+Here are some =GuiObjects= that you should look at to create your menu.
+- [[https://create.roblox.com/docs/en-us/reference/engine/classes/ScreenGui][ScreenGui]]
+- [[https://create.roblox.com/docs/en-us/reference/engine/classes/Frame][Frame]]
+- [[https://create.roblox.com/docs/en-us/reference/engine/classes/TextButton][TextButton]]
+- [[https://create.roblox.com/docs/en-us/reference/engine/classes/ImageButton][ImageButton]]
+#+END_QUOTE
+
+Your menu needs a =local script= and as well as a =script=. The =script= handles respawning players on the =server= while the =local script= should use the event =Activated= of a =TextButton= or =ImageButton=.
+
+Create a remote event and then use the function =FireServer= without any extra arguments inside the function that you'll connect to the Activated event of your button object.
+
+#+BEGIN_QUOTE
+[!TIP]
+*Refer to the documentation*
+
+Here are some resources you look at for you =local script=.
+- [[https://create.roblox.com/docs/en-us/reference/engine/classes/RemoteEvent][Remote events]]
+- Remote events - [[https://create.roblox.com/docs/en-us/reference/engine/classes/RemoteEvent#FireServer][FireServer]]
+- GuiButton (Works For ImageButton and TextButton) - [[https://create.roblox.com/docs/en-us/reference/engine/classes/GuiButton#Activated][Activated]]
+#+END_QUOTE
+
+#+attr_shortcode: :title Solution - Local Script
+#+begin_details
+#+attr_html: :filename: ReplicatedFirst/Menu/MenuFrame/TextButton
+#+BEGIN_SRC lua
+  menuButton = script.Parent
+  spawnRemoteEvent = ReplicatedStorage:WaitForChild("SpawnRemoteEvent")
+
+  function requestSpawning()
+     spawnRemoteEvent:FireServer()
+  end
+  menuButton.Activated:Connect(requestSpawning)
+#+END_SRC
+#+end_details
+
+Then, for the server script. First, we need to manually code the way the player should spawn in to the game and respawn. We'll be using the property called [[https://create.roblox.com/docs/en-us/reference/engine/classes/Players#CharacterAutoLoads][CharacterAutoLoads]]. We'll also grab the example code in the page.
+
+#+attr_html: :filename ServerScriptService/PlayerSpawning
+#+BEGIN_SRC lua
+    local Players = game:GetService("Players")
+
+    -- Set CharacterAutoLoads to false
+    Players.CharacterAutoLoads = false
+
+    -- Remove player's character from workspace on death
+    Players.PlayerAdded:Connect(function(player)
+  	while true do
+  	   local char = player.CharacterAdded:Wait()
+  	   char.Humanoid.Died:Connect(function()
+  		 char:Destroy()
+  	   end)
+  	end
+    end)
+
+    -- Respawn all dead players once every 10 seconds
+    while true do
+       local players = Players:GetChildren()
+
+       -- Check if each player is dead by checking if they have no character, if dead load that player's character
+       for _, player in pairs(players) do
+  	if not workspace:FindFirstChild(player.Name) then
+  	   player:LoadCharacterAsync()
+  	end
+       end
+
+       -- Wait 10 seconds until next respawn check
+       task.wait(10)
+    end
+#+END_SRC
+
+All we need to do now is work with [[https://create.roblox.com/docs/en-us/reference/engine/classes/RemoteEvent#OnServerEvent][OnServerEvent]] on the server script. We're going to create a =table= of =strings= which we're going to use as the =whitelist= that allow players to spawn. The function that you're passing to the =OnServerEvent= event should include code that inserts a player name into the table. In order to get the player from the player's name, pass the player character to the function [[https://create.roblox.com/docs/en-us/reference/engine/classes/Players#GetPlayerFromCharacter][GetPlayerFromCharacter]] of player.
+
+#+attr_shortcode: :title Solution - Full
+#+begin_details
+#+attr_html: :filename ServerScriptService/PlayerSpawning
+#+BEGIN_SRC lua
+  Players = game:GetService("Players")
+  ReplicatedStorage = game:GetService("ReplicatedStorage")
+  spawnRemoteEvent = ReplicatedStorage:WaitForChild("SpawnRemotEvent")
+
+  -- Whitelist
+  spawnWhitelist = {}
+
+  spawnRemoteEvent.OnServerEvent:Connect(function(player: Player)
+        table.insert(player.Name)
+  end)
+
+  -- Set CharacterAutoLoads to false
+  Players.CharacterAutoLoads = false
+
+  -- Remove player's character from workspace on death
+  Players.PlayerAdded:Connect(function(player)
+        while true do
+  	 local char = player.CharacterAdded:Wait()
+  	 char.Humanoid.Died:Connect(function()
+  	       char:Destroy()
+  	 end)
+        end
+  end)
+
+  -- Respawn all dead players once every 10 seconds
+  while true do
+     local players = Players:GetChildren()
+
+     -- Check if each player is dead by checking if they have no character, if dead load that player's character
+     for _, playerName in pairs(spawnWhitelist) do
+        if not workspace:FindFirstChild(playerName) then
+  	 local player = Players:FindFirstChild(playerName)
+  	 player:LoadCharacterAsync()
+        end
+     end
+
+     -- Wait 10 seconds until next respawn check
+     task.wait(10)
+  end  
+#+END_SRC
+#+end_details
+*** Data - Module Script
+We're making a custom spawn location which are going to be assigned to different stages. We're also going to save the player's progress later. So this begs the question of how we're going to be managing the player's data. We're going to do this with a =module script=.
+
+#+attr_html: :filename ServerScriptService/PlayerData
+#+BEGIN_SRC lua
+  DataStore = game:GetService("DataStoreService")
+  Players = game:GetService("Players")
+
+  Data = {
+     playerData = {
+        ["Player1"] = {
+  	 stage = 10,
+  	 coins = 10000
+        }
+        ["Player1-Loaded"] = true
+     },
+     dataStoreNames = {
+        stage = "ObbyProgress",
+        -- coins = "Coins"
+     }
+  }
+
+  --[[
+     Gets the data inside the game not synced to data store
+
+     playerName: name of player
+     dataName: data key
+
+     Returns the value requested or nil if it doesn't exist.
+  ]]
+  function Data:get(playerName: string, dataName: string): any
+     assert(Players:FindFirstChild(playerName), "Name of player do not exist")
+
+     if self.playerData[playerName][dataName] == nil then
+        return nil
+     end
+
+     if self.playerData[playerName][dataName] == nil then
+        return nil
+     end
+
+     return self.playerData[playerName][dataName]
+  end
+
+  --[[
+     Waits for player data to be loaded into the game and returns that data
+
+     playerName: name of player
+     dataName: name of data being loaded
+     attempts: number of times to try to wait for data
+
+     Returns data waited for and whether getting the data is successful
+  ]]
+  function Data:waitForPlayerData(playerName: string, dataName: string, attempts: number): (any, boolean)
+     local currentAttempt = 0
+     while not self:get(playerName, dataName) and currentAttempt < attempts do
+        warn(`Waiting for data {dataName} of player {playerName}`)
+        task.wait(1)
+     end
+     return self:get(playerName, dataName), currentAttempt ~= attempts
+  end
+
+  function Data:save(playerName: string, dataName: string): boolean
+     if not Players:FindFirstChild(playerName) then
+        return false
+     end
+     
+     -- 1. Does player data even exist? If not we return early.
+     ---> Look inside playerData (it's inside Data),
+     ---- See if playerData keying player's name exists. If not, return early.
+     
+     if not self.playerData[playerName] then
+        return false
+     end
+     
+     -- 2. Does the specific player data of name exist? If not we return early
+     --  self.playerData[playerName][dataName]
+     if self.playerData[playerName][dataName] == nil then
+        return false
+     end
+     
+     -- 3. Saves data to data store
+     local dataStore = DataStore:GetDataStore(self.dataStoreNames[dataName][1])
+     local success, data = pcall(function()
+  	 dataStore:UpdateAsync(Players[playerName].UserId, function()
+  				  return self.playerData[playerName][dataName]
+  	 end)
+     end)
+  end
+
+  --[[
+     Requests data from the data store
+
+     playerName: name of player
+     dataName: name of the data being loaded from data store
+
+     Returns the data loaded from the data store, and whether the data load is successful
+  ]]
+  function Data:request(playerName: string, dataName: string): (any, boolean)
+     local player = Players:FindFirstChild(playerName)
+     assert(player, "Name of player do not exist")
+     assert(self.dataStoreNames[dataName], "Data store information for dataName do not exist")
+     assert(#self.dataStoreNames[dataName] == 2, "Missing configured data store information")
+     
+     local dataStore = DataStore:GetDataStore(self.dataStoreNames[dataName][1])
+     local success, value = pcall(function()
+  	 return dataStore:GetAsync(player.UserId)
+     end)
+
+     if not success then
+        warn(value)
+        return nil, false
+     end
+
+     if value == nil then
+        return self.dataStoreNames[dataName][2], true
+     end
+
+     return value, true
+  end
+
+  --[[
+     Sets up the events PlayerAdded and PlayerRemoving to get and save the player's data
+  ]]
+  function Data:listenPlayerEvents(): nil
+     Players.PlayerAdded:Connect(function(player: Player)
+  	 self.playerData[player.Name] = {}
+  	 for dataName, _ in self.dataStoreNames do
+  	    -- Loads the data of this specific data store
+  	    -- Kick the player if the data loading fails (player:Kick)
+  	    -- If data loading completes add PlayerName-Loaded = false
+  	    local data, success = self:request(player.Name, dataName)
+  	    if not success then
+  	       player:Kick(`{dataName} not loaded`)
+  	       return
+  	    end
+  	    self.playerData[player.Name][dataName] = data
+  	 end
+  	 self.playerData[player.Name .. "-Loaded"] = true
+     end)
+     
+     Players.PlayerRemoving:Connect(function(player: Player, reason: Enum.PlayerExitReason)
+  	 if reason == Enum.PlayerExitReason.CreatorKick and not self.playerData[player.Name.."-Loaded"] then
+  	    -- returns early if player data is not completedly loaded
+  	    return
+  	 end
+  	 for dataName, _ in self.dataStoreNames do
+  	    self:save(player.Name, dataName)
+  	 end
+     end)
+  end
+
+  return Data
+#+END_SRC
 * Tower Defense (WIP)
 :PROPERTIES:
 :EXPORT_FILE_NAME: tower-defense
