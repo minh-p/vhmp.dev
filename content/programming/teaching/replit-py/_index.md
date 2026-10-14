@@ -5,17 +5,20 @@ draft = false
 
 ## Replit.py {#replit-dot-py}
 
-This page is still a work in progress (WIP). I'm planning to write how to setup Replit on here by writing into `replit.nix` and installing the necessary packages for Replit.
+Recent Replit projects use nix to handle the development environment (installing packages for a development environment).
 
 An example setup for newly created REPL which has nix support uses changes the `replit.nix` file in order to install the necessary packages
 
 ```nix { filename="replit.nix" }
-  { pkgs }: {
+{ pkgs }: {
   deps = [
-    pkgs.python311
-    pkgs.python311Packages.pip
-    # pkgs.python311Packages.tkinter
-    # pkgs.python311Packages.pygame
+    (pkgs.python3.withPackages (ps: with ps; [
+      pytest
+    ]))
   ];
 }
 ```
+
+Search packages at <https://search.nixos.org>. Replit uses different nix channels so I would advise sticking with packages names that do not have versions in it. An example would be `python311` as that would mean it has to be a nixpkgs channel version that has this package.
+
+Further configuration options can be found on this page: <https://docs.replit.com/features/project-setup/configuration>.
