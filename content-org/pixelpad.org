@@ -783,6 +783,163 @@ We use =else-ifs= or =elif= in Python to establish an =Exclusive OR= relationshi
       self.y -= 10
 #+END_SRC
 #+end_details
+*** Spaceship Debrief
+**** Question 1 — Multiple Choice
+What is the main purpose of listing the concepts needed before building the spaceship?
+- A. To memorize all of pixelPAD's documentation
+- B. To identify which programming tools are already known and which still need to be learned
+- C. To determine which spaceship image looks best
+- D. To avoid writing code until every pixelPAD concept is mastered
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+This is part of the engineering problem-solving process. Identify what you want to build, list the required concepts, and separate what you already understand from what you still need to learn.
+#+end_details
+**** Question 2 — Multiple Choice
+How is an object normally created in pixelPAD?
+- A. By assigning an image directly to the screen
+- B. By calling its class
+- C. By pressing a keyboard key
+- D. By creating a variable named =sprite=
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+For example:
+#+BEGIN_SRC python
+Player()
+#+END_SRC
+This creates an object from the =Player= class.
+#+end_details
+**** Question 3 — Multiple Choice
+How many sprites can one pixelPAD object hold according to the material?
+- A. Zero
+- B. One
+- C. Two
+- D. Any number
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+Each object can hold one sprite.
+#+end_details
+**** Question 4 — Multiple Choice
+Which line assigns the spaceship image to the player's sprite?
+- A. =Player("spaceship.png")=
+- B. =self.image = "spaceship.png"=
+- C. =self.sprite = sprite("spaceship.png")=
+- D. =sprite = Player()=
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+#+BEGIN_SRC python
+self.sprite = sprite("spaceship.png")
+#+END_SRC
+This creates the sprite using the image named =spaceship.png= and assigns it to the object's =sprite= variable.
+#+end_details
+**** Question 5 — Select All That Apply
+Which concepts or documentation topics are useful when implementing WASD movement?
+- A. Objects and sprite position
+- B. Keyboard input
+- C. Conditionals
+- D. File compression
+- E. Database queries
+#+attr_shortcode: :title Answer
+#+begin_details
+*A, B, C.*
+The movement system requires changing the object's position, detecting keyboard input, and deciding what action to perform using conditionals.
+#+end_details
+**** Question 6 — Multiple Choice
+Why should =key_is_pressed()= normally be checked inside =loop= instead of =start=?
+- A. Because =start= cannot contain =if= statements
+- B. Because =loop= repeatedly checks the keyboard while the game is running
+- C. Because =start= only works with mouse input
+- D. Because =key_is_pressed()= automatically creates a loop
+#+attr_shortcode: :title Answer
+#+begin_details
+*B.*
+Keyboard state can change continuously while the game is running. The game therefore needs to check the keyboard repeatedly rather than only once when the object starts.
+#+end_details
+**** Question 7 — Multiple Choice
+What happens when the player presses =d= in the following code?
+#+BEGIN_SRC python
+if key_is_pressed("d"):
+    self.x += 10
+#+END_SRC
+- A. The player's x-coordinate decreases by 10
+- B. The player's y-coordinate increases by 10
+- C. The player's x-coordinate increases by 10
+- D. The player's sprite becomes 10 pixels larger
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+The statement =self.x += 10= is equivalent to =self.x = self.x + 10=.
+#+end_details
+**** Question 8 — Multiple Choice
+What is the important difference between these two structures?
+#+BEGIN_SRC python
+if key_is_pressed("a"):
+    self.x -= 10
+if key_is_pressed("d"):
+    self.x += 10
+#+END_SRC
+and
+#+BEGIN_SRC python
+if key_is_pressed("a"):
+    self.x -= 10
+elif key_is_pressed("d"):
+    self.x += 10
+#+END_SRC
+- A. The first allows both conditions to execute during the same loop iteration, while the second allows at most one branch to execute
+- B. The first only works in =start=
+- C. The second makes the spaceship move twice as fast
+- D. There is no behavioral difference
+#+attr_shortcode: :title Answer
+#+begin_details
+*A.*
+With two independent =if= statements, both conditions are checked and both bodies can run.
+With =if= followed by =elif=, once the first condition is true, the =elif= branch is skipped.
+#+end_details
+**** Question 9 — Multiple Choice
+Suppose both =a= and =d= are pressed using the non-exclusive version:
+#+BEGIN_SRC python
+if key_is_pressed("a"):
+    self.x -= 10
+if key_is_pressed("d"):
+    self.x += 10
+#+END_SRC
+What is the net change in =self.x= during that loop iteration?
+- A. =-20=
+- B. =-10=
+- C. =0=
+- D. =+20=
+#+attr_shortcode: :title Answer
+#+begin_details
+*C.*
+The first statement subtracts 10, while the second adds 10. Therefore, the horizontal movements cancel each other.
+#+end_details
+**** Question 10 — Select All That Apply
+Consider the following movement code:
+#+BEGIN_SRC python
+if key_is_pressed("a"):
+    self.x -= 10
+elif key_is_pressed("d"):
+    self.x += 10
+if key_is_pressed("w"):
+    self.y += 10
+elif key_is_pressed("s"):
+    self.y -= 10
+#+END_SRC
+Which statements are true?
+- A. =a= and =d= cannot both cause horizontal movement during the same loop iteration
+- B. =w= and =s= cannot both cause vertical movement during the same loop iteration
+- C. The player can still move diagonally by pressing one horizontal key and one vertical key
+- D. Pressing =a= prevents =w= from being checked
+- E. Horizontal and vertical movement use separate conditional chains
+#+attr_shortcode: :title Answer
+#+begin_details
+*A, B, C, E.*
+The horizontal =if/elif= chain and vertical =if/elif= chain are separate. Therefore, the player can perform one horizontal movement and one vertical movement during the same loop iteration.
+#+end_details
+
 ** Making Obstacles (Asteroids)
 Whenever you want to import a sprite into your game, you have to create a class that contains the instructions of how to setup the object that contains the sprite. Remember that every object created by a =PixelPad= class can hold a =sprite= that can be held on the screen.
 
