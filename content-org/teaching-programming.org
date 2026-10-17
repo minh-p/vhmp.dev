@@ -9,11 +9,11 @@
 ** How I Teach Programming (10/17/2026)
 I as the teacher need to be self-accountable in the way I teach people knowledge in different contexts.
 *** How Teaching In Formal Schooling Works
-Teaching programming is difficult in any setting. In college, the instructor has the responsibility to provide learning materials and be ready to engage the students in the transmission of knowledge and most importantly guiding them toward the most important topics beginning with the fundamentals toward different levels of abstractions.
+Teaching programming is difficult in any setting. In college, the instructor has the responsibility to provide learning materials and be ready to engage the students in the transmission of knowledge and most importantly guiding them toward the most important topics beginning with the fundamentals toward the higher levels of abstractions.
 
-The student equally has the same level of responsibility when it comes to learning. In fact, the hallmark of a great learner is not whether they always attend college. It's that they time manage well and leave enough space in their day to reflect, study, learn the materials and challenge themselves on whether they could understand what they have learned. I personally am not a big lecture attendee. In higher education, this idea better translates.
+The student equally has the same level of responsibility when it comes to learning. In fact, the hallmark of a great learner is not whether they always attend college lectures. I personally am not a big lecturer attendee anymore. To learn effectively in college, I only have to time-manage well and leave enough space in their day to reflect, study, learn the materials and challenge myself on whether I could understand what I have learned. However, this idea is only applicable to higher education versus than what would be teaching kids to how to code.
 *** Teaching Kids to Code
-My current credentials as of 2026 only allow me to be a coding tutor at a learning center. Throughout my employment at [[https://www.thecoderschool.com/locations/irvine/][The Coder School, Irvine]], I've had my fair share of frustrations when it comes to teaching younger students how to code from scratch. A prominent issue is the tendency of the students to assume understanding when they often do not and then forget all about the topic when the next session come. Granted, the student's total time here was about once per week. All learning centers encounter the same problem: how to make yourself marketable while engaging the student to create a foundation of problem-solving and programming fundamentals.
+My current credentials as of 2026 only allow me to be a coding tutor at a learning center. Throughout my employment at [[https://www.thecoderschool.com/locations/irvine/][The Coder School, Irvine]] since October 2025, I've had my fair share of frustrations when it comes to teaching younger students how to code from scratch. A prominent issue is the tendency of the students to assume understanding when they often do not and then forget all about the topic when the next session come. Granted, the student's total time here was about once per week. All learning centers encounter the same problem: how to make yourself marketable while engaging the student to create a foundation of problem-solving and programming fundamentals.
 
 #+BEGIN_QUOTE
 [!NOTE]
@@ -106,7 +106,7 @@ OR
 *** Being Marketable Harms Understanding
 The term =marketing= is an adult term. It means fast. It means hype. And it also means lack of understanding.
 
-It's reasonable to say that students only learn by doing. It's marketing to say that students should learn doing projects while being taught to by the coach.
+It's reasonable to say that students only learn by doing. It's marketing to say that students should learn doing projects while being taught to by the coach. It's more so the learning center's desire to recruit parents' interests. The analogy is showing a banker a big salary before forcing him to work for 12 hours a day.
 
 The idea of practice while being taught is antithetical to the purpose of studying. Mastery of concepts is done through studying, and studying can only be done when the instructor is no longer involved as strongly to what the student is doing. The student must struggle and get lost in the process of learning so that they achieve mastery of the topics.
 
@@ -120,4 +120,4 @@ Second, in order to keep things engaging, my teaching materials should now gravi
 
 So next time, instead of making the spaceship move from scratch. I'll give them the code that moves the spaceship, and instead just focus on making the spaceship appear on the screen instead of showing a blob titled, "Empty image" moving around. Then as part of the subsequent session, I'll give them the code that make fruits move around on the screen but now will task them with making the fruits appear on the screen.
 
-In short, I'll make them practice the same concepts in different setting until they can do it blindfolded from me just saying a short sentence.
+In short, I'll make them practice the same concepts in different contexts until they can do it blindfolded from me just saying a short sentence.
