@@ -4,101 +4,125 @@ draft = false
 weight = 10
 +++
 
-## Teaching (and Learning) Programming Is Difficult {#teaching--and-learning--programming-is-difficult}
+## How I Teach Programming (10/17/2026) {#how-i-teach-programming--10-17-2026}
 
-This is a short manifesto on teaching and learning programming.
-
-It is easy for both teacher and pupil to blame one another just like in any other discipline. However, the problem of teaching programming is especially arduous because specific factors:
-
-1.  The student has to learn to think and express more formally.
-2.  The teacher has to encourage the student to read and process hard text and not just rely solely on a more simplified transmission of knowledge.
-3.  The student has to be willing to be able to find resources for a topic and commit to learning them on his own as soon as he is able to.
-4.  With now the widespread usage of a large language model, the student has to maintain discipline to avoid this shortcut: while AI bootstraps immediate competency, complete understanding remains naive and self-potential capped.
-5.  Within the context of formal schooling, the student must manage his time well. This would also eliminate the desire to use shortcuts with AI to fake a course grade.
-6.  Programming connects various other disciplines and deep understanding requires the discipline to be more well-read and investment into fields such as mathematics and physics. (E.g. Donald Knuth's _The Art of Programming_ famously requires prior understanding in mathematics).
+I as the teacher need to be self-accountable in the way I teach people knowledge in different contexts.
 
 
-## Teaching Kids Coding {#teaching-kids-coding}
+### How Teaching In Formal Schooling Works {#how-teaching-in-formal-schooling-works}
 
-Younger students usually come because of their parents' interest in developing an extracurricular. Logistics aside, the students are here partly to have fun. Having fun is most commonly reflective of something silly happens or as a result of delayed gratification &rarr; they manage to create a complex project.
+Teaching programming is difficult in any setting. In college, the instructor has the responsibility to provide learning materials and be ready to engage the students in the transmission of knowledge and most importantly guiding them toward the most important topics beginning with the fundamentals toward different levels of abstractions.
 
-A typical coding program could incur about an hour per week for the student. In any sense of learning effectiveness, the student will not be able to remember the concepts learned without a rigorous level of
-practice and questioning.
-
-
-### Lack of Standardization {#lack-of-standardization}
-
-When I first began working as a coding tutor handling students 2:1 or 1:1, I would usually go into asking, "what is the student working on?", or "what specific mechanic do I help them make today?". This casual approach was convenient when I just wanted to "do my work for the hour". The result is a feeling of discontinuity between the sections.
-
-This lack of a game plan is something that's to be learned from formal teaching. A formal curriculum must be developed for learning programming fundamentals.
-
-{{% details title="Sample roadmap" %}}
-1.  Variables
-2.  Data Types
-    -   Number (int, float, double)
-    -   String
-    -   Boolean
-3.  Functions
-4.  If-statements
-5.  Array/List
-6.  For-loop
-7.  ...
-{{% /details %}}
-
-Standardization requires and partly enables the creation of teaching materials. The student must be able to define concepts in their own word, vaguely describe why the concept is useful (this gets reinforced as they practice), and attempt to connect concepts with each other. My teaching materials are created to fit these requirements.
+The student equally has the same level of responsibility when it comes to learning. In fact, the hallmark of a great learner is not whether they always attend college. It's that they time manage well and leave enough space in their day to reflect, study, learn the materials and challenge themselves on whether they could understand what they have learned. I personally am not a big lecture attendee. In higher education, this idea better translates.
 
 
-### Memorization Is Needed For Understanding {#memorization-is-needed-for-understanding}
+### Teaching Kids to Code {#teaching-kids-to-code}
 
-As part of my job's requirement, the projects that the student were going to create must stem from their own personal interests, which leads to complementing strategies to keep engagement and student uniqueness. However, at the beginning when the student does not know anything, it is always challenging to keep the student engaged and make them remember important concepts even with standardized plan.
-
-
-### Introducing the Notebook {#introducing-the-notebook}
-
-A **notebook** should be employed. I find that having a notebook that serves as a **learning journal** works better than asking the student to copy down the topic they are being learned at hand. I created this website partly as a way to host my teaching notes so that students can access and read. I would only simply ask the student to note down things they need to focus or re-learn.
-
-> [!WARNING]
-> Without a notebook at all, the student forgets the larger picture of their learning process. It's time-consuming to be repeating ideas covered just a couple of weeks ago. It's also part of a toolbox so that the student could study what they have learned.
-
-
-### Why Teaching Notes - Learning From Just Lecture Sucks {#why-teaching-notes-learning-from-just-lecture-sucks}
-
-Forcing the student to copy down the definition and use-case of a topic from a reference (web pages, textbook, teaching notes, from lecture) even if summarized is mostly a waste of time. Part of my approach during a session is to tell them to open up my notes as a reference and use their [notebook](#introducing-the-notebook) in the way I discussed.
-
-I find that my talent as verbal communicator is extremely limited when it comes to teaching technical topics, much less telling the students themselves to write the words from my mouth. Every "structured" chain of explanation that I thought the student was able to follow completely (which is never the case... at most 80%) is a risk that could delay the effectiveness of the upcoming session.
-
-
-### How a Motivated Student Can Use a Notebook {#how-a-motivated-student-can-use-a-notebook}
-
-Tutoring kids coding lacks the pressure of exams and grades compared to formal schooling. Part of what I do as a tutor is asking my students questions that consider the construction of a concept from most fundamental understanding of computers. Oftentimes, I like to give very vague assignments where students have to write a paragraph that explains a concept in their own words; as the complexity increases, the student is asked to work from the most basic ideas.
+My current credentials as of 2026 only allow me to be a coding tutor at a learning center. Throughout my employment at [The Coder School, Irvine](https://www.thecoderschool.com/locations/irvine/), I've had my fair share of frustrations when it comes to teaching younger students how to code from scratch. A prominent issue is the tendency of the students to assume understanding when they often do not and then forget all about the topic when the next session come. Granted, the student's total time here was about once per week. All learning centers encounter the same problem: how to make yourself marketable while engaging the student to create a foundation of problem-solving and programming fundamentals.
 
 > [!NOTE]
-> **Feynman Technique**
+> **A example case study**
 >
-> The Feynman technique is a powerful way to develop understanding as a learner.
+> <span class="underline">Week 1</span>:
 >
-> 1.  Choose a concept
-> 2.  Teach it to someone (student to session partner or back to the teacher)
-> 3.  Identify gaps in your knowledge (through tests, challenges)
-> 4.  Refine and simplify your knowledge (with a learning journal)
+> **Tutor**: We're starting with PixelPad. The first we're doing is putting a picture on the screen. Now there are three different ideas that you have to understand.
+>
+> **Student**: ...
+>
+> **Tutor**: The first idea is there are classes, and you create them by pressing the plus (+) button next to Classes.
+> [Shows them creating classes]
+>
+> **Tutor**: So far so good?
+>
+> **Student**: Yeah
+>
+> **Tutor**: So now classes create objects. And objects have a variable that stores a sprite. A sprite is an image.
+>
+> **Student**: Hmm okay...
+> [Clearly overwhelmed by the vocabulary]
+>
+> **Tutor**: [Smiles and acknowledge confusion]. Well okay, let's just get started so you can be familiar with the code and see more clearly what I'm talking about.
+>
+> ```python { filename="Game Start" }
+> # Tell class Player to create object Player
+> Player()
+> ```
+>
+> ````python { filename="Player Start" }
+> # Assign sprite object to object variable sprite
+> self.sprite = sprite("Player.png")
+> ````
+>
+> **Tutor**: Okay so you tell the class Player to create the object by typing its name and then type the parentheses. Inside the class Player, we override the object variable sprite of self. Self is a variable that refers to the object the class is creating. So self is essentially the player object and you can modify sprite which is one of its variable. Okay, any questions?
+>
+> **Student**: Hmm... I'm good.
+> [There's a lot to actually ask from. **Student** not used to hearing technical talk.]
+>
+> <span class="underline">Week 2</span>:
+>
+> **Tutor**: Okay, welcome back! Last week we covered how to make a sprite. Let's do a quick review. Do you remember what this code does?
+>
+> `````python
+> Player()
+> `````
+>
+> [There are typically two ways a student respond which depends whether they remembered a bit of it or forgot everything]
+>
+> **Student**: No, not really. Could you explain it again?
+>
+> **Tutor**: [Rexplain what happened last session. Worst case it's a redo of last time and the same thing happens next week from now]
+>
+> OR
+>
+> **Student**: It creates the player?
+>
+> **Tutor**: Hmm okay. But specifically how does Python understand it?
+>
+> **Student**: uhhhh
+>
+> **Tutor**: Well what's Player?
+>
+> **Student**: uhhh
+> [Well I can clearly see the text. The heck is that. I forgot]
+>
+> **Tutor**: Well, Player is our class. And as a reminder. Classes create objects and each object holds only one image. [Shows the code that sets the variable sprite]. Okay then what's self.
+>
+> **Student**: uhh. It's a variable.
+>
+> **Tutor**: Yes it's a variable. So what does this variable refers to or what does it track?
+>
+> **Student**: uhh, the Player?
+>
+> **Tutor**: Yes, self would refer to the object that the class Player creates.
+>
+> **Student**: Okay.
+> [Appears stoic but only understand at most half of the words the tutor is saying].
+>
+> **Tutor**: Well alright, now we move on to making the player move when you press the keys WASD.
+>
+> **Student**: ....
+> [Here we go again...]
 
 
-### How to Introduce New Concepts {#how-to-introduce-new-concepts}
+### Being Marketable Harms Understanding {#being-marketable-harms-understanding}
 
-Introduction of new concepts are divided between direct practice and theoretical lecture. The instructor can either discuss the theoretical knowledge first or last. A direct practice should be used for simpler topics or for students who need more time to adapt to the lesson.
+The term `marketing` is an adult term. It means fast. It means hype. And it also means lack of understanding.
 
+It's reasonable to say that students only learn by doing. It's marketing to say that students should learn doing projects while being taught to by the coach.
 
-#### Best For Engagement {#best-for-engagement}
+The idea of practice while being taught is antithetical to the purpose of studying. Mastery of concepts is done through studying, and studying can only be done when the instructor is no longer involved as strongly to what the student is doing. The student must struggle and get lost in the process of learning so that they achieve mastery of the topics.
 
-This approach is best suitable for a game engine education tool like pixelPAD or Roblox.
-
-The instructor can best engage the student through first mechanic demonstration. He can then let the students do it on their own with help from one another as an intermediary step before letting the student create the text box on his own.
-
-When mechanic creation is achieved, only then the instructor should go and explain the theory.
-
-An example of this can be seen in the [first activity of my pixelPAD notes]({{< relref "/programming/teaching/pixelpad/#activity-creating-a-text-box" >}}).
+The listed example case-study above describes the primary reason why students do not understand topics. In higher education, this fast pace can be overridden by the efforts of the student themselves. But when it comes to teaching kids to code as part of their extracurricular, where they are being forced by their parents to go to, the younger the students are, the less incentive they have to carry on the burden of actually studying things on their own.
 
 
-#### Best For Heavy Topics {#best-for-heavy-topics}
+### Solution - Encapsulation and Repetition {#solution-encapsulation-and-repetition}
 
-The student should prepare by reading the notes before the session. Then regardless of the level of preparation, the student then goes through the teaching notes with the instructor. At the end, the student will do a quiz from the teaching note or implement a small coding exercise.
+When it comes to teaching kids to code. I have two resolutions that I am implementing as of October of 2026.
+
+First, when a topic is introduced to the student, my teaching materials should gravitate to practicing those materials until the students themselves become bored. Instead of heading to level 5, from now I'm going back to level 1 and practicing the most fundamental concepts so many times that the students would regard it as really easy. This is `repetition`.
+
+Second, in order to keep things engaging, my teaching materials should now gravitate toward allowing the student to copy and setup code so that it is enough to show something interesting on the screen while only open the students to a section of the project that allows them to practice the simple concepts first. This is `encapsulation`.
+
+So next time, instead of making the spaceship move from scratch. I'll give them the code that moves the spaceship, and instead just focus on making the spaceship appear on the screen instead of showing a blob titled, "Empty image" moving around. Then as part of the subsequent session, I'll give them the code that make fruits move around on the screen but now will task them with making the fruits appear on the screen.
+
+In short, I'll make them practice the same concepts in different setting until they can do it blindfolded from me just saying a short sentence.
