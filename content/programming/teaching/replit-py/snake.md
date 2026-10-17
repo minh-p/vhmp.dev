@@ -132,7 +132,7 @@ def exp(a: int, b: int):
 ```
 {{% /details %}}
 
-{{% details title="Solution exp - Complete" %}}
+{{% details title="Solution exp - Complete (intentionally flawed)" %}}
 ```python { filename="snake/tests/hello_tests.py" }
 def exp(a: int, b: int):
     # Assumes both numbers are positive
@@ -142,3 +142,37 @@ def exp(a: int, b: int):
     return result
 ```
 {{% /details %}}
+
+Now, we'll create some tests for our `exp` function.
+
+```python
+# Import the module unittest
+import unittest
+
+def exp(a: int, b: int):
+  result = a
+  for i in range(b-1):
+    result *= a
+  return result
+
+# Test Cases are created with a class that inherits from the class TestCase
+class TestExp(unittest.TestCase):
+  # For every test, we create a function that is inside a class.
+  # In Python, these types of function are called "methods"
+  # Methods have the parameter self which refers to the object
+  # which is being modified by the method.
+  def test_general(self):
+    # We're using the method called "assertEqual"
+    # This method is from the class TestCase of the
+    # unittest module that our test case class inherits from.
+    self.assertEqual(exp(2, 6), 64)
+  def test_zero(self):
+    # This test should fail as of the function for exp right now
+    self.assertEqual(exp(0, 2), 0)
+
+# This condition checks if the file is being run directly
+# Through the python command. If the condition is false,
+# then it would mean that the file is being imported as a module
+if __name__ == "__main__":
+  unittest.main()
+```
