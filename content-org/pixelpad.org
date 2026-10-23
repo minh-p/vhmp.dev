@@ -1205,3 +1205,220 @@ The only thing left is to fill out the =action= after you've finished the =condi
 #+begin_details
 The property we should modify is the =size= of the obstacle.
 #+end_details
+* Practice
+:PROPERTIES:
+:EXPORT_FILE_NAME: extra-practice
+:END:
+** Additional Practice
+In this page are exercise prompts and solutions to practice concepts. They are project-agnostic, which means that exercises do not correspond to any long-term project. Rather, students are given initial instructions to setup their exercise and their job will be finish any section marked =TODO=.
+** Sprite Creation and Movement With Inputs
+*** Create an Apple (Easy)
+:PROPERTIES:
+:ID:       07c078c3-abd2-4dcc-9e33-a25ab1db6eef
+:END:
+First, create a new =sprite= by clicking on the =+= and find apple. Name this sprite =Apple.png=. Then, create a class and name it =Apple=. Remember that classes creates objects according to the code you give in =Start= and =Loop=. Each object can hold only one single =sprite=. A =sprite= is just an image. While a =sprite object= is a coding object returned by the function =sprite=. The function =sprite=, the =sprite object=, and a =sprite= are three different things.
+
+[[file:images/pixelpad/extra-practice/apple-setup.png]]
+
+Then, we're first going to be coding in =Game Start=. Go ahead and tell the class =Apple= to create an object. Do you remember how to do it? If not, don't look at the solution before reviewing the @@hugo:[create a sprite activity]({{< relref "/programming/teaching/pixelpad/#activity-creating-a-sprite" >}})@@.
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: :title Solution - Calling class Apple
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  apple = Apple()
+#+END_SRC
+
+Note that you don't have to make a variable to keep track of the object the class =Apple= creates.
+
+Here's an alternative solution that doesn't create a variable.
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  Apple()
+#+END_SRC
+#+end_details
+
+Next, we're going to code the class =Apple=. Right now, we're only telling the class =Apple= to run the code inside =Apple Start= and =Apple Loop=, which there's nothing in there.
+
+Here are a few review questions to get you started.
+
+1. What's the difference between the code that you put inside =Start= versus the code you put inside =Loop=?
+
+   #+attr_shortcode: :title Solution - Start vs. Loop
+   #+begin_details
+   The code you put inside =Loop= will run multiple times. Specifically, pixelPad will try to run it 60 times a second. This means you can redraw things on the screen 60 times a second. The code you put inside =Start= will only run one time.
+   #+end_details
+2. Inside =Apple Start= and =Apple Loop=, what is the variable that keeps track of the object the class =Apple= is creating?
+
+   #+attr_shortcode: :title Solution - Variable Refering to Object Created By the Class Apple
+   #+begin_details
+   This variable is called =self=.
+   #+end_details
+3. What are some variables that are inside an object created by a pixelPAD class and how do you access and change them?
+
+   #+attr_shortcode: :title Solution - Variables inside pixelpad objects
+   #+begin_details
+   These variables, or more specifically built-in object variables can be found at the bottom of the pixelPad documentation page on objects.
+
+   https://pixelpad.io/docs/?c=objects
+
+   Some of them are: x, y, z, sprite, scaleX, scaleY, skewX...
+
+   Let us say we want to change the variable sprite, we have to first access the object being created by the class through the variable =self=.
+
+   #+attr_html: :filename Apple Start
+   #+BEGIN_SRC python
+     self.sprite = ...
+   #+END_SRC
+   The =...= means you still have to write something there for the code to work but this solution is not including it. What you have to write here you'll be tasked of in the next question.
+   #+end_details
+4. What is a =value=? What keeps track of a =value= in Python? What =value= do you assign to the object variable =sprite=? What =function= creates that value?
+
+   #+attr_shortcode: :title Solution - Working with variable sprite
+   #+begin_details
+   Here, we're assigning a =sprite object= to the variable =sprite= of the object the class =Apple= is creating. The =sprite object= is created with the function =sprite=. The function =sprite= needs at minimum a =string value= which is the name of the =sprite= for it to create and return a =sprite object=.
+   
+   #+attr_html: :filename Apple Start
+   #+BEGIN_SRC python
+     self.sprite = sprite("Image.png")
+   #+END_SRC
+   #+end_details
+
+With this, you should be able to put an apple on the screen.
+
+#+attr_shortcode: :title Full Solution
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  Apple()
+#+END_SRC
+
+#+attr_html: :filename Apple Start
+#+BEGIN_SRC python
+  self.sprite = sprite("Apple.png")
+#+END_SRC
+#+end_details
+
+Here's an additional challenge:
+
+How would you assign the =sprite object= to the variable =sprite= of the object created by the class =Apple= without writing any code in =Apple Start= or =Apple Loop=?
+
+#+attr_shortcode: :title Solution - Without Apple Start and Apple Loop
+#+begin_details
+You can set the variable =sprite= anywhere if you have access to the =variable= that keeps track of the =object= created by the class =Apple=.
+
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  apple = Apple()
+  apple.sprite = sprite("Apple.png")
+#+END_SRC
+#+end_details
+*** Positioning Fruits (Easy)
+We're continuing from the [[id:07c078c3-abd2-4dcc-9e33-a25ab1db6eef][previous exercise]] where we created our apple. Make sure you understand the extra challenge problem (the last question).
+
+Go and add in two more fruits: a banana and orange. Name the sprites =Orange.png= and =Banana.png=. Then together with the apple, make them appear in the middle of the screen. Go check out the [[id:07c078c3-abd2-4dcc-9e33-a25ab1db6eef][previous exercise]] if you haven't already.
+
+Put the code that assign the =sprite object= to the variable =sprite= inside =Apple Start=, =Orange Start=, and =Banana Start= and not inside =Game Start= (like that of the code of the extra challenge problem of the previous exercise).
+
+#+attr_shortcode: :title Solution - Orange Start
+#+begin_details
+#+attr_html: :filename Orange Start
+#+BEGIN_SRC python
+  self.sprite = sprite("Orange.png") 
+#+END_SRC
+#+end_details
+
+#+attr_shortcode: :title Solution - Banana Start
+#+begin_details
+#+attr_html: :filename Banana Start
+#+BEGIN_SRC python
+  self.sprite = sprite("Banana.png") 
+#+END_SRC
+#+end_details
+
+Make sure use all three classes to create three different objects. Make it so that only the banana appears on the center of the screen even though the orange and apple is also on there.
+
+#+attr_shortcode: :title Solution - Game Start
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  Apple()
+  Orange()
+  Banana()
+#+END_SRC
+
+This also works, as long as the =banana object= is created last.
+
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  Orange()
+  Apple()
+  Banana()
+#+END_SRC
+#+end_details
+
+Now, only inside =Game Start=, position the apple, orange, and banana so they do not position on top of each other. You'll have to create three variables and use the object variables =x= and =y=.
+
+#+attr_shortcode: :title Solution - Positioning Apple
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  apple = Apple()
+  Orange()
+  Banana()
+
+  # can be different numbers for x and y
+  apple.x = 100
+  apple.y = 200
+#+END_SRC
+#+end_details
+
+#+attr_shortcode: :title Full Solution - Game Start
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  apple = Apple()
+  orange = Orange()
+  banana = Banana()
+
+  # can be different numbers for x and y
+  apple.x = 100
+  apple.y = 200
+
+  banana.x = -100
+  banana.y = -200
+
+  # The following 2 lines are unnecessary
+  orange.x = 0
+  orange.y = 0
+#+END_SRC
+#+end_details
+
+Additionally, here's a version of =Game Start= that's going to randomly position these fruits. You can just view it and study as new materials.
+
+#+attr_shortcode: :title Randomizing Fruit Positions
+#+begin_details
+#+attr_html: :filename Game Start
+#+BEGIN_SRC python
+  # Importing code from a built-in Python file called random
+  # to use the function randint by writing random.randint(min, max)
+  import random
+
+  apple = Apple()
+  orange = Orange()
+  banana = Banana()
+
+  # Positioning fruits randomly
+  # x: -400 to 400
+  # y: -500 to 500
+  apple.x = random.randint(-400, 400)
+  apple.y = random.randint(-250, 250)
+
+  orange.x = random.randint(-400, 400)
+  orange.y = random.randint(-250, 250)
+
+  banana.x = random.randint(-400, 400)
+  banana.y = random.randint(-250, 250)
+#+END_SRC
+#+end_details
