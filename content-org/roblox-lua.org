@@ -761,3 +761,278 @@ For the available shop items, you should put them into a module script serving a
 For the player's inventory, you should store them as a table of strings that's sorted lexicographically (alphabetical order) and implement a binary search algorithm so that confirming whether a player owns the unit takes =O(Log N)= instead of =O(N)= algorithmic complexity.
 
 As for the player's currently equipped units, because they are fixed to a small number, we're not going to deal with binary searches. Additionally, because the player has the liberty to have gaps in their hot bar, removing items from the table must accommodate gaps. Therefore you should use a table map (also called dictionary).
+* Rock Paper Scissors (WIP)
+:PROPERTIES:
+:EXPORT_FILE_NAME: rock-paper-scissors
+:END:
+** Rock Paper Scissors
+You're creating a multi-player rock-paper scissors game. Assume that in this game there are only two players. You're making a turn-based game.
+
+Here's some code to begin. By the way, do we use server or local script?
+
+#+attr_html: :filename ServerScriptService/Game
+#+BEGIN_SRC lua
+  Players = game:GetService("Players")
+  players = Players:GetPlayers()
+
+  -- Wait until there are two players
+  while #players < 2 do
+     task.wait(1)
+  end
+
+  --[[
+     TODO: variables player1, player2. Use the variable players
+     player1 = ...
+     player2 = ...
+  ]]
+
+  ReplicatedStorage = game:GetService("ReplicatedStorage")
+  -- Creating a remote event directly
+  submitRF = Instance.new("RemoteFunction")
+  submitRE.Name = "SubmitRPS"
+  submitRE.Parent = ReplicatedStorage
+
+  player1Score = 0
+  player2Score = 0
+
+  VALID_CHOICES = {
+     "rock",
+     "paper",
+     "scissors"
+  }
+
+  --[[
+     Returns true if given argument is a valid choice of rock/paper/scissors
+
+     choice: the possible valid choice as a string
+
+     Returns true if is valid choice and false otherwise
+  ]]
+  function isValidChoice(choice: string): bool
+     for _, reference in VALID_CHOICES do
+        if reference == choice then
+  	 return true
+        end
+     end
+     return false
+  end
+
+  --[[
+     This function returns the winner out of the two choices
+
+     player1Choice/player2Choice: either "rock", "paper", or "scissors"
+
+     Returns player who won or nil of they have the same choice
+  ]]
+  function getWinner(player1Choice: string, player2Choice: string): Player?
+     assert(isValidChoice(player1Choice), `Choice of {player1.Name} (player2) is invalid.`)
+     assert(isValidChoice(player2Choice), `Choice of {player2.Name} (player1) is invalid.`)
+
+     -- TODO: Form if-statements and return the player that won
+     -- Replace return nil with your custom logic if needed
+     return nil
+  end
+
+  -- The game keeps going until one player leaves
+  while player1 and player2 do
+     local player1Choice: string = submitRF:InvokeClient()
+     local player2Choice: string = submitRF:InvokeClient()
+
+     -- TODO: Form an if-statement to increase player1Score or player2Score
+     -- Use the getWinner function that you made
+
+     print(player1.Name .. "'s score:", player1Score)
+     print(player2.Name .. "'s score:", player2Score)
+     task.wait(5)
+  end
+#+END_SRC
+
+#+attr_html: :filename StarterPlayer/StarterPlayerScripts/UI
+#+BEGIN_SRC lua
+  ReplicatedStorage = game:GetService("ReplicatedStorage")
+  submitRF = ReplicatedStorage:WaitForChild("SubmitRPS")
+
+  Random = Random.new()
+
+  VALID_CHOICES = {
+     "rock",
+     "paper",
+     "scissors"
+  }
+
+  submitRF.OnClientInvoke = function(player: Player)
+     local randomIndex = Random:NextInteger(1, 3)
+     -- TODO: variable randomChoice use randomIndex
+     -- Get value from VALID_CHOICES
+     local randomChoice = ...
+     return randomChoice
+  end
+#+END_SRC
+* Practice
+:PROPERTIES:
+:EXPORT_FILE_NAME: extra-practice
+:END:
+** Additional Practice
+This page includes small exercises of many concepts that's detached from any specific long-term project.
+** Selection Sort
+*** Sorting Numbers (Selection Sort)
+Make a function that sorts an array of integers using two for-loops. There are three kinds of loops you could use (bubble sort, insertion sort, selection sort). For now, just do selection sort.
+
+For selection sort you're sorting from the left to the right side of the list. The outer loop is the loop that will put a number in the right position at a certain index while the inner for-loop gets the smallest number out of the numbers that's left.
+
+Sort the list in-place (don't make a copy that's sorted):
+
+#+BEGIN_SRC lua
+  numbers = {1, 5, 6, 2, 1, 4}
+
+  -- TODO: 
+
+  -- The code below checks if the loop was done properly.
+  expectedNumbers = {1, 1, 2, 4, 5, 6}
+
+  for i = 1, #expectedNumbers do
+     assert(numbers[i] == expectedNumbers[i], "Not sorted properly")
+  end
+#+END_SRC
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: :title Hint (If You've Spent 20 Minutes Already
+#+begin_details
+#+attr_html: :filename ServerScriptService/SelectionSort
+#+BEGIN_SRC lua
+  for i = 1, #numbers do
+     local smallest = numbers[i]
+     for j = i, #numbers do
+        -- TODO: Make the inner for loop assign the actuall smallest number
+        -- to the variable smallest when the outer for loop finishes
+     end
+
+     if smallest ~= numbers[i] then
+        -- TODO: Swap numbers[i] with smallest
+     end
+  end
+#+END_SRC
+#+end_details
+
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: :title Full Solution (Look at when you run out of time)
+#+begin_details
+#+attr_html: :filename ServerScriptService/SelectionSort
+#+BEGIN_SRC lua
+  for i = 1, #numbers do
+     local smallest = numbers[i]
+     local smallestIndex = i
+     for j = i, #numbers do
+        -- DONE: Make the inner for loop assign the actuall smallest number
+        -- to the variable smallest when the inner for loop finishes
+        if numbers[i] < smallest then
+  	 smallest = numbers[i]
+  	 smallestIndex = i
+        end
+     end
+
+     if smallest ~= numbers[i] then
+        -- DONE: Swap numbers[i] with smallest
+        local originalValue = numbers[i]
+        numbers[i] = smallest
+        numbers[smallestIndex] = originalValue
+     end
+  end
+#+END_SRC
+#+end_details
+*** Sorting Player Names (Selection Sort)
+You can compare strings. Whether the first string is "larger" than the second string depends if a character in the first string at the same index is after the character in the alphabet in the second string at the same index.
+
+#+attr_html: ServerScriptService/SortingPlayerNames
+#+BEGIN_SRC lua
+  RunService = game:GetService("RunService")
+  Players = game:GetService("Players")
+
+  --[[
+     Get actual player names if the code is running in an actual game
+     Or, provide some fake player names if we're testing in Roblox
+     Studio
+
+     Returns a table list of strings which are the player names
+  ]]
+  function getPlayerNames(): {string}
+     if RunService:IsStudio() then
+        return {
+  	 "david.baszucki",
+  	 "Roblox",
+  	 "Builderman",
+  	 "Shedletsky"
+
+        }
+     end
+
+     local playerNames = {}
+     for _, player in Players:GetPlayers() do
+        table.insert(playerNames, player.Name)
+     end
+     return playerNames
+  end
+
+  -- TODO: Put your code in a function called selectionSort
+  --[[
+     Perform a selection sort on any table list of things that are
+     comparable.
+
+     list: table of things that are comparable
+
+     Returns the provided list but sorted
+  ]]
+  function selectionSort(list: {any}): {any}
+     -- TODO: selection sort
+     -- Use selection sort of the previous exercise but just return it sorted
+
+     return list
+  end
+
+  -- The code here will check if it's correct
+  sorted = selectionSort(getPlayerNames())
+  expected = {
+     "Builderman",
+     "Roblox",
+     "Shedletsky",
+     "david.baszucki"
+  }
+
+  for i = 1, #expected do
+     assert(expected[i] == sorted[i], "Not sorted properly")
+  end
+#+END_SRC
+
+#+attr_shortcode: :title Full Solution
+#+begin_details
+#+attr_html: :filename ServerScriptService/SortingPlayerNames
+#+BEGIN_SRC lua
+  function selectionSort(list: {any}): {any}
+     -- DONE: selection sort
+     -- Use selection sort of the previous exercise but just return it sorted
+
+     for i = 1, #list do
+        local smallest = list[i]
+        local smallestIndex = i
+        for j = i, #list do
+  	 -- DONE: Make the inner for loop assign the actuall smallest number
+  	 -- to the variable smallest when the inner for loop finishes
+  	 if list[i] < smallest then
+  	    smallest = list[i]
+  	    smallestIndex = i
+  	 end
+        end
+
+        if smallest ~= list[i] then
+  	 -- DONE: Swap list[i] with smallest
+  	 local originalValue = list[i]
+  	 list[i] = smallest
+  	 list[smallestIndex] = originalValue
+        end
+     end     
+
+     return list
+  end
+#+END_SRC
+#+end_details
