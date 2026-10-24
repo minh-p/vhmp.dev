@@ -19,7 +19,7 @@ For selection sort you're sorting from the left to the right side of the list. T
 
 Sort the list in-place (don't make a copy that's sorted):
 
-```lua
+```lua { filename="ServerScriptService/SelectionSortNumbers" }
 numbers = {1, 5, 6, 2, 1, 4}
 
 -- TODO:

@@ -789,8 +789,8 @@ Here's some code to begin. By the way, do we use server or local script?
   ReplicatedStorage = game:GetService("ReplicatedStorage")
   -- Creating a remote event directly
   submitRF = Instance.new("RemoteFunction")
-  submitRE.Name = "SubmitRPS"
-  submitRE.Parent = ReplicatedStorage
+  submitRF.Name = "SubmitRPS"
+  submitRF.Parent = ReplicatedStorage
 
   player1Score = 0
   player2Score = 0
@@ -808,7 +808,7 @@ Here's some code to begin. By the way, do we use server or local script?
 
      Returns true if is valid choice and false otherwise
   ]]
-  function isValidChoice(choice: string): bool
+  function isValidChoice(choice: string): boolean
      for _, reference in VALID_CHOICES do
         if reference == choice then
   	 return true
@@ -882,6 +882,7 @@ For selection sort you're sorting from the left to the right side of the list. T
 
 Sort the list in-place (don't make a copy that's sorted):
 
+#+attr_html: :filename ServerScriptService/SelectionSortNumbers
 #+BEGIN_SRC lua
   numbers = {1, 5, 6, 2, 1, 4}
 

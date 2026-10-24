@@ -27,8 +27,8 @@ end
 ReplicatedStorage = game:GetService("ReplicatedStorage")
 -- Creating a remote event directly
 submitRF = Instance.new("RemoteFunction")
-submitRE.Name = "SubmitRPS"
-submitRE.Parent = ReplicatedStorage
+submitRF.Name = "SubmitRPS"
+submitRF.Parent = ReplicatedStorage
 
 player1Score = 0
 player2Score = 0
@@ -46,7 +46,7 @@ VALID_CHOICES = {
 
    Returns true if is valid choice and false otherwise
 ]]
-function isValidChoice(choice: string): bool
+function isValidChoice(choice: string): boolean
    for _, reference in VALID_CHOICES do
       if reference == choice then
          return true
