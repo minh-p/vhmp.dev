@@ -8,6 +8,195 @@ draft = false
 This page includes small exercises of many concepts that's detached from any specific long-term project.
 
 
+## For-Loops {#for-loops}
+
+There are two types of for-loops in Roblox: the numeric and general for loop. The `numeric for-loop` allows the programmer to get the indices of the table array and additionally specify what indices he uses. The `generic for-loop` on the other hand gives two variables: one keeps track of the indices, and the other one the values. However, the generic for loop will run for all the values inside the table array. Some of the exercises below will include solutions for both kinds of for-loops.
+
+
+### Printing Even Numbers {#printing-even-numbers}
+
+Make a function called `printEvens` which takes in a list of arbitrary values (the values can be of any type). Then, print the even numbers into the output.
+
+{{% details title="Hint 1 - Function signature" %}}
+The function `printEvens` should only accept a single value which is list of anything. The function signature should be the following:
+
+```lua { filename="ServerScriptService/Script" }
+function printEvens(list: {any}): nil
+end
+```
+{{% /details %}}
+
+{{% details title="Hint 2 - Functions and Operators Needed" %}}
+The function `typeof` allows you to get the type of the value.
+
+```lua { filename="Example - typeof" }
+print(typeof(10)) --> Prints "number"
+print(typeof("Hello")) --> Prints "string"
+print(typeof(workspace.Part)) --> Prints "Instance"
+```
+
+The modulo operator `%` allows you to get the remainder of the right value dividing the left value.
+
+```lua { filename="Example - evenness condition" }
+x = 10
+if x % 2 == 0 then
+   print(tostring(x) .. " is of course even")
+end
+```
+{{% /details %}}
+
+Part of this exercise is a challenge for you research the tools you need to use. Find the Roblox tutorial/documentation pages on the for-loops.
+
+{{% details title="Hint 3 - Important Document Pages on For-Loops" %}}
+-   The numeric for-loop: <https://create.roblox.com/docs/en-us/tutorials/fundamentals/coding-4/intro-to-for-loops>
+-   The generic for-loop (ipairs, array): <https://create.roblox.com/docs/en-us/tutorials/fundamentals/coding-5/pairs-and-ipairs#arrays-and-ipairs>
+{{% /details %}}
+
+{{% details title="Numeric For-Loop Solutions" %}}
+```lua { filename="Solution" }
+function printEvens(list: {any}): nil
+   for i = 1, #list do
+      local value = list[i]
+      if typeof(value) == "number" then
+         if value % 2 == 0 then
+            print(value)
+         end
+      end
+   end
+end
+
+printEvens({1, 2, 3, false, "hello", workspace})
+```
+
+```lua { filename="Alternative Solution with the conjunction logical operator =and=." }
+function printEvens(list: {any}): nil
+   for i = 1, #list do
+      local value = list[i]
+      if typeof(value) == "number" and value % 2 == 0 then
+         print(value)
+      end
+   end
+end
+
+printEvens({1, 2, 3, false, "hello", workspace})
+```
+{{% /details %}}
+
+{{% details title="Generic For-Loop Solutions" %}}
+```lua { filename="Solution" }
+function printEvens(list: {any}): nil
+   for _, value in list do
+      if typeof(value) == "number" then
+         if value % 2 == 0 then
+            print(value)
+         end
+      end
+   end
+end
+
+printEvens({1, 2, 3, false, "hello", workspace})
+```
+
+```lua { filename="Alternative Solution with the conjunction logical operator =and=." }
+function printEvens(list: {any}): nil
+   for _, value in list do
+      if typeof(value) == "number" and value % 2 == 0 then
+         print(value)
+      end
+   end
+end
+
+printEvens({1, 2, 3, false, "hello", workspace})
+```
+{{% /details %}}
+
+
+### Concatenating Strings From List {#concatenating-strings-from-list}
+
+Make a `function` called `bulkConcat` that takes in a list of strings. This function should return one single string which `concatenates` all of the strings inside the list.
+
+The function also takes in a `second value`, which is a string that's going to separate different strings `concatenated` together.
+
+Put the following line of code **after** your solution. The game yielding no errors would prove that your function works.
+
+```lua
+assert(bulkConcat({"hello", "hey", "what"}, " ") == "hello hey what")
+```
+
+{{% details title="Helpful Examples" %}}
+Example: concatenating a string
+
+```lua
+string1 = "Hello"
+string2 = " World"
+print(string1 .. string2) --> Prints "Hello World"
+```
+
+Example: concatenating a string2
+
+```lua
+string1 = "Hello"
+string1 = string1 .. "Hello2"
+string1 = string1 .. "Hello3"
+print(string1) --> Print "HelloHello2Hello3"
+```
+
+Related Example: Sum of numbers inside a list
+
+```lua
+local totalNumber = 0
+local numbers = {1, 2, 3}
+for index, number in numbers do
+   totalNumber = totalNumber + number
+end
+```
+{{% /details %}}
+
+{{% details title="Hint - Function Signature" %}}
+Your function signature should look like this with type hinting:
+
+```lua { filename="ServerScriptService/Script" }
+function bulkConcat(strings: {string}, separator: string)
+end
+```
+{{% /details %}}
+
+{{% details title="Solution - Numeric For-Loop" %}}
+```lua
+function bulkConcat(strings: {string}, separator: string)
+   result = ""
+   for i = 1, #strings do
+      local value = strings[i]
+      result = result .. value
+      if i < #strings then
+         result = result .. separator
+      end
+   end
+   return result
+end
+
+assert(bulkConcat({"hello", "hey", "what"}, " ") == "hello hey what")
+```
+{{% /details %}}
+
+{{% details title="Solution - Generic For-Loop" %}}
+```lua
+function bulkConcat(strings: {string}, separator: string)
+   result = ""
+   for index, value in strings do
+      result = result .. value
+      if index < #strings then
+         result = result .. separator
+      end
+   end
+   return result
+end
+
+assert(bulkConcat({"hello", "hey", "what"}, " ") == "hello hey what")
+```
+{{% /details %}}
+
+
 ## Selection Sort {#selection-sort}
 
 
