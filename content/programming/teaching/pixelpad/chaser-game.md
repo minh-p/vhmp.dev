@@ -243,3 +243,163 @@ When you press play, you'll still see `Empty Image`. So, we'll still need to set
 set_animation(self, self.idle_animation)
 ```
 {{% /details %}}
+
+
+## The Chaser {#the-chaser}
+
+Now, we work on the chaser. As the more difficult portion of this project, make sure you understand what you have done for the Player object.
+
+
+### Creating and Testing Animations {#creating-and-testing-animations}
+
+You can get two sprites for the Chaser for both its idle and running state. Just like the player, let us create two potential states the monster could be.
+
+{{< figure src="/ox-hugo/sprites-procured2.png" >}}
+
+> [!TIP]
+> **Vocabulary - State**
+>
+> State is a word that means a lot of things. In this context it means what something is doing or even what value is stored of something.
+>
+> A chaser's possible states are running and idling.
+
+Go ahead and create these two animations. Remember to setup the sprite sheet correctly with the correct number of rows and columns. As well when you create each animation give them a fitting frames per second and the correct as starting and ending frame.
+
+> [!NOTE]
+> **Reminder On Animations**
+>
+> There are three functions that you must use.
+>
+> -   animation(sprite: sprite, fps: int, start: int, end: int) -&gt; animation
+>
+>     The function `animation` returns an `animation object`. It needs the arguments (values required by the function to do its job) which include a sprite object of type `sprite`, the number of frames per second the animation should play of type `int`, and the ending frame of type `int`.
+> -   sprite(name: str[, rows: int, cols: int]) -&gt; sprite
+>
+>     Previously we only needed to give the first argument which is the name of the image file. Now, the second and third arguments are no longer optional as we need to provide them in order for animations to work.
+> -   set_animation(obj: gameobject, anim: animation) -&gt; None
+>
+>     This function does not return anything but sets the animation of a pixelPAD game object. Think what variable is keeping track of that object you're trying to set the animation of.
+>
+> Check out the official documentation on animations for further examples: <https://pixelpad.io/docs/?c=animation>.
+
+{{% details title="Solution - Creating Chaser Animations" %}}
+```python { filename="Chaser Start" }
+# My chaser idle sprite has 1 row and 8 columns.
+# Yours might be different
+idle_sprite = sprite("Chaser_Idle.png", 1, 8)
+
+# My chaser run sprite has 1 row and 12 columns.
+# Yours might be different
+run_sprite = sprite("Chaser_Run.png", 1, 12)
+
+self.idle_animation = animation(idle_sprite, 8, 0, 7)
+self.run_animation = animation(run_sprite, 12, 0, 11)
+
+# Starting with idle animation
+set_animation(self, self.idle_animation)
+```
+{{% /details %}}
+
+
+### Chasing Mechanic {#chasing-mechanic}
+
+As a programmer if you want to the chaser to the chase the player, you need to setup some rules on how **exactly** you want this to happen.
+
+Here are some rules:
+
+1.  Chaser should only chase if the player is in a certain range.
+2.  For now chaser is going to keep chasing the player for 5 seconds until it stops
+3.  When the chaser chases, it should make a direct walk to the player even if there's an obstacle between the player to make the game more simple.
+
+We're going to tackle the simplest of these points first which is going to be point 1 and point 2.
+
+
+### Range Detection {#range-detection}
+
+In order to check for distance on a 2d-plane we're going to use the Pythagorean Theorem. We can get the shortest distance from the chaser to the player if we know their differences in x and y.
+
+```katex
+\begin{align*}
+\Delta{}x &\coloneqq x_p - x_c && \quad \text{Difference in X Defined}\\
+\Delta{}y &\coloneqq y_p - y_c && \quad \text{Difference in Y Defined}\\
+a^2 + b^2 &= c^2 && \quad \text{Theorem To Apply}\\
+d &\coloneqq \sqrt{\Delta{}x^2 + \Delta{}y^2} && \quad \text{Shortest Distance Defined}
+\end{align*}
+```
+
+You can learn more about this [on Math LibreTexts](https://math.libretexts.org/Courses/Fullerton_College/Math_100%3A_Liberal_Arts_Math_(Claassen_and_Ikeda)/02%3A_Geometry/2.04%3A_The_Pythagorean_Theorem).
+
+> [!NOTE]
+> **The Math Written**
+>
+> Notice that math is also a language of itself. You can see two operators `=` and `:=` which are the equality operator and the definition operator. The equality operator simply states that the things on the left and the things on the right are equal to each other. The definition operator defines variables. In short however, the way math is written is not as strict as that of a program but logical reasoning must follows.
+
+
+#### shortest_distance {#shortest-distance}
+
+We're going to make a function called `shortest_distance` that implements this algorithm in code. Specifically, this function should calculate and return the shortest distance. This function simply needs the coordinates of the player and chaser.
+
+> [!TIP]
+> **Attempt This**
+>
+> You need to use the built-in Python `math` module. Specifically, the `sqrt` function inside `math`.
+>
+> It's always good to attempt things outside of your comfort zone. We're heading to the territory of math however so do not feel discouraged if you couldn't manage to do this within reasonable time.
+
+Here's a simple test to see if your function work:
+
+```python { filename="Game Start" }
+# assert is not a function or an operator
+# People call it a keyword
+# Just think of it as a tool that exists in Python
+# Like if or return
+assert shortest_distance(0, 0, 3, 4) == 5, "Test Failed"
+```
+
+As well, here's how you can get and use the `sqrt` function.
+
+```python { filename="Game Start" }
+import math
+print(math.sqrt(4)) # Should print 2
+```
+
+{{% details title="Hint - Function signature" %}}
+Here's your function signature without type hinting.
+
+```python { filename="shortest_distance.py" }
+def shortest_distance(x1: int, y1: int, x2: int, y2: int) -> float:
+    # ...
+```
+{{% /details %}}
+
+{{% details title="Solution - Function shortest_distance" %}}
+First click on the plus sign to create a function in pixelPAD and name it shortest_distance.
+
+{{< figure src="/ox-hugo/shortest_distance_creation.png" >}}
+
+In there:
+
+```python { filename="shortest_distance.py" }
+import math
+
+def shortest_distance(x1: int, y1: int, x2: int, y2: int) -> float:
+    dX = x2 - x1
+    dY = y2 - y1
+    return math.sqrt(dX * dX + dY * dY)
+```
+{{% /details %}}
+
+
+#### Using shortest_distance {#using-shortest-distance}
+
+For now, just form a condition for an if-statement using this function that we just created. You can go and choose a suitable range in pixels.
+
+{{% details title="Solution - If-statement condition" %}}
+```python { filename="Chaser Loop" }
+playerX = game.player.x
+playerY = game.player.y
+
+if shortest_distance(self.x, self.y, playerX, playerY) < 200:
+    print("Start Chasing")
+```
+{{% /details %}}
