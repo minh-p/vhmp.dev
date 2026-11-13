@@ -1,0 +1,34 @@
+#+hugo_base_dir: ../
+#+hugo_section: programming/teaching/scratch
+* Scratch
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:ID:       d08c9c2b-9a3a-41d5-be6b-d3c285f6b18c
+:END:
+** Scratch Index Page
+Lesson materials on scratch
+* Stacking Game (WIP)
+:PROPERTIES:
+:EXPORT_FILE_NAME: stacking-quiz
+:END:
+** Stacking Game
+This is a simple project that's made in scratch where the user needs to stack up rectangular blocks up in the sky. This project requires code to be put into one sprite and programming structures such as:
+
+1. variables - setting and changing
+2. forever loop
+3. repeat and repeat until
+4. if-statements and boolean expressions as condition
+
+#+hugo_paired_shortcodes: %details
+#+attr_shortcode: :title Stacking Project Full Solution (Teacher Only While In Session)
+#+begin_details
+[[file:images/scratch/stacking-project.png]]
+#+end_details
+** Debrief
+Quiz is another word for debrief. This quiz tests your understanding of the programming structures used in this project.
+*** 1. What Block You Use to Assign a Value to a Variable
+*** 2. What Type of Block is "When Green Flag Clicked"?
+#+BEGIN_SRC scratch
+  when green flag clicked
+  ...
+#+END_SRC
