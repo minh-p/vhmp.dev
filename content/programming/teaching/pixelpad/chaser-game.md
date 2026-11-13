@@ -245,6 +245,740 @@ set_animation(self, self.idle_animation)
 {{% /details %}}
 
 
+## Lesson Logistic For Chaser {#lesson-logistic-for-chaser}
+
+Making the chaser is the most complex part of this project. At this point, you'll have two lessons left.
+
+
+### Session 1 Logistics {#session-1-logistics}
+
+| Activity                                     | Duration | Purpose                         |
+|----------------------------------------------|----------|---------------------------------|
+| Coordinates and Pythagorean theorem          | 15 min   | Understand distance in 2D       |
+| Calculate distance in Python                 | 15 min   | Apply the Pythagorean theorem   |
+| Implement detection range in the actual game | 20 min   | Apply distance-based conditions |
+| Quiz questions 1–5 and review                | 10 min   | Assess understanding            |
+| Total                                        | 60 min   |                                 |
+
+
+### Session 2 Logistics {#session-2-logistics}
+
+| Activity                                  | Duration | Purpose                         |
+|-------------------------------------------|----------|---------------------------------|
+| Explain linear interpolation              | 15 min   | Understand movement mathematics |
+| Implement interpolation in Python         | 15 min   | Translate formula into code     |
+| Integrate movement into chaser game logic | 20 min   | Apply interpolation in a game   |
+| Quiz questions 6–10 and review            | 10 min   | Assess understanding            |
+| Total                                     | 60 min   |                                 |
+
+
+## Math For Chaser {#math-for-chaser}
+
+Creating the chaser requires understanding two mathematical concepts:
+
+1.  Pythagorean Theorem — determining the distance between the player and the chaser.
+2.  One-Axis Linear Interpolation — moving the chaser smoothly toward the player.
+
+The goal is to create an enemy that follows the player only when the player is close enough.
+
+
+### Understanding Coordinates {#understanding-coordinates}
+
+Before working with the math, we need to understand how positions are represented in a 2D game.
+
+Every object has two coordinates:
+
+-   `x` represents its horizontal position (left and right).
+-   `y` represents its vertical position (up and down).
+
+For example, a player at `(8, 6)` has:
+
+-   `x = 8`
+-   `y = 6`
+
+A chaser at `(2, 2)` has:
+
+-   `x = 2`
+-   `y = 2`
+
+We can find how far apart they are horizontally and vertically by subtracting their coordinates.
+
+```python
+player_x = 8
+player_y = 6
+
+chaser_x = 2
+chaser_y = 2
+
+dx = player_x - chaser_x  # 6
+dy = player_y - chaser_y  # 4
+```
+
+The values `dx` and `dy` describe the horizontal and vertical differences between the two objects.
+
+But how do we find the actual straight-line distance between them?
+
+
+### Pythagorean Theorem {#pythagorean-theorem}
+
+The Pythagorean theorem is a mathematical formula used to find the length of the longest side of a right triangle.
+
+A right triangle contains one 90-degree angle.
+
+The formula is:
+
+```katex
+a^2+b^2=c^2
+```
+
+Where:
+
+-   `a` is the length of one shorter side.
+-   `b` is the length of the other shorter side.
+-   `c` is the length of the longest side, called the hypotenuse.
+
+For example, suppose the shorter sides have lengths 3 and 4.
+
+```katex
+3^2+4^2=c^2
+```
+
+```katex
+9+16=c^2
+```
+
+```katex
+25=c^2
+```
+
+```katex
+c=\sqrt{25}=5
+```
+
+The longest side has a length of 5.
+
+
+#### How Does This Apply to Our Game? {#how-does-this-apply-to-our-game}
+
+Imagine the player is at `(8, 6)` and the chaser is at `(2, 2)`.
+
+Their horizontal distance is:
+
+```katex
+dx=8-2=6
+```
+
+Their vertical distance is:
+
+```katex
+dy=6-2=4
+```
+
+These differences form the two shorter sides of a right triangle.
+
+The straight-line distance between the two objects is the hypotenuse.
+
+```katex
+d=\sqrt{dx^2+dy^2}
+```
+
+Substituting our values:
+
+```katex
+d=\sqrt{6^2+4^2}
+```
+
+```katex
+d=\sqrt{52}\approx7.21
+```
+
+The player is approximately 7.21 units away from the chaser.
+
+
+#### Python Implementation {#python-implementation}
+
+Python provides a function called `math.sqrt()` for calculating square roots.
+
+```python
+import math
+
+player_x = 8
+player_y = 6
+
+chaser_x = 2
+chaser_y = 2
+
+dx = player_x - chaser_x
+dy = player_y - chaser_y
+
+distance = math.sqrt(dx ** 2 + dy ** 2)
+
+print(distance)
+```
+
+Output:
+
+```text
+7.211102550927978
+```
+
+Notice that:
+
+-   `**` means exponentiation, so `3 ** 2` means 3 squared.
+-   `math.sqrt(x)` calculates the square root of `x`.
+-   `distance` stores the calculated straight-line distance.
+
+
+#### Detecting Whether the Player Is in Range {#detecting-whether-the-player-is-in-range}
+
+Suppose the chaser should only chase the player when their distance is less than or equal to 100 units.
+
+We can use an `if` statement:
+
+```python
+if distance <= 100:
+    print("Chase the player!")
+else:
+    print("Player is too far away.")
+```
+
+The expression `distance <` 100= is a Boolean expression.
+
+It evaluates to either `True` or `False`.
+
+If the distance is 100 or less, the player is within the chaser's detection range.
+
+Otherwise, the chaser does not chase the player.
+
+
+### One-Axis Linear Interpolation {#one-axis-linear-interpolation}
+
+Now that we know how to detect the player, we need to make the chaser move toward them.
+
+One way to do this is through **linear interpolation**, sometimes shortened to **lerp**.
+
+Linear interpolation allows us to calculate a position somewhere between two positions.
+
+Imagine that:
+
+-   The chaser is at `x = 0`.
+-   The player is at `x = 100`.
+
+We want to calculate a position between them.
+
+The formula is:
+
+```katex
+x=x_0+(x_1-x_0)t
+```
+
+Where:
+
+-   `x_0` is the starting position.
+-   `x_1` is the destination position.
+-   `t` determines how far we move from the start toward the destination.
+
+For ordinary interpolation, `t` is between 0 and 1.
+
+| Value of t | Position |
+|------------|----------|
+| 0          | 0        |
+| 0.25       | 25       |
+| 0.5        | 50       |
+| 0.75       | 75       |
+| 1          | 100      |
+
+Therefore:
+
+-   `t = 0` means we are at the starting position.
+-   `t = 0.5` means we are halfway to the destination.
+-   `t = 1` means we have reached the destination.
+
+
+#### Example Calculation {#example-calculation}
+
+Suppose:
+
+```katex
+x_0=20,\quad x_1=100,\quad t=0.25
+```
+
+Substitute into the formula:
+
+```katex
+x=20+(100-20)(0.25)
+```
+
+```katex
+x=20+80(0.25)
+```
+
+```katex
+x=20+20=40
+```
+
+The interpolated position is 40.
+
+
+#### Python Implementation {#python-implementation}
+
+We can write a function that performs linear interpolation.
+
+```python
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+position = lerp(20, 100, 0.25)
+
+print(position)
+```
+
+Output:
+
+```text
+40.0
+```
+
+Let's examine the parameters:
+
+-   `start` — where the movement begins.
+-   `end` — where the movement ends.
+-   `t` — how much progress to make toward the destination.
+
+
+#### Making the Chaser Move {#making-the-chaser-move}
+
+We can apply the same formula to the chaser's position.
+
+```python
+chaser_x = 0
+player_x = 100
+
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+chaser_x = lerp(chaser_x, player_x, 0.1)
+
+print(chaser_x)
+```
+
+Output:
+
+```text
+10.0
+```
+
+The chaser moved from 0 to 10, which is 10% of the distance toward the player.
+
+What happens if we repeat this calculation?
+
+```python
+chaser_x = 0
+player_x = 100
+
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+for i in range(5):
+    chaser_x = lerp(chaser_x, player_x, 0.1)
+    print(round(chaser_x, 2))
+```
+
+Output:
+
+```text
+10.0
+19.0
+27.1
+34.39
+40.95
+```
+
+Notice that the chaser moves a smaller distance during each step.
+
+This happens because each calculation moves the chaser 10% of the **remaining distance**.
+
+As the chaser gets closer to the player, the remaining distance decreases.
+
+This produces a smooth, slowing movement.
+
+**Important:** This version of interpolation approaches the destination without reaching it exactly in a finite number of steps. The movement speed also depends on how frequently the function is called.
+
+
+#### What About the Y-Axis? {#what-about-the-y-axis}
+
+We can use the same formula independently for the y-coordinate.
+
+```python
+chaser_x = 0
+chaser_y = 0
+
+player_x = 100
+player_y = 50
+
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+chaser_x = lerp(chaser_x, player_x, 0.1)
+chaser_y = lerp(chaser_y, player_y, 0.1)
+
+print(chaser_x, chaser_y)
+```
+
+Output:
+
+```text
+10.0 5.0
+```
+
+By interpolating both coordinates, the chaser moves toward the player in two-dimensional space.
+
+
+### Combining Both Concepts {#combining-both-concepts}
+
+Now we can combine the Pythagorean theorem and linear interpolation.
+
+Our program should:
+
+1.  Calculate the distance between the chaser and the player.
+2.  Check whether the player is within the detection range.
+3.  Move the chaser toward the player if the player is close enough.
+
+<!--listend-->
+
+```python
+import math
+
+player_x = 100
+player_y = 50
+
+chaser_x = 0
+chaser_y = 0
+
+detection_range = 150
+
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+dx = player_x - chaser_x
+dy = player_y - chaser_y
+
+distance = math.sqrt(dx ** 2 + dy ** 2)
+
+if distance <= detection_range:
+    chaser_x = lerp(chaser_x, player_x, 0.1)
+    chaser_y = lerp(chaser_y, player_y, 0.1)
+
+print(chaser_x, chaser_y)
+```
+
+Output:
+
+```text
+10.0 5.0
+```
+
+This program performs one update of the chaser's position.
+
+In an actual game, we would repeat these calculations during the game's update loop so the chaser continuously checks the player's position.
+
+
+### Quiz {#quiz}
+
+This quiz tests your understanding of the Pythagorean theorem, linear interpolation, and how both concepts are used in Python programming.
+
+
+#### How to Take This Quiz {#how-to-take-this-quiz}
+
+1.  First, answer every question without running Python.
+2.  Next, use a blank Python project to test answers you are uncertain about.
+3.  Finally, reveal the answers and explain any mistakes.
+
+
+#### 1. What is the length of the hypotenuse? {#1-dot-what-is-the-length-of-the-hypotenuse}
+
+A right triangle has two shorter sides with lengths 6 and 8.
+
+-   A. 8
+-   B. 10
+-   C. 12
+-   D. 14
+
+{{% details title="Answer (Multiple Choice)" %}}
+B. 10.
+
+Using the Pythagorean theorem:
+
+```katex
+c=\sqrt{6^2+8^2}=\sqrt{100}=10
+```
+{{% /details %}}
+
+
+#### 2. What will this program print? {#2-dot-what-will-this-program-print}
+
+```python
+x1 = 3
+x2 = 11
+
+dx = x2 - x1
+
+print(dx)
+```
+
+-   A. 3
+-   B. 8
+-   C. 11
+-   D. 14
+
+{{% details title="Answer (Multiple Choice)" %}}
+B. 8.
+
+The program subtracts the first x-coordinate from the second:
+
+```katex
+11-3=8
+```
+{{% /details %}}
+
+
+#### 3. What is the distance between these two objects? {#3-dot-what-is-the-distance-between-these-two-objects}
+
+The player is at `(0, 0)` and the chaser is at `(3, 4)`.
+
+-   A. 3 units
+-   B. 4 units
+-   C. 5 units
+-   D. 7 units
+
+{{% details title="Answer (Multiple Choice)" %}}
+C. 5 units.
+
+```katex
+d=\sqrt{3^2+4^2}=\sqrt{25}=5
+```
+
+The objects are 5 units apart.
+{{% /details %}}
+
+
+#### 4. Which Python expressions correctly calculate the distance? {#4-dot-which-python-expressions-correctly-calculate-the-distance}
+
+Assume `dx` and `dy` store the differences between two objects' coordinates.
+
+```python
+import math
+
+dx = 6
+dy = 8
+```
+
+Select all correct answers.
+
+-   A. `math.sqrt(dx ** 2 + dy ** 2)`
+-   B. `math.sqrt(dx + dy)`
+-   C. `(dx ** 2 + dy ** 2) ** 0.5`
+-   D. `dx ** 2 + dy ** 2`
+
+{{% details title="Answer (Select All)" %}}
+A and C.
+
+Both expressions calculate:
+
+```katex
+\sqrt{6^2+8^2}=10
+```
+
+Raising a nonnegative number to the power of 0.5 calculates its square root.
+
+Option D calculates 100, which is the squared distance, not the distance.
+{{% /details %}}
+
+
+#### 5. Will the chaser detect the player? {#5-dot-will-the-chaser-detect-the-player}
+
+```python
+distance = 75
+detection_range = 100
+
+if distance <= detection_range:
+    print("Chasing!")
+else:
+    print("Too far!")
+```
+
+-   A. Prints "Chasing!"
+-   B. Prints "Too far!"
+-   C. Prints both messages
+-   D. Prints nothing
+
+{{% details title="Answer (Multiple Choice)" %}}
+A. Prints "Chasing!"
+
+Since 75 is less than 100, the condition evaluates to `True`.
+
+The first branch executes.
+{{% /details %}}
+
+
+#### 6. What position does linear interpolation calculate? {#6-dot-what-position-does-linear-interpolation-calculate}
+
+Given:
+
+```katex
+x_0=10,\quad x_1=50,\quad t=0.5
+```
+
+Calculate:
+
+```katex
+x=x_0+(x_1-x_0)t
+```
+
+-   A. 20
+-   B. 25
+-   C. 30
+-   D. 40
+
+{{% details title="Answer (Multiple Choice)" %}}
+C. 30.
+
+```katex
+x=10+(50-10)(0.5)
+```
+
+```katex
+x=10+20=30
+```
+
+The result is halfway between 10 and 50.
+{{% /details %}}
+
+
+#### 7. Which statements about linear interpolation are correct? {#7-dot-which-statements-about-linear-interpolation-are-correct}
+
+Assume `t` is between 0 and 1, including both endpoints.
+
+-   A. When `t = 0`, the result is the starting position.
+-   B. When `t = 1`, the result is the ending position.
+-   C. When `t = 0.5`, the result is halfway between the two positions.
+-   D. When `t = 0.25`, the result is always 25.
+
+{{% details title="Answer (Select All)" %}}
+A, B, and C.
+
+The result depends on the starting position, ending position, and `t`.
+
+A value of `t = 0.25` represents 25% of the way from the start to the end, not necessarily position 25.
+{{% /details %}}
+
+
+#### 8. What will this Python program print? {#8-dot-what-will-this-python-program-print}
+
+```python
+def lerp(start, end, t):
+    return start + (end - start) * t
+
+print(lerp(0, 200, 0.25))
+```
+
+-   A. 25.0
+-   B. 50.0
+-   C. 100.0
+-   D. 150.0
+
+{{% details title="Answer (Multiple Choice)" %}}
+B. 50.0.
+
+```katex
+0+(200-0)(0.25)=50
+```
+
+The function returns 25% of the way from 0 to 200.
+{{% /details %}}
+
+
+#### 9. Why does this chaser slow down as it approaches the player? {#9-dot-why-does-this-chaser-slow-down-as-it-approaches-the-player}
+
+```python
+chaser_x = 0
+player_x = 100
+
+for i in range(10):
+    chaser_x = chaser_x + (player_x - chaser_x) * 0.1
+```
+
+-   A. The number 0.1 decreases each time.
+-   B. The remaining distance becomes smaller.
+-   C. The player's position moves backward.
+-   D. The loop automatically reduces the speed.
+
+{{% details title="Answer (Multiple Choice)" %}}
+B. The remaining distance becomes smaller.
+
+Each iteration moves the chaser 10% of the remaining distance.
+
+For example:
+
+-   First step: from 0 to 10, moving 10 units.
+-   Second step: from 10 to 19, moving 9 units.
+-   Third step: from 19 to 27.1, moving 8.1 units.
+
+The movement becomes smaller because the distance to the destination decreases.
+{{% /details %}}
+
+
+#### 10. Which code correctly makes the chaser follow the player only when in range? {#10-dot-which-code-correctly-makes-the-chaser-follow-the-player-only-when-in-range}
+
+Assume:
+
+-   `distance` has already been calculated.
+-   `detection_range` stores the maximum chasing distance.
+-   `lerp(start, end, t)` is already defined.
+-   `chaser_x` and `player_x` store the horizontal positions.
+
+A.
+
+```python
+if distance <= detection_range:
+    chaser_x = lerp(chaser_x, player_x, 0.1)
+```
+
+B.
+
+```python
+if distance > detection_range:
+    chaser_x = lerp(chaser_x, player_x, 0.1)
+```
+
+C.
+
+```python
+if distance <= detection_range:
+    player_x = lerp(player_x, chaser_x, 0.1)
+```
+
+D.
+
+```python
+chaser_x = lerp(chaser_x, player_x, 0.1)
+```
+
+{{% details title="Answer (Multiple Choice)" %}}
+A.
+
+The condition checks whether the player is within the detection range.
+
+If the condition is true, the chaser's x-coordinate moves toward the player's x-coordinate.
+
+-   B makes the chaser move when the player is outside the detection range.
+-   C changes the player's position instead of the chaser's.
+-   D moves the chaser regardless of the player's distance.
+
+This example demonstrates horizontal movement only. A complete 2D chaser would also update its y-coordinate.
+{{% /details %}}
+
+
 ## The Chaser {#the-chaser}
 
 Now, we work on the chaser. As the more difficult portion of this project, make sure you understand what you have done for the Player object.
@@ -403,3 +1137,8 @@ if shortest_distance(self.x, self.y, playerX, playerY) < 200:
     print("Start Chasing")
 ```
 {{% /details %}}
+
+
+### Chaser Movement (WIP) {#chaser-movement--wip}
+
+Come back at a later time because this section is not finished yet.
